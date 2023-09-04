@@ -232,7 +232,6 @@ enable = false
     path = "github.com/google/docsy/dependencies"
     disable = false
 
-
 [[menu.main]]
     name = "Home"
     weight = 1
