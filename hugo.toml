@@ -233,11 +233,21 @@ enable = false
     disable = false
 
 [[menu.main]]
-    name = "Home"
+    name = "Buy"
     weight = 1
-    url = "https://buzzpirat.com/"
+    url = "https://github.com/therealdreg/buzzpirat/"
+
+[[menu.main]]
+    name = "Home"
+    weight = 2
+    url = "/"
+
+[[menu.main]]
+    name = "Community"
+    weight = 6
+    url = "https://github.com/therealdreg/buzzpirat/discussions"
 
 [[menu.main]]
     name = "GitHub"
-    weight = 50
+    weight = 7
     url = "https://github.com/therealdreg/buzzpirat/"
