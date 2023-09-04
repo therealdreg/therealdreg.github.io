@@ -235,7 +235,7 @@ enable = false
 [[menu.main]]
     name = "Buy"
     weight = 1
-    url = "https://github.com/therealdreg/buzzpirat/"
+    url = "https://fr33project.org/buzz.php"
 
 [[menu.main]]
     name = "Home"
