@@ -609,7 +609,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h2 id="buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</h2>
+<h3 id="buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</h3>
 <p>Clears the PWM, disables PWM output. Responds 0x01.</p>
 
 
@@ -620,7 +620,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h2 id="buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h2>
+<h3 id="buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h3>
 <p>Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.</p>
 
 
@@ -640,7 +640,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h2 id="buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</h2>
+<h3 id="buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</h3>
 <p>Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.</p>
 
 
@@ -651,7 +651,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h2 id="buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</h2>
+<h3 id="buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</h3>
 <p>Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.</p>
 
 
