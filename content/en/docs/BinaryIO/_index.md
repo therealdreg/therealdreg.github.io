@@ -494,9 +494,7 @@ Return 0x00 if all PSU voltages are within normal parameters.
 {{< alert title="Note" >}}It is recommended to use this command before executing the command: "Configure peripherals w=1"{{< /alert >}}
 
 
-### Buzz b00010001 (0x11) - Setup pulse-width modulation (requires 5 byte setup)
-
-Allows the use of PWM from any other mode, such as SPI, I2C, etc.
+## Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
 
 Configure and enable pulse-width modulation output in the AUX pin. 
 
@@ -514,13 +512,35 @@ Responds 0x01 after a complete sequence is received.
 
 {{< alert title="Note" >}}Further down on this page, you will find examples of how to generate the 5 byte setup.{{< /alert >}}
 
-### Buzz b00010010 (0x12) - Clear/disable PWM
+{{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
 
+
+## Buzz b00010011 (0x13) - Clear/disable PWM
 Clears the PWM, disables PWM output. Responds 0x01.
+
+{{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
+
+## Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)
+Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.
+
+{{< alert title="Note" >}}At the end of this page, you will find a code to convert the ADC value.{{< /alert >}}
+
+{{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
+
+## Buzz b00010101 (0x15) - Continuous voltage probe measurement
+Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.
+
+{{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
+
+## Buzz b00010110 (0x16) - Frequency measurement on AUX pin
+Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.
+
+{{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
 
 ----------------
 
 ## b00001111 (0x0F) - Reset Buzzpirat
+
 The Buzzpirat responds 0x01 and then performs a complete hardware reset. The hardware and firmware version is printed (same as the 'i' command in the terminal), and the Buzzpirat returns to the user terminal interface. Send 0x00 20 times to enter binary mode again.
 Note: there may be garbage data between the 0x01 reply and the version information as the PIC UART initializes.
 
@@ -577,7 +597,10 @@ Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading 
 
 ## b00010110 (0x16) - Frequency measurement on AUX pin
 Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.
-010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
+
+----------------
+
+## b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
 
 Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:
 - AUX|MOSI|CLK|MISO|CS.
