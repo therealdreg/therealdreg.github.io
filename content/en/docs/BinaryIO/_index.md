@@ -451,7 +451,9 @@ Take a measurement from the Buzzpirat voltage sources.
 6. Returns a 2 byte ADC reading for ADC PROBE, high 8bits come first.
 7. returns 0x01 if it has successfull.
 
-At the end of this page, you will find a code to convert each 2-byte ADC value.
+{{< alert title="Note" >}}At the end of this page, you will find a code to convert each 2-byte ADC value.
+{{< /alert >}}
+
 
 ### Buzz b00000001 (0x01) - TP0 INPUT LOW
 Configure TP0 as INPUT LOW.
@@ -492,6 +494,29 @@ Return 0x00 if all PSU voltages are within normal parameters.
 {{< alert title="Note" >}}It is recommended to use this command before executing the command: "Configure peripherals w=1"{{< /alert >}}
 
 
+### Buzz b00010001 (0x11) - Setup pulse-width modulation (requires 5 byte setup)
+
+Allows the use of PWM from any other mode, such as SPI, I2C, etc.
+
+Configure and enable pulse-width modulation output in the AUX pin. 
+
+Requires a 5 byte configuration sequence. 
+
+Equations to calculate the PWM frequency and period are in the PIC24F output compare manual. 
+
+- Bit 0 and 1 of the first configuration byte set the prescaler value. 
+- The Next two bytes set the duty cycle register, high 8bits first. 
+- The final two bytes set the period register, high 8bits first.
+
+Responds 0x01 after a complete sequence is received. 
+
+{{< alert color="warning" title="Warning" >}}The PWM remains active after leaving binary bitbang mode!{{< /alert >}}
+
+{{< alert title="Note" >}}Further down on this page, you will find examples of how to generate the 5 byte setup.{{< /alert >}}
+
+### Buzz b00010010 (0x12) - Clear/disable PWM
+
+Clears the PWM, disables PWM output. Responds 0x01.
 
 ----------------
 
@@ -515,8 +540,21 @@ After the test is complete, the Buzzpirat responds with the number of errors. It
 
 ## b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
 
-Configure and enable pulse-width modulation output in the AUX pin. Requires a 5 byte configuration sequence. Responds 0x01 after a complete sequence is received. The PWM remains active after leaving binary bitbang mode!
-Equations to calculate the PWM frequency and period are in the PIC24F output compare manual. Bit 0 and 1 of the first configuration byte set the prescaler value. The Next two bytes set the duty cycle register, high 8bits first. The final two bytes set the period register, high 8bits first.
+Configure and enable pulse-width modulation output in the AUX pin. 
+
+Requires a 5 byte configuration sequence. 
+
+Equations to calculate the PWM frequency and period are in the PIC24F output compare manual. 
+
+- Bit 0 and 1 of the first configuration byte set the prescaler value. 
+- The Next two bytes set the duty cycle register, high 8bits first. 
+- The final two bytes set the period register, high 8bits first.
+
+Responds 0x01 after a complete sequence is received. 
+
+{{< alert color="warning" title="Warning" >}}The PWM remains active after leaving binary bitbang mode!{{< /alert >}}
+
+{{< alert title="Note" >}}Further down on this page, you will find examples of how to generate the 5 byte setup.{{< /alert >}}
 
 ----------------
 
@@ -528,7 +566,7 @@ Clears the PWM, disables PWM output. Responds 0x01.
 ## b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)
 Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.
 
-At the end of this page, you will find a code to convert the ADC value.
+{{< alert title="Note" >}}At the end of this page, you will find a code to convert the ADC value.{{< /alert >}}
 
 ----------------
 
