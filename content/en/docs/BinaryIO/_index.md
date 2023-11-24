@@ -13,7 +13,9 @@ The bitbang protocol uses a single byte for all commands. The default start-up s
 
 {{< alert color="warning" title="Warning" >}}To avoid the BBIO1 endless loop bug in the Buzzpirat, it is crucial to send each 0x00 command individually and verify the presence of a "BBIO1" response. Transmitting multiple 0x00 commands rapidly in succession may lead to a continuous BBIO1 response loop. The sole solution to this loop issue is to disconnect and then reconnect the USB: http://dangerousprototypes.com/forum/index.php?topic=4227.0{{< /alert >}}
 
-## b00000000 (0x00) - Reset, responds "BBIO1"
+{{< toc >}}
+
+## MAIN b00000000 (0x00) - Reset, responds "BBIO1"
 This command resets the Buzzpirat into raw bitbang mode from the user terminal. It also resets to raw bitbang mode from raw SPI mode, or any other protocol mode. This command always returns a five byte bitbang version string "BBIO1", where 1 is the current protocol version.
 
 Some terminals send a NULL character (0x00) on start-up, causing the Buzzpirat to enter binary mode when it wasn't wanted. To get around this, you must now enter 0x00 at least 20 times to enter raw bitbang mode.
@@ -22,7 +24,7 @@ Some terminals send a NULL character (0x00) on start-up, causing the Buzzpirat t
 
 After entering bitbang mode, you can enter other binary protocol modes.
 
-## b00000001 (0x01) - Enter binary SPI mode, responds "SPI1"
+## MAIN b00000001 (0x01) - Enter binary SPI mode, responds "SPI1"
 
 Commands are a single byte, except bulk SPI transfers. The Buzzpirat responds to SPI write commands with the data read from the SPI bus during the write. Most other commands return 0x01 for success, or 0x00 for failure/unknown command.
 
@@ -120,7 +122,7 @@ Buzzpirat returns 0x01 if it has successfully entered this mode.
 
 ----------------
 
-## b00000010 (0x02) - Enter binary I2C mode, responds "I2C1"
+## MAIN b00000010 (0x02) - Enter binary I2C mode, responds "I2C1"
 
 Enter binary I2C mode by first entering bitbang mode, then send 0x02 to enter I2C mode.
 
@@ -221,7 +223,7 @@ Buzzpirat returns 0x01 if it has successfully entered this mode.
 ----------------
 
 
-## b00000011 (0x03) - Enter binary UART mode, responds "ART1"
+## MAIN b00000011 (0x03) - Enter binary UART mode, responds "ART1"
 
 Enter binary UART mode by first entering bitbang mode, then send 0x03 to enter UART mode.
 
@@ -329,7 +331,7 @@ Buzzpirat returns 0x01 if it has successfully entered this mode.
 
 ----------------
 
-## b00000101 (0x05) - Enter binary RAW-WIRE mode, responds "RAW1"
+## MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds "RAW1"
 
 Enter binary RAW-WIRE  mode by first entering bitbang mode, then send 0x05 to enter RAW2WIRE mode.
 
@@ -427,18 +429,21 @@ Buzzpirat returns 0x01 if it has successfully entered this mode.
 ----------------
 
 
-## b00000110 (0x06) - Enter OpenOCD JTAG mode
+## MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode
 OpenOCD mode is documented in the source only.
 
 ----------------
 
 
-## b00001010 (0x0A) - Enter Buzz mode
+## MAIN b00001010 (0x0A) - Enter Buzz mode
 This mode is exclusive to Buzzpirat and allows for actions such as reading all voltages (similar to the 'v' command), manipulating the TP0 pin, etc.
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
 
 Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from the main bitbang) or via b11111110 (0xFE) (from a protocol mode), you can use the following Buzz mode commands:
+
+### Buzz b01101001 (0x69) - NULL COMMAND
+This command doesn't do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don't want to execute anything.
 
 ### Buzz b00000000 (0x00) - Take voltage measurement from all sources
 Take a measurement from the Buzzpirat voltage sources. 
@@ -494,7 +499,7 @@ Return 0x00 if all PSU voltages are within normal parameters.
 {{< alert title="Note" >}}It is recommended to use this command before executing the command: "Configure peripherals w=1"{{< /alert >}}
 
 
-## Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
+### Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
 
 Configure and enable pulse-width modulation output in the AUX pin. 
 
@@ -530,6 +535,8 @@ Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC readin
 ### Buzz b00010101 (0x15) - Continuous voltage probe measurement
 Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.
 
+To exit this mode, send any single character.
+
 {{< alert title="Note" >}}This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..{{< /alert >}}
 
 ### Buzz b00010110 (0x16) - Frequency measurement on AUX pin
@@ -539,14 +546,14 @@ Takes frequency measurement on AUX pin. Returns 4byte frequency count, most sign
 
 ----------------
 
-## b00001111 (0x0F) - Reset Buzzpirat
+## MAIN b00001111 (0x0F) - Reset Buzzpirat
 
 The Buzzpirat responds 0x01 and then performs a complete hardware reset. The hardware and firmware version is printed (same as the 'i' command in the terminal), and the Buzzpirat returns to the user terminal interface. Send 0x00 20 times to enter binary mode again.
 Note: there may be garbage data between the 0x01 reply and the version information as the PIC UART initializes.
 
 ----------------
 
-## b00010000 (0x10) - Buzzpirat Short self-test & b00010001 (0x11) Long self-test
+## MAIN b00010000 (0x10) - Buzzpirat Short self-test & b00010001 (0x11) Long self-test
 
 Self-test commands
 
@@ -558,7 +565,7 @@ After the test is complete, the Buzzpirat responds with the number of errors. It
 
 ----------------
 
-## b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
+## MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)
 
 Configure and enable pulse-width modulation output in the AUX pin. 
 
@@ -578,29 +585,31 @@ Responds 0x01 after a complete sequence is received.
 
 ----------------
 
-## b00010011 (0x13) - Clear/disable PWM
+## MAIN b00010011 (0x13) - Clear/disable PWM
 Clears the PWM, disables PWM output. Responds 0x01.
 
 ----------------
 
-## b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)
+## MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)
 Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.
 
 {{< alert title="Note" >}}At the end of this page, you will find a code to convert the ADC value.{{< /alert >}}
 
 ----------------
 
-## b00010101 (0x15) - Continuous voltage probe measurement
+## MAIN b00010101 (0x15) - Continuous voltage probe measurement
 Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.
+
+To exit this mode, send any single character.
 
 ----------------
 
-## b00010110 (0x16) - Frequency measurement on AUX pin
+## MAIN b00010110 (0x16) - Frequency measurement on AUX pin
 Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.
 
 ----------------
 
-## b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
+## MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
 
 Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:
 - AUX|MOSI|CLK|MISO|CS.
@@ -609,7 +618,7 @@ The Buzzpirat responds to each direction update with a byte showing the current 
 
 ----------------
 
-## b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS
+## MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS
 The lower 7bits of the command byte control the Buzzpirat pins and peripherals. Bitbang works like a player piano or bitmap. The Buzzpirat pins map to the bits in the command byte as follows:
 
 - 1|POWER|PULLUP|AUX|MOSI|CLK|MISO|CS

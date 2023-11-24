@@ -69,7 +69,7 @@
         <a class="nav-link" href="https://github.com/therealdreg/buzzpirat/discussions" target="_blank" rel="noopener"><span>Community</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat/" target="_blank" rel="noopener"><span>GitHub</span></a>
+        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat" target="_blank" rel="noopener"><span>GitHub</span></a>
       </li>
       </ul>
   </div>
@@ -446,7 +446,133 @@ Content</a>.</p>
 
 </div>
 
-<h2 id="b00000000-0x00---reset-responds-bbio1">b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</h2>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#main-b00000000-0x00---reset-responds-bbio1">MAIN b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</a></li>
+    <li><a href="#main-b00000001-0x01---enter-binary-spi-mode-responds-spi1">MAIN b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</a>
+      <ul>
+        <li><a href="#spi-mode-key-points">SPI Mode, Key points</a></li>
+        <li><a href="#spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</a></li>
+        <li><a href="#spi-b0000001x---cs-high-1-or-low-0">SPI b0000001x - CS high (1) or low (0)</a></li>
+        <li><a href="#spi-b000011xx---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx - Sniff SPI traffic when CS low(10)/all(01)</a></li>
+        <li><a href="#spi-b0001xxxx---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
+        <li><a href="#spi-b01100xxx---spi-speed">SPI b01100xxx - SPI speed</a></li>
+        <li><a href="#spi-b1000wxyz---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
+        <li><a href="#spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</a></li>
+        <li><a href="#spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</a></li>
+        <li><a href="#spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</a>
+      <ul>
+        <li><a href="#i2c-mode-key-points">I2C Mode, Key points</a></li>
+        <li><a href="#i2c-b00000001-0x01--display-mode-version-string-responds-i2c1">I2C b00000001 (0x01) – Display mode version string, responds &ldquo;I2C1&rdquo;</a></li>
+        <li><a href="#i2c-b00000010-0x02--i2c-start-bit">I2C b00000010 (0x02) – I2C start bit</a></li>
+        <li><a href="#i2c-b00000011-0x03---i2c-stop-bit">I2C b00000011 (0x03) - I2C stop bit</a></li>
+        <li><a href="#i2c-b00000100-0x04---i2c-read-byte">I2C b00000100 (0x04) - I2C Read Byte</a></li>
+        <li><a href="#i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</a></li>
+        <li><a href="#i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</a></li>
+        <li><a href="#i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</a></li>
+        <li><a href="#i2c-b0001xxxx--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#i2c-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#i2c-b011000xx---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</a></li>
+        <li><a href="#i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</a></li>
+        <li><a href="#i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</a>
+      <ul>
+        <li><a href="#uart-mode-key-points">UART Mode, Key points</a></li>
+        <li><a href="#uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</a></li>
+        <li><a href="#uart-b0000001x--start-0stop1-echo-uart-rx">UART b0000001x – Start (0)/stop(1) echo UART RX</a></li>
+        <li><a href="#uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</a></li>
+        <li><a href="#uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</a></li>
+        <li><a href="#uart-b0001xxxx--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#uart-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#uart-b011000xx---set-uart-speed">UART b011000xx - Set UART speed</a></li>
+        <li><a href="#uart-b100wxxyz--configure-uart-settings">UART b100wxxyz – Configure UART settings</a></li>
+        <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</a>
+      <ul>
+        <li><a href="#1-wire-mode-key-points">1-Wire Mode, Key points</a></li>
+        <li><a href="#1-wire-b00000001-0x01--display-mode-version-string-responds-1w01">1-Wire b00000001 (0x01) – Display mode version string, responds &ldquo;1W01&rdquo;</a></li>
+        <li><a href="#1-wire-b00000010-0x02--1-wire-reset">1-Wire b00000010 (0x02) – 1-Wire reset</a></li>
+        <li><a href="#1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</a></li>
+        <li><a href="#1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</a></li>
+        <li><a href="#1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</a></li>
+        <li><a href="#1-wire-b0001xxxx--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#1-wire-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</a>
+      <ul>
+        <li><a href="#raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</a></li>
+        <li><a href="#raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</a></li>
+        <li><a href="#raw-wire--b0000001x---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x - I2C-style start (0) / stop (1) bit</a></li>
+        <li><a href="#raw-wire--b0000010x--cs-low-0--high-1">RAW-WIRE  b0000010x- CS low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</a></li>
+        <li><a href="#raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</a></li>
+        <li><a href="#raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</a></li>
+        <li><a href="#raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</a></li>
+        <li><a href="#raw-wire--b0000101x---clock-low-0--high-1">RAW-WIRE  b0000101x - Clock low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000110x---data-low-0--high-1">RAW-WIRE  b0000110x - Data low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0001xxxx--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#raw-wire--b0010xxxx---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx - Bulk clock ticks, send 1-16 ticks</a></li>
+        <li><a href="#raw-wire--b0011xxxx---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
+        <li><a href="#raw-wire--b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#raw-wire--b011000xx---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#raw-wire--b1000wxyz--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
+        <li><a href="#raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</a></li>
+        <li><a href="#raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</a></li>
+        <li><a href="#raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</a></li>
+    <li><a href="#main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</a>
+      <ul>
+        <li><a href="#buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</a></li>
+        <li><a href="#buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</a></li>
+        <li><a href="#buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</a></li>
+        <li><a href="#buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</a></li>
+        <li><a href="#buzz-b00000011-0x03---read-tp0-status">Buzz b00000011 (0x03) - Read TP0 status</a></li>
+        <li><a href="#buzz-b00010000-0x10---check-for-short-circuits-in-the-power-supply-units">Buzz b00010000 (0x10) - Check for short circuits in the power supply units</a></li>
+        <li><a href="#buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+        <li><a href="#buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</a></li>
+        <li><a href="#buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+        <li><a href="#buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+        <li><a href="#buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00001111-0x0f---reset-buzzpirat">MAIN b00001111 (0x0F) - Reset Buzzpirat</a></li>
+    <li><a href="#main-b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">MAIN b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</a></li>
+    <li><a href="#main-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+    <li><a href="#main-b00010011-0x13---cleardisable-pwm">MAIN b00010011 (0x13) - Clear/disable PWM</a></li>
+    <li><a href="#main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+    <li><a href="#main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+    <li><a href="#main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+    <li><a href="#main-b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#adc-calculation">ADC Calculation</a>
+      <ul>
+        <li><a href="#python-3">Python 3</a></li>
+        <li><a href="#c">C</a></li>
+      </ul>
+    </li>
+    <li><a href="#pwm-computation">PWM Computation</a>
+      <ul>
+        <li><a href="#python-3-1">Python 3</a></li>
+        <li><a href="#c-1">C</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="main-b00000000-0x00---reset-responds-bbio1">MAIN b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</h2>
 <p>This command resets the Buzzpirat into raw bitbang mode from the user terminal. It also resets to raw bitbang mode from raw SPI mode, or any other protocol mode. This command always returns a five byte bitbang version string &ldquo;BBIO1&rdquo;, where 1 is the current protocol version.</p>
 <p>Some terminals send a NULL character (0x00) on start-up, causing the Buzzpirat to enter binary mode when it wasn&rsquo;t wanted. To get around this, you must now enter 0x00 at least 20 times to enter raw bitbang mode.</p>
 
@@ -459,7 +585,7 @@ Content</a>.</p>
 </div>
 
 <p>After entering bitbang mode, you can enter other binary protocol modes.</p>
-<h2 id="b00000001-0x01---enter-binary-spi-mode-responds-spi1">b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</h2>
+<h2 id="main-b00000001-0x01---enter-binary-spi-mode-responds-spi1">MAIN b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</h2>
 <p>Commands are a single byte, except bulk SPI transfers. The Buzzpirat responds to SPI write commands with the data read from the SPI bus during the write. Most other commands return 0x01 for success, or 0x00 for failure/unknown command.</p>
 <h3 id="spi-mode-key-points">SPI Mode, Key points</h3>
 <ul>
@@ -545,7 +671,7 @@ Content</a>.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <hr>
-<h2 id="b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</h2>
+<h2 id="main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</h2>
 <p>Enter binary I2C mode by first entering bitbang mode, then send 0x02 to enter I2C mode.</p>
 <p>Most I2C mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
 <h3 id="i2c-mode-key-points">I2C Mode, Key points</h3>
@@ -629,7 +755,7 @@ Content</a>.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <hr>
-<h2 id="b00000011-0x03---enter-binary-uart-mode-responds-art1">b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</h2>
+<h2 id="main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</h2>
 <p>Enter binary UART mode by first entering bitbang mode, then send 0x03 to enter UART mode.</p>
 <p>Most UART mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
 <h3 id="uart-mode-key-points">UART Mode, Key points</h3>
@@ -726,7 +852,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <hr>
-<h2 id="b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</h2>
+<h2 id="main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</h2>
 <p>Enter binary RAW-WIRE  mode by first entering bitbang mode, then send 0x05 to enter RAW2WIRE mode.</p>
 <p>Most RAW-WIRE  mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
 <h3 id="raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</h3>
@@ -794,13 +920,15 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <hr>
-<h2 id="b00000110-0x06---enter-openocd-jtag-mode">b00000110 (0x06) - Enter OpenOCD JTAG mode</h2>
+<h2 id="main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</h2>
 <p>OpenOCD mode is documented in the source only.</p>
 <hr>
-<h2 id="b00001010-0x0a---enter-buzz-mode">b00001010 (0x0A) - Enter Buzz mode</h2>
+<h2 id="main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</h2>
 <p>This mode is exclusive to Buzzpirat and allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <p>Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from the main bitbang) or via b11111110 (0xFE) (from a protocol mode), you can use the following Buzz mode commands:</p>
+<h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
+<p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
 <h3 id="buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</h3>
 <p>Take a measurement from the Buzzpirat voltage sources.</p>
 <ol>
@@ -879,7 +1007,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h2 id="buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h2>
+<h3 id="buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h3>
 <p>Configure and enable pulse-width modulation output in the AUX pin.</p>
 <p>Requires a 5 byte configuration sequence.</p>
 <p>Equations to calculate the PWM frequency and period are in the PIC24F output compare manual.</p>
@@ -949,6 +1077,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 <h3 id="buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</h3>
 <p>Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.</p>
+<p>To exit this mode, send any single character.</p>
 
 
 <div class="alert alert-primary" role="alert">
@@ -970,17 +1099,17 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 </div>
 
 <hr>
-<h2 id="b00001111-0x0f---reset-buzzpirat">b00001111 (0x0F) - Reset Buzzpirat</h2>
+<h2 id="main-b00001111-0x0f---reset-buzzpirat">MAIN b00001111 (0x0F) - Reset Buzzpirat</h2>
 <p>The Buzzpirat responds 0x01 and then performs a complete hardware reset. The hardware and firmware version is printed (same as the &lsquo;i&rsquo; command in the terminal), and the Buzzpirat returns to the user terminal interface. Send 0x00 20 times to enter binary mode again.
 Note: there may be garbage data between the 0x01 reply and the version information as the PIC UART initializes.</p>
 <hr>
-<h2 id="b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</h2>
+<h2 id="main-b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">MAIN b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</h2>
 <p>Self-test commands</p>
 <p>b00010001 (0x11) Long test (requires jumpers between +5 and Vpu, +3.3 and ADC)</p>
 <p>The full test is the same as self-test in the user terminal, it requires jumpers between two sets of pins in order to test some features. The short test eliminates the six checks that require jumpers.</p>
 <p>After the test is complete, the Buzzpirat responds with the number of errors. It also echoes any input plus the number of errors. The MODE LED blinks if the test was successful, or remains solid if there were errors. Exit the self-test by sending 0xff, the Buzzpirat will respond 0x01 and return to binary bitbang mode.</p>
 <hr>
-<h2 id="b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h2>
+<h2 id="main-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h2>
 <p>Configure and enable pulse-width modulation output in the AUX pin.</p>
 <p>Requires a 5 byte configuration sequence.</p>
 <p>Equations to calculate the PWM frequency and period are in the PIC24F output compare manual.</p>
@@ -1009,10 +1138,10 @@ Note: there may be garbage data between the 0x01 reply and the version informati
 </div>
 
 <hr>
-<h2 id="b00010011-0x13---cleardisable-pwm">b00010011 (0x13) - Clear/disable PWM</h2>
+<h2 id="main-b00010011-0x13---cleardisable-pwm">MAIN b00010011 (0x13) - Clear/disable PWM</h2>
 <p>Clears the PWM, disables PWM output. Responds 0x01.</p>
 <hr>
-<h2 id="b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h2>
+<h2 id="main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h2>
 <p>Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.</p>
 
 
@@ -1024,20 +1153,21 @@ Note: there may be garbage data between the 0x01 reply and the version informati
 </div>
 
 <hr>
-<h2 id="b00010101-0x15---continuous-voltage-probe-measurement">b00010101 (0x15) - Continuous voltage probe measurement</h2>
+<h2 id="main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</h2>
 <p>Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.</p>
+<p>To exit this mode, send any single character.</p>
 <hr>
-<h2 id="b00010110-0x16---frequency-measurement-on-aux-pin">b00010110 (0x16) - Frequency measurement on AUX pin</h2>
+<h2 id="main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</h2>
 <p>Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.</p>
 <hr>
-<h2 id="b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</h2>
+<h2 id="main-b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</h2>
 <p>Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:</p>
 <ul>
 <li>AUX|MOSI|CLK|MISO|CS.</li>
 </ul>
 <p>The Buzzpirat responds to each direction update with a byte showing the current state of the pins, regardless of direction. This is useful for open collector I/O modes.</p>
 <hr>
-<h2 id="b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</h2>
+<h2 id="main-b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</h2>
 <p>The lower 7bits of the command byte control the Buzzpirat pins and peripherals. Bitbang works like a player piano or bitmap. The Buzzpirat pins map to the bits in the command byte as follows:</p>
 <ul>
 <li>1|POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</li>
