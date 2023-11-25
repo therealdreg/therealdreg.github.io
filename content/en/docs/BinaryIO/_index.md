@@ -286,7 +286,7 @@ Buzzpirat returns 0x01 if it has successfully entered this mode.
 
 ----------------
 
-## b00000100 (0x04) - Enter binary 1-Wire mode, responds "1W01"
+## MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds "1W01"
 
 Enter binary 1-Wire mode by first entering bitbang mode, then send 0x04 to enter 1-Wire mode.
 Most 1-Wire mode commands are a single byte. Commands generally return 1 for success, 0 for failure.

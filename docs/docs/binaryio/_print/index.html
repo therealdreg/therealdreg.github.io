@@ -189,7 +189,7 @@ This is the multi-page printable view of this section.
         <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
       </ul>
     </li>
-    <li><a href="#b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</a>
+    <li><a href="#main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</a>
       <ul>
         <li><a href="#1-wire-mode-key-points">1-Wire Mode, Key points</a></li>
         <li><a href="#1-wire-b00000001-0x01--display-mode-version-string-responds-1w01">1-Wire b00000001 (0x01) – Display mode version string, responds &ldquo;1W01&rdquo;</a></li>
@@ -507,7 +507,7 @@ This is the multi-page printable view of this section.
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
 <hr>
-<h2 id="b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</h2>
+<h2 id="main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</h2>
 <p>Enter binary 1-Wire mode by first entering bitbang mode, then send 0x04 to enter 1-Wire mode.
 Most 1-Wire mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
 <h3 id="1-wire-mode-key-points">1-Wire Mode, Key points</h3>
