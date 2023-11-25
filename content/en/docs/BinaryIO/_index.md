@@ -1,6 +1,6 @@
 ---
 title: Binary I/O
-description: Binary I/O mod from busspirate doc from dangerousprototypes
+description: Binary I/O mod from dangerousprototypes
 weight: 1
 ---
 
