@@ -5,10 +5,16 @@ weight: 1
 ---
 
 {{< alert color="warning" title="Warning" >}}
-Do not install this firmware on the Bus Pirate v3. Please refer to the lower section of this page for compatible firmware options.{{< /alert >}}
+Do not install this firmware on the Bus Pirate v3. Please refer to the lower section of this page for compatible firmware options{{< /alert >}}
+
 
 Download the last firmware from this page: 
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
+
+
+{{< alert color="warning" title="Warning" >}}
+Do not install the firmware labeled with "pickit" in its name{{< /alert >}}
+
 
 Download the last buzzloader app (There are versions available for Windows, Linux and Mac) from this page:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader
