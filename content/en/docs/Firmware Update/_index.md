@@ -38,7 +38,10 @@ Remove the jumper/Dupont cable, then reconnect the device to the USB port, and y
 
 Run the 'i' command and perform a self-test with the '~' command to ensure everything has gone smoothly.
 
-### Buzzpirat firmware for BPv3 hardware
+----------------
+
+
+## Buzzpirat firmware for BPv3 hardware
 
 For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
 
@@ -55,8 +58,9 @@ More information on how to update it can be found here:
 
 {{< alert color="warning" title="Warning" >}}BOOTLOADER UPDATE IS RISKY, YOU COULD BRICK YOUR BUS PIRATE, AND I AM NOT RESPONSIBLE FOR ANY DAMAGES.{{< /alert >}}
 
+----------------
 
-### OLD & legacy BPv3 firmware
+## Last community BPv3 firmware & bootloader
 
 Any firmware and bootloader from the original Bus Pirate v3 will work well with Buzzpirat. Here are some that I have tested.
 
@@ -66,7 +70,10 @@ Any firmware and bootloader from the original Bus Pirate v3 will work well with 
 Last community firmware:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex
 
----
+----------------
+
+
+## Legacy BPv3 firmware & bootloader
 
 4.4 Bootloader:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-Bootloader-v4.4.hex
