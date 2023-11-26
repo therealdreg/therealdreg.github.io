@@ -67,7 +67,7 @@ The way it goes together:
 - The upper 4 bit of the command byte are the bulk read command (0001xxxx)
 - xxxx = the number of bytes to read. 0000=1, 0001=2, etc, up to 1111=16
 
-If we want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13
+If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13
 
 ### SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
@@ -466,7 +466,7 @@ Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from t
 This command doesn't do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don't want to execute anything.
 
 ### Buzz b10010110 (0x96) - Check if firmware is BPv3
-For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
+For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
 
 - returns 0x01 if the firmware currently running is the version for BPv3 hardware.
 

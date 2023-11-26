@@ -657,7 +657,7 @@ Content</a>.</p>
 <li>The upper 4 bit of the command byte are the bulk read command (0001xxxx)</li>
 <li>xxxx = the number of bytes to read. 0000=1, 0001=2, etc, up to 1111=16</li>
 </ul>
-<p>If we want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
+<p>If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
 <h3 id="spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
@@ -979,7 +979,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
 <p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
 <h3 id="buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</h3>
-<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<p>For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
 <ul>
 <li>
 <p>returns 0x01 if the firmware currently running is the version for BPv3 hardware.</p>
@@ -1488,7 +1488,7 @@ Error updating firmware :(
 <p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
 <hr>
 <h2 id="buzzpirat-firmware-for-bpv3-hardware">Buzzpirat firmware for BPv3 hardware</h2>
-<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<p>For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
 <p>So, users with the Bus Pirate v3 hardware can benefit from Buzzpirat features:</p>
 <ul>
 <li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/</a></li>
@@ -2376,8 +2376,8 @@ WRITE: 0x01;2 0x01;2 0x1;2 0x01;2
 <p><strong>Notes:</strong></p>
 <p>1-Wire specifies a 2K or smaller resistor when working with parasitically powered devices. Since v3a the on-board pull-up resistor on MOSI are 2K. Use an external 2K pull-up resistor if you have a v2go. Parasitically powered parts may appear to work with resistors larger than 2K ohms, but will fail certain operations (like EEPROM writes).</p>
 <p>The 1-wire reset command can detect two bus errors. If no 1-wire chips respond to the reset command by pulling the bus low, it will report *No device detected (0x02). If the bus stays low for too long after the reset, because the pull-up resistor isn&rsquo;t working or there&rsquo;s a short circuit, it will report *Short or no pull-up (0x01).</p>
-<p>One wire is a time sensitive protocol. There&rsquo;s no actual data wire to set high or low with the - and _ commands, so we just store the desired value and send it with the next clock tick (^).</p>
-<p>The _ and - commands just set the data state that will be used on the next clock tick command (^). Example: previously you could write 4 high bits with -^^^, now you must use -^^^^. We feel this is more consistent with the operation of the other modes.</p>
+<p>One wire is a time sensitive protocol. There&rsquo;s no actual data wire to set high or low with the - and _ commands, so I just store the desired value and send it with the next clock tick (^).</p>
+<p>The _ and - commands just set the data state that will be used on the next clock tick command (^). Example: previously you could write 4 high bits with -^^^, now you must use -^^^^. I feel this is more consistent with the operation of the other modes.</p>
 <h2 id="uart">UART</h2>
 <ul>
 <li><strong>Bus:</strong> <a href="http://en.wikipedia.org/wiki/Serial_uart">UART</a>, <a href="http://en.wikipedia.org/wiki/Musical_Instrument_Digital_Interface">MIDI</a> (universal asynchronous receiver transmitter).</li>
@@ -2637,7 +2637,7 @@ Without pull-up resistors there can never be a &lsquo;1&rsquo;.</p>
 <p>You can find the <a href="http://en.wikipedia.org/wiki/I%C2%B2C">I2C</a> address for most I2C-compatible chips in the datasheet. But what if you&rsquo;re working with an unknown chip, a dated chip with no datasheet, or you&rsquo;re just too lazy to look it up?</p>
 <p>The Buzzpirat has a built-in address scanner that checks every possible I2C address for a response. This brute force method is a fast and easy way to see if any chips are responding, and to uncover undocumented access addresses.</p>
 <p>I2C chips respond to a 7bit address, so up to 128 devices can share the same two communication wires. An additional bit of the address determines if the operation is a write to the chip (0), or a read from the chip (1).</p>
-<p>We connected the Buzzpirat to the 3EEPROM explorer board. The 7bit base address for the 24LC/AA I2C EEPROM is 101 0000 (0x50 in HEX). It answers at the write address 1010 0000 (0xA0) and the read address 1010 0001 (0xA1).</p>
+<p>I connected the Buzzpirat to the 3EEPROM explorer board. The 7bit base address for the 24LC/AA I2C EEPROM is 101 0000 (0x50 in HEX). It answers at the write address 1010 0000 (0xA0) and the read address 1010 0001 (0xA1).</p>
 <pre tabindex="0"><code>I2C&gt;(1)
 Searching 7bit I2C address space.
 Found devices at:
@@ -2659,7 +2659,7 @@ I2C&gt;
 <p>For I2C read addresses: the BP sends a start, the read address, looks for an ACK. If there is an ACK, it reads a byte and NACKs it. Finally it sends a stop.</p>
 </li>
 </ul>
-<p>When the I2C chip responds to the read address, it outputs data and will miss a stop condition sent immediately after the read address (bus contention). If the I2C chip misses the stop condition, the address scanner will see ghost addresses until the read ends randomly. By reading a byte after any read address that ACKs, we have a chance to NACK the read and properly end the I2C transaction.</p>
+<p>When the I2C chip responds to the read address, it outputs data and will miss a stop condition sent immediately after the read address (bus contention). If the I2C chip misses the stop condition, the address scanner will see ghost addresses until the read ends randomly. By reading a byte after any read address that ACKs, I have a chance to NACK the read and properly end the I2C transaction.</p>
 <h4 id="i2c-bus-sniffer-macro">I2C Bus Sniffer macro</h4>
 <p>The I2C sniffer is implemented in software and seems to work up to 100kHz (firmware v5.3+). It’s not a substitute for a proper logic analyzer, but additional improvements are probably possible.</p>
 <ul>
@@ -2710,7 +2710,7 @@ NACK &lt;&lt;&lt;next command is STOP, so NACK
 I2C STOP CONDITION
 I2C&gt;
 </code></pre><p>A consequence of the delayed ACK/NACK system is that partial transactions will leave read operations incomplete.</p>
-<p>Here, we setup a read operation ([0xd1) and read a byte (r). Since the Buzzpirat has no way of knowing if the next operation will be another read (r) or a stop condition (]), it leaves the ninth bit hanging. The warning “*(N)ACK PENDING” alerts you to this state.</p>
+<p>Here, I setup a read operation ([0xd1) and read a byte (r). Since the Buzzpirat has no way of knowing if the next operation will be another read (r) or a stop condition (]), it leaves the ninth bit hanging. The warning “*(N)ACK PENDING” alerts you to this state.</p>
 <p>Our next command is another read (r), so the Buzzpirat ACKs the previous read and gets another byte. Again, it leaves the (N)ACK bit pending until the next command.</p>
 <p>The final command is STOP (]). The Buzzpirat ends the read with a NACK and then sends the stop condition.</p>
 <h3 id="connections-1">Connections</h3>
@@ -2905,7 +2905,7 @@ The Buzzpirat SPI CLOCK or DATA lines could be grounded and ruin the target devi
 Reset with the CS pin to clear garbage if needed</p>
 <ul>
 <li>A long enough stream of data will eventually overtake the buffer, after which the MODE LED turns off (v5.2+). No data can be trusted if the MODE LED is off - this will be improved in a future firmware.</li>
-<li>The SPI hardware has a 4 byte buffer. If it fills before we can transfer the data to the ring buffer, then the terminal will display &ldquo;Can&rsquo;t keep up&rdquo; and drop back to the SPI prompt. This error and the ring buffer error will be combined in a future update.</li>
+<li>The SPI hardware has a 4 byte buffer. If it fills before I can transfer the data to the ring buffer, then the terminal will display &ldquo;Can&rsquo;t keep up&rdquo; and drop back to the SPI prompt. This error and the ring buffer error will be combined in a future update.</li>
 <li>Any commands entered after the sniffer macro will be lost.</li>
 <li>Pins that are normally output become inputs in sniffer mode. MOSI, CLOCK, MISO, and CS are all inputs in SPI sniffer mode.</li>
 <li>Since v5.3 the SPI sniffer uses hardware chip select for the CS low sniffer mode. The minimum time between CS falling and the first clock is 120ns theoretical, and less than 1.275us in tests. The software CS detect (CS high sniffer mode) requires between 27usec and 50usec minimum delay between the transition of the CS line and the start of data. Thanks to Peter Klammer for testing and updates.</li>

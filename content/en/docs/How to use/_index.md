@@ -769,9 +769,9 @@ NOTE: works currently only with the raw2wire and raw3wire busses.
 
 The 1-wire reset command can detect two bus errors. If no 1-wire chips respond to the reset command by pulling the bus low, it will report *No device detected (0x02). If the bus stays low for too long after the reset, because the pull-up resistor isn't working or there's a short circuit, it will report *Short or no pull-up (0x01).
 
-One wire is a time sensitive protocol. There's no actual data wire to set high or low with the - and _ commands, so we just store the desired value and send it with the next clock tick (^).
+One wire is a time sensitive protocol. There's no actual data wire to set high or low with the - and _ commands, so I just store the desired value and send it with the next clock tick (^).
 
-The _ and - commands just set the data state that will be used on the next clock tick command (^). Example: previously you could write 4 high bits with -^^^, now you must use -^^^^. We feel this is more consistent with the operation of the other modes.
+The _ and - commands just set the data state that will be used on the next clock tick command (^). Example: previously you could write 4 high bits with -^^^, now you must use -^^^^. I feel this is more consistent with the operation of the other modes.
 
 ## UART
 
@@ -960,7 +960,7 @@ The Buzzpirat has a built-in address scanner that checks every possible I2C addr
 
 I2C chips respond to a 7bit address, so up to 128 devices can share the same two communication wires. An additional bit of the address determines if the operation is a write to the chip (0), or a read from the chip (1).
 
-We connected the Buzzpirat to the 3EEPROM explorer board. The 7bit base address for the 24LC/AA I2C EEPROM is 101 0000 (0x50 in HEX). It answers at the write address 1010 0000 (0xA0) and the read address 1010 0001 (0xA1).
+I connected the Buzzpirat to the 3EEPROM explorer board. The 7bit base address for the 24LC/AA I2C EEPROM is 101 0000 (0x50 in HEX). It answers at the write address 1010 0000 (0xA0) and the read address 1010 0001 (0xA1).
 
 ```
 I2C>(1)
@@ -988,7 +988,7 @@ Details about the address scanner macro are at the end of this post and around h
 
 - For I2C read addresses: the BP sends a start, the read address, looks for an ACK. If there is an ACK, it reads a byte and NACKs it. Finally it sends a stop.
 
-When the I2C chip responds to the read address, it outputs data and will miss a stop condition sent immediately after the read address (bus contention). If the I2C chip misses the stop condition, the address scanner will see ghost addresses until the read ends randomly. By reading a byte after any read address that ACKs, we have a chance to NACK the read and properly end the I2C transaction.
+When the I2C chip responds to the read address, it outputs data and will miss a stop condition sent immediately after the read address (bus contention). If the I2C chip misses the stop condition, the address scanner will see ghost addresses until the read ends randomly. By reading a byte after any read address that ACKs, I have a chance to NACK the read and properly end the I2C transaction.
 
 
 #### I2C Bus Sniffer macro
@@ -1061,7 +1061,7 @@ I2C>
 
 A consequence of the delayed ACK/NACK system is that partial transactions will leave read operations incomplete.
 
-Here, we setup a read operation ([0xd1) and read a byte (r). Since the Buzzpirat has no way of knowing if the next operation will be another read (r) or a stop condition (]), it leaves the ninth bit hanging. The warning “*(N)ACK PENDING” alerts you to this state.
+Here, I setup a read operation ([0xd1) and read a byte (r). Since the Buzzpirat has no way of knowing if the next operation will be another read (r) or a stop condition (]), it leaves the ninth bit hanging. The warning “*(N)ACK PENDING” alerts you to this state.
 
 Our next command is another read (r), so the Buzzpirat ACKs the previous read and gets another byte. Again, it leaves the (N)ACK bit pending until the next command.
 
@@ -1166,7 +1166,7 @@ The Buzzpirat SPI CLOCK or DATA lines could be grounded and ruin the target devi
 Reset with the CS pin to clear garbage if needed
 
 - A long enough stream of data will eventually overtake the buffer, after which the MODE LED turns off (v5.2+). No data can be trusted if the MODE LED is off - this will be improved in a future firmware.
-- The SPI hardware has a 4 byte buffer. If it fills before we can transfer the data to the ring buffer, then the terminal will display "Can't keep up" and drop back to the SPI prompt. This error and the ring buffer error will be combined in a future update.
+- The SPI hardware has a 4 byte buffer. If it fills before I can transfer the data to the ring buffer, then the terminal will display "Can't keep up" and drop back to the SPI prompt. This error and the ring buffer error will be combined in a future update.
 - Any commands entered after the sniffer macro will be lost.
 - Pins that are normally output become inputs in sniffer mode. MOSI, CLOCK, MISO, and CS are all inputs in SPI sniffer mode.
 - Since v5.3 the SPI sniffer uses hardware chip select for the CS low sniffer mode. The minimum time between CS falling and the first clock is 120ns theoretical, and less than 1.275us in tests. The software CS detect (CS high sniffer mode) requires between 27usec and 50usec minimum delay between the transition of the CS line and the start of data. Thanks to Peter Klammer for testing and updates.

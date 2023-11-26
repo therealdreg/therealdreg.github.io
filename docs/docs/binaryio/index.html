@@ -534,7 +534,7 @@
 <li>The upper 4 bit of the command byte are the bulk read command (0001xxxx)</li>
 <li>xxxx = the number of bytes to read. 0000=1, 0001=2, etc, up to 1111=16</li>
 </ul>
-<p>If we want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
+<p>If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
 <h3 id="spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
@@ -856,7 +856,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
 <p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
 <h3 id="buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</h3>
-<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<p>For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
 <ul>
 <li>
 <p>returns 0x01 if the firmware currently running is the version for BPv3 hardware.</p>

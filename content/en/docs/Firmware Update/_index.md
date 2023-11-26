@@ -49,7 +49,7 @@ Run the 'i' command and perform a self-test with the '~' command to ensure every
 
 ## Buzzpirat firmware for BPv3 hardware
 
-For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
+For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
 
 So, users with the Bus Pirate v3 hardware can benefit from Buzzpirat features: 
 
