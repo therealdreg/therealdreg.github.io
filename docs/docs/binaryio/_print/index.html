@@ -229,6 +229,7 @@ This is the multi-page printable view of this section.
     <li><a href="#main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</a>
       <ul>
         <li><a href="#buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</a></li>
+        <li><a href="#buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</a></li>
         <li><a href="#buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</a></li>
         <li><a href="#buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</a></li>
         <li><a href="#buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</a></li>
@@ -361,8 +362,10 @@ This is the multi-page printable view of this section.
 </ul>
 <h3 id="spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</h3>
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
-<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below.</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="spi-buzz-commands-0x97-0xff">SPI Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</h2>
 <p>Enter binary I2C mode by first entering bitbang mode, then send 0x02 to enter I2C mode.</p>
@@ -447,6 +450,8 @@ This is the multi-page printable view of this section.
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="i2c-buzz-commands-0x97-0xff">I2C Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</h2>
 <p>Enter binary UART mode by first entering bitbang mode, then send 0x03 to enter UART mode.</p>
@@ -506,6 +511,8 @@ This is the multi-page printable view of this section.
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="uart-buzz-commands-0x97-0xff">UART Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</h2>
 <p>Enter binary 1-Wire mode by first entering bitbang mode, then send 0x04 to enter 1-Wire mode.
@@ -544,6 +551,8 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="1-wire-buzz-commands-0x97-0xff">1-Wire Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</h2>
 <p>Enter binary RAW-WIRE  mode by first entering bitbang mode, then send 0x05 to enter RAW2WIRE mode.</p>
@@ -612,6 +621,8 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="raw-wire-buzz-commands-0x97-0xff">RAW-WIRE Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</h2>
 <p>OpenOCD mode is documented in the source only.</p>
@@ -622,6 +633,16 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from the main bitbang) or via b11111110 (0xFE) (from a protocol mode), you can use the following Buzz mode commands:</p>
 <h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
 <p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
+<h3 id="buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</h3>
+<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<ul>
+<li>
+<p>returns 0x01 if the firmware currently running is the version for BPv3 hardware.</p>
+</li>
+<li>
+<p>returns 0x00 if the firmware currently running is the official version for Buzzpirat hardware.</p>
+</li>
+</ul>
 <h3 id="buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</h3>
 <p>Take a measurement from the Buzzpirat voltage sources.</p>
 <ol>
@@ -631,7 +652,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <li>Returns a 2 byte ADC reading for 1v8 PWR, high 8bits come first.</li>
 <li>Returns a 2 byte ADC reading for VPU, high 8bits come first.</li>
 <li>Returns a 2 byte ADC reading for ADC PROBE, high 8bits come first.</li>
-<li>returns 0x01 if it has successfull.</li>
+<li>returns 0x01</li>
 </ol>
 
 

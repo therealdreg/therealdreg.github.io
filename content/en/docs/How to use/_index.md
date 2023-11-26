@@ -1380,52 +1380,6 @@ This mode gives the user 100% control over the Buzzpirat IO pins from the termin
 
 Send same command values as the binary bitbang mode to set pin direction and state.
 
-## JTAG
-
-- **Bus:** [JTAG](http://en.wikipedia.org/wiki/Joint_Test_Action_Group)
-- **Connections:** 4 connections (TDI, TCK, TDO, TMS) and ground.
-- **Output type:** 3.3 volt normal, or [open collector](http://en.wikipedia.org/wiki/High_impedence) pull-up resistors required.
-- **Pull-up resistors:** Required for open collector output mode (2K – 10K).
-- **Maximum voltage:** 5.5 volts (5 volt safe).
-
-JTAG is actually a protocol over SPI. This library performs common JTAG functions and manages the JTAG state machine.
-
-### Configuration options
-
-- **Output type:** Open drain/open collector (high=Hi-Z, low=ground), normal (high=3.3 volts, low=ground). Use open drain/open collector output types with pull-up resistors for multi-voltage interfacing.
-
-### Syntax
-
-| Command | Description |
-| --- | --- |
-| `A/a/@` | Toggle auxiliary pin. Capital “A” sets AUX high, small “a” sets to ground. `@` sets aux to input (high impedance mode) and reads the pin value. |
-| `D/d` | Measure voltage on the ADC pin (v1+ hardware only). |
-| `W/w` | Capital ‘W’ enables the on-board power supplies. Small ‘w’ disables them. (v1+ hardware only). |
-| `[` | Move JTAG state machine (SM) to INSTRUCTION register. Last bit of byte writes is delayed until leaving the INSTRUCTION register. |
-| `{` | Move JTAG SM to DATA register. |
-| `]` or `}` | Move JTAG SM to IDLE register. |
-| `r` | Read one byte. (`r:1…255` for bulk reads) |
-| `0b` | Write this binary value. Format is `0b00000000` for a byte, but partial bytes are also fine: `0b1001`. |
-| `0x` | Write this HEX value. Format is `0x01`. Partial bytes are fine: `0xA`. A-F can be lower-case or capital letters. |
-| `0-255` | Write this decimal value. Any number not preceded by `0x` or `0b` is interpreted as a decimal value. |
-| `,` | Value delimiter. Use a comma or space to separate numbers. Any combination is fine, no delimiter is required between non-number values: `{0xa6,0, 0 16 5 0b111 0haF}`. |
-| `&` | Delay 1uS. (`&:1…255` for multiple delays) |
-| `(#)` | Run macro, `(0)` for macro list |
-| _Bitwise_ |
-| `^` | Send one clock tick. (`^:1…255` for multiple clock ticks) |
-| `/` or `\` | Toggle clock level high (`/`) and low (`\`). Includes clock delay (100uS). |
-| `-` or `_` | Toggle data state high (`-`) and low (`_`). Includes data setup delay (20uS). |
-| `!` | Read one bit with clock. |
-| `.` | Read data pin state (no clock). |
-
-### Macro
-
-| Command | Description |
-| --- | --- |
-| `0` | Macro menu |
-| `1` | Reset chain |
-| `2` | Probe chain |
-
 ## BASIC script reference
 
 BASIC script mode is entered by typing 's' at the Buzzpirat commandline. You need to take care of entering the correct mode and set it up (things like speed, Hiz, etc.).

@@ -115,9 +115,13 @@ Key Points:
 ### SPI b11111110 (0xFE) - Execute Buzz Commands
 Buzz Commands allows for actions such as reading all voltages (similar to the 'v' command), manipulating the TP0 pin, etc.
 
-You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)
+You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below.
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
+
+#### SPI Buzz Commands (0x97-0xFF)
+
+Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.
 
 
 ----------------
@@ -220,6 +224,10 @@ You have access to the same commands as when you enter Buzz Mode using 0x0A. A l
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
 
+#### I2C Buzz Commands (0x97-0xFF)
+
+Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.
+
 ----------------
 
 
@@ -284,6 +292,10 @@ You have access to the same commands as when you enter Buzz Mode using 0x0A. A l
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
 
+#### UART Buzz Commands (0x97-0xFF)
+
+Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.
+
 ----------------
 
 ## MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds "1W01"
@@ -328,6 +340,10 @@ Buzz Commands allows for actions such as reading all voltages (similar to the 'v
 You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
+
+#### 1-Wire Buzz Commands (0x97-0xFF)
+
+Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.
 
 ----------------
 
@@ -426,6 +442,10 @@ You have access to the same commands as when you enter Buzz Mode using 0x0A. A l
 
 Buzzpirat returns 0x01 if it has successfully entered this mode.
 
+#### RAW-WIRE Buzz Commands (0x97-0xFF)
+
+Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.
+
 ----------------
 
 
@@ -445,6 +465,13 @@ Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from t
 ### Buzz b01101001 (0x69) - NULL COMMAND
 This command doesn't do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don't want to execute anything.
 
+### Buzz b10010110 (0x96) - Check if firmware is BPv3
+For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.
+
+- returns 0x01 if the firmware currently running is the version for BPv3 hardware.
+
+- returns 0x00 if the firmware currently running is the official version for Buzzpirat hardware.
+
 ### Buzz b00000000 (0x00) - Take voltage measurement from all sources
 Take a measurement from the Buzzpirat voltage sources. 
 
@@ -454,11 +481,10 @@ Take a measurement from the Buzzpirat voltage sources.
 4. Returns a 2 byte ADC reading for 1v8 PWR, high 8bits come first.
 5. Returns a 2 byte ADC reading for VPU, high 8bits come first.
 6. Returns a 2 byte ADC reading for ADC PROBE, high 8bits come first.
-7. returns 0x01 if it has successfull.
+7. returns 0x01
 
 {{< alert title="Note" >}}At the end of this page, you will find a code to convert each 2-byte ADC value.
 {{< /alert >}}
-
 
 ### Buzz b00000001 (0x01) - TP0 INPUT LOW
 Configure TP0 as INPUT LOW.

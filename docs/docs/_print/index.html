@@ -574,6 +574,7 @@ Content</a>.</p>
     <li><a href="#main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</a>
       <ul>
         <li><a href="#buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</a></li>
+        <li><a href="#buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</a></li>
         <li><a href="#buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</a></li>
         <li><a href="#buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</a></li>
         <li><a href="#buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</a></li>
@@ -706,8 +707,10 @@ Content</a>.</p>
 </ul>
 <h3 id="spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</h3>
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
-<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below.</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="spi-buzz-commands-0x97-0xff">SPI Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</h2>
 <p>Enter binary I2C mode by first entering bitbang mode, then send 0x02 to enter I2C mode.</p>
@@ -792,6 +795,8 @@ Content</a>.</p>
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="i2c-buzz-commands-0x97-0xff">I2C Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</h2>
 <p>Enter binary UART mode by first entering bitbang mode, then send 0x03 to enter UART mode.</p>
@@ -851,6 +856,8 @@ Content</a>.</p>
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="uart-buzz-commands-0x97-0xff">UART Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</h2>
 <p>Enter binary 1-Wire mode by first entering bitbang mode, then send 0x04 to enter 1-Wire mode.
@@ -889,6 +896,8 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="1-wire-buzz-commands-0x97-0xff">1-Wire Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</h2>
 <p>Enter binary RAW-WIRE  mode by first entering bitbang mode, then send 0x05 to enter RAW2WIRE mode.</p>
@@ -957,6 +966,8 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
 <p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
 <p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="raw-wire-buzz-commands-0x97-0xff">RAW-WIRE Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
 <hr>
 <h2 id="main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</h2>
 <p>OpenOCD mode is documented in the source only.</p>
@@ -967,6 +978,16 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from the main bitbang) or via b11111110 (0xFE) (from a protocol mode), you can use the following Buzz mode commands:</p>
 <h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
 <p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
+<h3 id="buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</h3>
+<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<ul>
+<li>
+<p>returns 0x01 if the firmware currently running is the version for BPv3 hardware.</p>
+</li>
+<li>
+<p>returns 0x00 if the firmware currently running is the official version for Buzzpirat hardware.</p>
+</li>
+</ul>
 <h3 id="buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</h3>
 <p>Take a measurement from the Buzzpirat voltage sources.</p>
 <ol>
@@ -976,7 +997,7 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <li>Returns a 2 byte ADC reading for 1v8 PWR, high 8bits come first.</li>
 <li>Returns a 2 byte ADC reading for VPU, high 8bits come first.</li>
 <li>Returns a 2 byte ADC reading for ADC PROBE, high 8bits come first.</li>
-<li>returns 0x01 if it has successfull.</li>
+<li>returns 0x01</li>
 </ol>
 
 
@@ -1415,22 +1436,64 @@ OCR: 0x1f3f = 7999
     
 	<h1 id="pg-e33d280f8f801c075f49bbb64a6ec927">2 - Firmware Update</h1>
     <div class="lead">How to update your Buzzpirat</div>
-	<ul>
-<li>put a jumper/dupont_wire connecting the PGD pin to the PGC pin</li>
-<li>connect the buzzpirat to your computer via a usb cable</li>
-<li>check for the new COM port assignment in the device manager (e.g., COM29)</li>
-</ul>
-<p>Download the last firmware from this page:</p>
+	<p>Download the last firmware from this page:</p>
 <ul>
 <li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm</a></li>
 </ul>
 <p>Download the last buzzloader app (There are versions available for Windows, Linux and Mac) from this page:</p>
 <ul>
-<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin">https://github.com/therealdreg/buzzpirat/tree/main/bin</a></li>
+<li>
+<p><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader">https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader</a></p>
+</li>
+<li>
+<p>put a jumper/dupont_wire connecting the PGD pin to the PGC pin</p>
+</li>
+<li>
+<p>connect the buzzpirat to your computer via a usb cable</p>
+</li>
+<li>
+<p>check for the new COM port assignment in the device manager (e.g., COM29)</p>
+</li>
 </ul>
-<p>Example for windows:</p>
+<p>Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:</p>
 <pre tabindex="0"><code>buzzloader.exe --dev=COM29 --hex=BZ-firmware-v7.1.6969.hex
-</code></pre>
+</code></pre><p>Just ignore a800&hellip;ERROR[50] error message, it&rsquo;s a known issue and the firmware is updated correctly.</p>
+<pre tabindex="0"><code>Writing page 41 row 331, a580...OK
+Writing page 41 row 332, a600...OK
+Writing page 41 row 333, a680...OK
+Writing page 41 row 334, a700...OK
+Writing page 41 row 335, a780...OK
+Erasing page 42, a800...ERROR [50]
+
+Error updating firmware :(
+</code></pre><p>Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you&rsquo;re all set! You should now have the latest firmware installed.</p>
+<p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
+<h3 id="buzzpirat-firmware-for-bpv3-hardware">Buzzpirat firmware for BPv3 hardware</h3>
+<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<p>So, users with the Bus Pirate v3 hardware can benefit from Buzzpirat features:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/</a></li>
+</ul>
+<h3 id="old--legacy-bpv3-firmware">OLD &amp; legacy BPv3 firmware</h3>
+<p>Any firmware and bootloader from the original Bus Pirate v3 will work well with Buzzpirat. Here are some that I have tested.</p>
+<p>4.5 Bootloader:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-bootloader-upgrade-v4xtov4.5_Aug-2023_USBEprom.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-bootloader-upgrade-v4xtov4.5_Aug-2023_USBEprom.hex</a></li>
+</ul>
+<p>Last community firmware:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex</a></li>
+</ul>
+<hr>
+<p>4.4 Bootloader:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-Bootloader-v4.4.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-Bootloader-v4.4.hex</a></li>
+</ul>
+<p>6.3-r2151 Firmware:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v6.3-r2151.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v6.3-r2151.hex</a></li>
+</ul>
+
 </div>
 
 
@@ -1602,13 +1665,6 @@ Press enter to select the default option.
       </ul>
     </li>
     <li><a href="#dio">DIO</a></li>
-    <li><a href="#jtag">JTAG</a>
-      <ul>
-        <li><a href="#configuration-options-5">Configuration options</a></li>
-        <li><a href="#syntax-8">Syntax</a></li>
-        <li><a href="#macro-6">Macro</a></li>
-      </ul>
-    </li>
     <li><a href="#basic-script-reference">BASIC script reference</a>
       <ul>
         <li><a href="#new">NEW</a></li>
@@ -3355,129 +3411,6 @@ SPI&gt;
 <h2 id="dio">DIO</h2>
 <p>This mode gives the user 100% control over the Buzzpirat IO pins from the terminal.</p>
 <p>Send same command values as the binary bitbang mode to set pin direction and state.</p>
-<h2 id="jtag">JTAG</h2>
-<ul>
-<li><strong>Bus:</strong> <a href="http://en.wikipedia.org/wiki/Joint_Test_Action_Group">JTAG</a></li>
-<li><strong>Connections:</strong> 4 connections (TDI, TCK, TDO, TMS) and ground.</li>
-<li><strong>Output type:</strong> 3.3 volt normal, or <a href="http://en.wikipedia.org/wiki/High_impedence">open collector</a> pull-up resistors required.</li>
-<li><strong>Pull-up resistors:</strong> Required for open collector output mode (2K – 10K).</li>
-<li><strong>Maximum voltage:</strong> 5.5 volts (5 volt safe).</li>
-</ul>
-<p>JTAG is actually a protocol over SPI. This library performs common JTAG functions and manages the JTAG state machine.</p>
-<h3 id="configuration-options-5">Configuration options</h3>
-<ul>
-<li><strong>Output type:</strong> Open drain/open collector (high=Hi-Z, low=ground), normal (high=3.3 volts, low=ground). Use open drain/open collector output types with pull-up resistors for multi-voltage interfacing.</li>
-</ul>
-<h3 id="syntax-8">Syntax</h3>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>A/a/@</code></td>
-<td>Toggle auxiliary pin. Capital “A” sets AUX high, small “a” sets to ground. <code>@</code> sets aux to input (high impedance mode) and reads the pin value.</td>
-</tr>
-<tr>
-<td><code>D/d</code></td>
-<td>Measure voltage on the ADC pin (v1+ hardware only).</td>
-</tr>
-<tr>
-<td><code>W/w</code></td>
-<td>Capital ‘W’ enables the on-board power supplies. Small ‘w’ disables them. (v1+ hardware only).</td>
-</tr>
-<tr>
-<td><code>[</code></td>
-<td>Move JTAG state machine (SM) to INSTRUCTION register. Last bit of byte writes is delayed until leaving the INSTRUCTION register.</td>
-</tr>
-<tr>
-<td><code>{</code></td>
-<td>Move JTAG SM to DATA register.</td>
-</tr>
-<tr>
-<td><code>]</code> or <code>}</code></td>
-<td>Move JTAG SM to IDLE register.</td>
-</tr>
-<tr>
-<td><code>r</code></td>
-<td>Read one byte. (<code>r:1…255</code> for bulk reads)</td>
-</tr>
-<tr>
-<td><code>0b</code></td>
-<td>Write this binary value. Format is <code>0b00000000</code> for a byte, but partial bytes are also fine: <code>0b1001</code>.</td>
-</tr>
-<tr>
-<td><code>0x</code></td>
-<td>Write this HEX value. Format is <code>0x01</code>. Partial bytes are fine: <code>0xA</code>. A-F can be lower-case or capital letters.</td>
-</tr>
-<tr>
-<td><code>0-255</code></td>
-<td>Write this decimal value. Any number not preceded by <code>0x</code> or <code>0b</code> is interpreted as a decimal value.</td>
-</tr>
-<tr>
-<td><code>,</code></td>
-<td>Value delimiter. Use a comma or space to separate numbers. Any combination is fine, no delimiter is required between non-number values: <code>{0xa6,0, 0 16 5 0b111 0haF}</code>.</td>
-</tr>
-<tr>
-<td><code>&amp;</code></td>
-<td>Delay 1uS. (<code>&amp;:1…255</code> for multiple delays)</td>
-</tr>
-<tr>
-<td><code>(#)</code></td>
-<td>Run macro, <code>(0)</code> for macro list</td>
-</tr>
-<tr>
-<td><em>Bitwise</em></td>
-<td></td>
-</tr>
-<tr>
-<td><code>^</code></td>
-<td>Send one clock tick. (<code>^:1…255</code> for multiple clock ticks)</td>
-</tr>
-<tr>
-<td><code>/</code> or <code>\</code></td>
-<td>Toggle clock level high (<code>/</code>) and low (<code>\</code>). Includes clock delay (100uS).</td>
-</tr>
-<tr>
-<td><code>-</code> or <code>_</code></td>
-<td>Toggle data state high (<code>-</code>) and low (<code>_</code>). Includes data setup delay (20uS).</td>
-</tr>
-<tr>
-<td><code>!</code></td>
-<td>Read one bit with clock.</td>
-</tr>
-<tr>
-<td><code>.</code></td>
-<td>Read data pin state (no clock).</td>
-</tr>
-</tbody>
-</table>
-<h3 id="macro-6">Macro</h3>
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0</code></td>
-<td>Macro menu</td>
-</tr>
-<tr>
-<td><code>1</code></td>
-<td>Reset chain</td>
-</tr>
-<tr>
-<td><code>2</code></td>
-<td>Probe chain</td>
-</tr>
-</tbody>
-</table>
 <h2 id="basic-script-reference">BASIC script reference</h2>
 <p>BASIC script mode is entered by typing &rsquo;s&rsquo; at the Buzzpirat commandline. You need to take care of entering the correct mode and set it up (things like speed, Hiz, etc.).</p>
 <p>This isn&rsquo;t intended as a guide in learning how to program. General programming knowledge is assumed. Be aware that only basic checking is done and there are no warnings printed to the terminal (except those intended by the program with print statements). The editor is very rudimentary and does not check if the syntax is right. The language is loosely based on BASIC.</p>

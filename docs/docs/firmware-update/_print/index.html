@@ -123,22 +123,64 @@ This is the multi-page printable view of this section.
 
 
 <div class="content">
-      <ul>
-<li>put a jumper/dupont_wire connecting the PGD pin to the PGC pin</li>
-<li>connect the buzzpirat to your computer via a usb cable</li>
-<li>check for the new COM port assignment in the device manager (e.g., COM29)</li>
-</ul>
-<p>Download the last firmware from this page:</p>
+      <p>Download the last firmware from this page:</p>
 <ul>
 <li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm</a></li>
 </ul>
 <p>Download the last buzzloader app (There are versions available for Windows, Linux and Mac) from this page:</p>
 <ul>
-<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin">https://github.com/therealdreg/buzzpirat/tree/main/bin</a></li>
+<li>
+<p><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader">https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader</a></p>
+</li>
+<li>
+<p>put a jumper/dupont_wire connecting the PGD pin to the PGC pin</p>
+</li>
+<li>
+<p>connect the buzzpirat to your computer via a usb cable</p>
+</li>
+<li>
+<p>check for the new COM port assignment in the device manager (e.g., COM29)</p>
+</li>
 </ul>
-<p>Example for windows:</p>
+<p>Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:</p>
 <pre tabindex="0"><code>buzzloader.exe --dev=COM29 --hex=BZ-firmware-v7.1.6969.hex
-</code></pre>
+</code></pre><p>Just ignore a800&hellip;ERROR[50] error message, it&rsquo;s a known issue and the firmware is updated correctly.</p>
+<pre tabindex="0"><code>Writing page 41 row 331, a580...OK
+Writing page 41 row 332, a600...OK
+Writing page 41 row 333, a680...OK
+Writing page 41 row 334, a700...OK
+Writing page 41 row 335, a780...OK
+Erasing page 42, a800...ERROR [50]
+
+Error updating firmware :(
+</code></pre><p>Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you&rsquo;re all set! You should now have the latest firmware installed.</p>
+<p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
+<h3 id="buzzpirat-firmware-for-bpv3-hardware">Buzzpirat firmware for BPv3 hardware</h3>
+<p>For each firmware version, we also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<p>So, users with the Bus Pirate v3 hardware can benefit from Buzzpirat features:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/</a></li>
+</ul>
+<h3 id="old--legacy-bpv3-firmware">OLD &amp; legacy BPv3 firmware</h3>
+<p>Any firmware and bootloader from the original Bus Pirate v3 will work well with Buzzpirat. Here are some that I have tested.</p>
+<p>4.5 Bootloader:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-bootloader-upgrade-v4xtov4.5_Aug-2023_USBEprom.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-bootloader-upgrade-v4xtov4.5_Aug-2023_USBEprom.hex</a></li>
+</ul>
+<p>Last community firmware:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex</a></li>
+</ul>
+<hr>
+<p>4.4 Bootloader:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-Bootloader-v4.4.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-Bootloader-v4.4.hex</a></li>
+</ul>
+<p>6.3-r2151 Firmware:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v6.3-r2151.hex">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v6.3-r2151.hex</a></li>
+</ul>
+
 </div>
 </div>
 
