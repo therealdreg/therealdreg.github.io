@@ -4,6 +4,9 @@ description: How to update your Buzzpirat
 weight: 1
 ---
 
+{{< alert color="warning" title="Warning" >}}
+Do not install this firmware on the Bus Pirate v3. Please refer to the lower section of this page for compatible firmware options.{{< /alert >}}
+
 Download the last firmware from this page: 
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
 
