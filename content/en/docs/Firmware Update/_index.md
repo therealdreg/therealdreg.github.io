@@ -56,7 +56,7 @@ So, users with the Bus Pirate v3 hardware can benefit from Buzzpirat features:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp/
 
 
-To ensure compatibility with my firmware, you need to install bootloader 4.5
+To ensure compatibility with Buzzpirat firmware, you need to install bootloader 4.5
 
 More information on how to update it can be found here:
 - http://dangerousprototypes.com/forum/index.php?topic=8498.0
@@ -70,11 +70,14 @@ More information on how to update it can be found here:
 
 Any firmware and bootloader from the original Bus Pirate v3 will work well with Buzzpirat. Here are some that I have tested.
 
-4.5 Bootloader:
+4.5 Bootloader upgrade from v4x:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-bootloader-upgrade-v4xtov4.5_Aug-2023_USBEprom.hex
 
 Last community firmware:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm/BPv3-firmware-v7.1-JTAG_SAFE_1_Aug-2023_USBEprom.hex
+
+{{< alert title="Note" >}}This community firmware have a bug in the binary SPI mode and cause problems with flashrom
+{{< /alert >}}
 
 ----------------
 
