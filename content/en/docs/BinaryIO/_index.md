@@ -672,7 +672,7 @@ print(f"Result for ADC value {adc_buzz} (hex {hex(adc_buzz)}): {result}")
 ```
 
 Output:
-```
+```plaintext
 Combined ADC value (hex): 0x308
 Result for ADC value 776 (hex 0x308): 5.0015624999999995
 ```
@@ -696,7 +696,7 @@ int main() {
 ```
 
 Output:
-```
+```plaintext
 Combined ADC value (hex): 0x308
 Result for ADC value 776 (hex 0x308): 5.001562
 ```
@@ -711,14 +711,14 @@ Here is a Python Script for computing the PWM for Buzzpirat.
 For example, setup PWM with Period of 1msec, 50% duty cycle. Using 1:1 Prescaler.
 
 Modify only the 3 lines:
-```
+```plaintext
 Prescaler=1 # 1:1
 PwmPeriod=1e-3  # 0.1msec
 DutyCycleInPercent=.5 # 50%
 ```
 
 It will output:
-```
+```plaintext
 ======================
 PwmPeriod: 0.00100000000000000002 sec.
 Tcy: 0.00000006250000000000 sec.
@@ -848,7 +848,7 @@ int main() {
 ```
 
 Output:
-```
+```plaintext
 ======================
 PwmPeriod: 0.00100000000000000002 sec.
 Tcy: 0.00000006250000000000 sec.

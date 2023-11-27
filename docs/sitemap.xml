@@ -3,16 +3,15 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/docs/binaryio/</loc>
-    <lastmod>2023-11-26T10:43:48+01:00</lastmod>
+    <lastmod>2023-11-26T16:13:16+01:00</lastmod>
   </url><url>
     <loc>/docs/firmware-update/</loc>
-    <lastmod>2023-11-26T16:11:00+01:00</lastmod>
+    <lastmod>2023-11-26T16:13:16+01:00</lastmod>
   </url><url>
     <loc>/docs/how-to-use/</loc>
-    <lastmod>2023-11-26T10:43:48+01:00</lastmod>
+    <lastmod>2023-11-26T16:13:16+01:00</lastmod>
   </url><url>
-    <loc>/docs/overview/</loc>
-    <lastmod>2023-09-04T01:17:37+02:00</lastmod>
+    <loc>/docs/unbrick/</loc>
   </url><url>
     <loc>/docs/tasks/beds/</loc>
     <lastmod>2023-09-04T01:17:37+02:00</lastmod>
@@ -21,6 +20,9 @@
     <lastmod>2023-09-04T01:17:37+02:00</lastmod>
   </url><url>
     <loc>/docs/getting-started/</loc>
+    <lastmod>2023-09-04T01:17:37+02:00</lastmod>
+  </url><url>
+    <loc>/docs/overview/</loc>
     <lastmod>2023-09-04T01:17:37+02:00</lastmod>
   </url><url>
     <loc>/docs/examples/</loc>

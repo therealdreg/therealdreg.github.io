@@ -161,17 +161,17 @@ This is the multi-page printable view of this section.
 </li>
 </ul>
 <p>Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:</p>
-<pre tabindex="0"><code>buzzloader.exe --dev=COM29 --hex=BZ-firmware-v7.1.6969.hex
-</code></pre><p>Just ignore a800&hellip;ERROR[50] error message, it&rsquo;s a known issue and the firmware is updated correctly.</p>
-<pre tabindex="0"><code>Writing page 41 row 331, a580...OK
-Writing page 41 row 332, a600...OK
-Writing page 41 row 333, a680...OK
-Writing page 41 row 334, a700...OK
-Writing page 41 row 335, a780...OK
-Erasing page 42, a800...ERROR [50]
-
-Error updating firmware :(
-</code></pre><p>Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you&rsquo;re all set! You should now have the latest firmware installed.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>buzzloader.exe --dev=COM29 --hex=BZ-firmware-v7.1.6969.hex
+</span></span></code></pre></div><p>Just ignore a800&hellip;ERROR[50] error message, it&rsquo;s a known issue and the firmware is updated correctly.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Writing page 41 row 331, a580...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 332, a600...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 333, a680...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 334, a700...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 335, a780...OK
+</span></span><span style="display:flex;"><span>Erasing page 42, a800...ERROR [50]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Error updating firmware :(
+</span></span></code></pre></div><p>Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you&rsquo;re all set! You should now have the latest firmware installed.</p>
 <p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
 <hr>
 <h2 id="buzzpirat-firmware-for-bpv3-hardware">Buzzpirat firmware for BPv3 hardware</h2>
@@ -190,7 +190,7 @@ Error updating firmware :(
 <div class="alert alert-warning" role="alert">
 <h4 class="alert-heading">Warning</h4>
 
-    BOOTLOADER UPDATE IS RISKY, YOU COULD BRICK YOUR BUS PIRATE, AND I AM NOT RESPONSIBLE FOR ANY DAMAGES.
+    BOOTLOADER UPDATE IS RISKY, YOU COULD BRICK YOUR BUS PIRATE, AND I AM NOT RESPONSIBLE FOR ANY DAMAGES. LEARN HOW TO <a href="/docs/unbrick/">UNBRICK</a>
 
 </div>
 

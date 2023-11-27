@@ -901,9 +901,9 @@ Note: there may be garbage data between the 0x01 reply and the version informati
 </span></span><span style="display:flex;"><span><span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_buzz</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#0000cf;font-weight:bold">1024</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">6.6</span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Result for ADC value </span><span style="color:#4e9a06">{</span><span style="color:#000">adc_buzz</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> (hex </span><span style="color:#4e9a06">{</span><span style="color:#204a87">hex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">): </span><span style="color:#4e9a06">{</span><span style="color:#000">result</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
 </span></span></code></pre></div><p>Output:</p>
-<pre tabindex="0"><code>Combined ADC value (hex): 0x308
-Result for ADC value 776 (hex 0x308): 5.0015624999999995
-</code></pre><h3 id="c">C</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Combined ADC value (hex): 0x308
+</span></span><span style="display:flex;"><span>Result for ADC value 776 (hex 0x308): 5.0015624999999995
+</span></span></code></pre></div><h3 id="c">C</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stdio.h&gt;</span><span style="color:#8f5902;font-style:italic">
 </span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
 </span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
@@ -919,31 +919,31 @@ Result for ADC value 776 (hex 0x308): 5.0015624999999995
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>Output:</p>
-<pre tabindex="0"><code>Combined ADC value (hex): 0x308
-Result for ADC value 776 (hex 0x308): 5.001562
-</code></pre><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Combined ADC value (hex): 0x308
+</span></span><span style="display:flex;"><span>Result for ADC value 776 (hex 0x308): 5.001562
+</span></span></code></pre></div><hr>
 <h2 id="pwm-computation">PWM Computation</h2>
 <h3 id="python-3-1">Python 3</h3>
 <p>Here is a Python Script for computing the PWM for Buzzpirat.</p>
 <p>For example, setup PWM with Period of 1msec, 50% duty cycle. Using 1:1 Prescaler.</p>
 <p>Modify only the 3 lines:</p>
-<pre tabindex="0"><code>Prescaler=1 # 1:1
-PwmPeriod=1e-3  # 0.1msec
-DutyCycleInPercent=.5 # 50%
-</code></pre><p>It will output:</p>
-<pre tabindex="0"><code>======================
-PwmPeriod: 0.00100000000000000002 sec.
-Tcy: 0.00000006250000000000 sec.
-Prescaler: 1
-PR2: 0x3e7f = 15999
-OCR: 0x1f3f = 7999
-5 Byte Setup:
-1st Byte: 0x00
-2nd Byte: 0x1f
-3rd Byte: 0x3f
-4th Byte: 0x3e
-5th Byte: 0x7f
-</code></pre><p>Use the 5byte setup to set the PWM.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Prescaler=1 # 1:1
+</span></span><span style="display:flex;"><span>PwmPeriod=1e-3  # 0.1msec
+</span></span><span style="display:flex;"><span>DutyCycleInPercent=.5 # 50%
+</span></span></code></pre></div><p>It will output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>======================
+</span></span><span style="display:flex;"><span>PwmPeriod: 0.00100000000000000002 sec.
+</span></span><span style="display:flex;"><span>Tcy: 0.00000006250000000000 sec.
+</span></span><span style="display:flex;"><span>Prescaler: 1
+</span></span><span style="display:flex;"><span>PR2: 0x3e7f = 15999
+</span></span><span style="display:flex;"><span>OCR: 0x1f3f = 7999
+</span></span><span style="display:flex;"><span>5 Byte Setup:
+</span></span><span style="display:flex;"><span>1st Byte: 0x00
+</span></span><span style="display:flex;"><span>2nd Byte: 0x1f
+</span></span><span style="display:flex;"><span>3rd Byte: 0x3f
+</span></span><span style="display:flex;"><span>4th Byte: 0x3e
+</span></span><span style="display:flex;"><span>5th Byte: 0x7f
+</span></span></code></pre></div><p>Use the 5byte setup to set the PWM.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#!/usr/bin/env python3</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#39;&#39;&#39;
@@ -1050,19 +1050,19 @@ OCR: 0x1f3f = 7999
 </span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
 </span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
 </span></span></code></pre></div><p>Output:</p>
-<pre tabindex="0"><code>======================
-PwmPeriod: 0.00100000000000000002 sec.
-Tcy: 0.00000006250000000000 sec.
-Prescaler: 1
-PR2: 0x3e7f = 15999
-OCR: 0x1f3f = 7999
-5 Byte Setup:
-1st Byte: 0x00
-2nd Byte: 0x1f
-3rd Byte: 0x3f
-4th Byte: 0x3e
-5th Byte: 0x7f
-</code></pre>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>======================
+</span></span><span style="display:flex;"><span>PwmPeriod: 0.00100000000000000002 sec.
+</span></span><span style="display:flex;"><span>Tcy: 0.00000006250000000000 sec.
+</span></span><span style="display:flex;"><span>Prescaler: 1
+</span></span><span style="display:flex;"><span>PR2: 0x3e7f = 15999
+</span></span><span style="display:flex;"><span>OCR: 0x1f3f = 7999
+</span></span><span style="display:flex;"><span>5 Byte Setup:
+</span></span><span style="display:flex;"><span>1st Byte: 0x00
+</span></span><span style="display:flex;"><span>2nd Byte: 0x1f
+</span></span><span style="display:flex;"><span>3rd Byte: 0x3f
+</span></span><span style="display:flex;"><span>4th Byte: 0x3e
+</span></span><span style="display:flex;"><span>5th Byte: 0x7f
+</span></span></code></pre></div>
 </div>
 </div>
 

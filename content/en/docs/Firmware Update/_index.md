@@ -24,12 +24,12 @@ Download the last buzzloader app (There are versions available for Windows, Linu
 - check for the new COM port assignment in the device manager (e.g., COM29)
 
 Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:
-```
+```plaintext
 buzzloader.exe --dev=COM29 --hex=BZ-firmware-v7.1.6969.hex
 ```
 
 Just ignore a800...ERROR[50] error message, it's a known issue and the firmware is updated correctly.
-```
+```plaintext
 Writing page 41 row 331, a580...OK
 Writing page 41 row 332, a600...OK
 Writing page 41 row 333, a680...OK
@@ -62,7 +62,7 @@ More information on how to update it can be found here:
 - http://dangerousprototypes.com/forum/index.php?topic=8498.0
 
 
-{{< alert color="warning" title="Warning" >}}BOOTLOADER UPDATE IS RISKY, YOU COULD BRICK YOUR BUS PIRATE, AND I AM NOT RESPONSIBLE FOR ANY DAMAGES.{{< /alert >}}
+{{< alert color="warning" title="Warning" >}}BOOTLOADER UPDATE IS RISKY, YOU COULD BRICK YOUR BUS PIRATE, AND I AM NOT RESPONSIBLE FOR ANY DAMAGES. LEARN HOW TO [UNBRICK]({{< ref "/Unbrick" >}}){{< /alert >}}
 
 ----------------
 

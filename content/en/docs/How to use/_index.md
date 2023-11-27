@@ -13,7 +13,7 @@ Syntax is used to interact with a device connected over a bus. Commands are most
 
 Most menus have a default option shown in () before the prompt:
 
-```
+```plaintext
 Output type:
 1. High-Z outputs (H=input, L=GND)
 2. Normal outputs (H=Vcc, L=GND)
@@ -49,7 +49,7 @@ The Buzzpirat understands some VT-100 (ANSI C0) terminal emulation.
 
 Print a help screen with all available menu and syntax options in the current firmware and hardware.
 
-```
+```plaintext
 HiZ>?
  General                                        Protocol interaction
  ---------------------------------------------------------------------------
@@ -82,7 +82,7 @@ HiZ>
 
 The information menu displays the hardware, firmware, and microcontroller version.
 
-```
+```plaintext
 HiZ> i
 Buzzpirat v3.5 <<<hardware version
 Community Firmware v7.1 - buzzpirat.com by Dreg LASTDEV [HiZ 1-WIRE UART I2C SPI 2WIRE 3WIRE KEYB LCD PIC DIO] Bootloader v4.5 <<<firmware and bootloader version, project webpage
@@ -94,7 +94,7 @@ HiZ>
 
 If a bus mode is configured additional information about the configuration options is printed.
 
-```
+```plaintext
 *----------*
 POWER SUPPLIES OFF
 Voltage monitors: 5V: 0.0 | 3.3V: 0.0 | VPULLUP: 0.0 |
@@ -113,7 +113,7 @@ Select a bus mode. The command resets the Buzzpirat and immediately disables all
 
 The default mode is HiZ, a safe mode with all pins set to high-impedance and all peripherals disabled.
 
-```
+```plaintext
 HiZ>m
 1. HiZ
 2. 1-WIRE
@@ -134,7 +134,7 @@ x. exit(without change)
 ### 'h' Command history
 
 The previous 10 commands can be replayed from the command history menu.
-```
+```plaintext
 SPI> h
 1. h
 2. [10 r:3]
@@ -153,7 +153,7 @@ SPI>
 ### 'c'/'C' Toggle AUX control between AUX and CS/TMS pins
 
 Sometimes it's useful to control the CS pin from the user terminal. The c/C configures the a/A/@ commands to control the AUX or CS pins.
-```
+```plaintext
 3WIRE> c
 a/A/@ controls AUX pin
 3WIRE> C
@@ -163,7 +163,7 @@ a/A/@ controls CS/TMS pin
 
 ### 'l'/'L' Set MSB/LSB first in applicable modes
 The l/L command determines the bit order for reading and writing bytes in some bus modes. The bitorder command is available in all modes
-```
+```plaintext
 3WIRE> l
 MSB set: MOST sig bit first
 3WIRE> L
@@ -176,7 +176,7 @@ MSB set: LEAST sig bit first
 The Buzzpirat can display values as hexadecimal, decimal, binary, and a raw ASCII byte. Change the setting in the data display format menu (o). The default display format is HEX.
 
 The RAW display mode sends values to the terminal as raw byte values without any text conversion. This is useful for ASCII serial interfaces. It can also be used to speed up the display of bus sniffers and other high-speed functions where converting raw bytes to text takes too much time. Adjust the display format in your serial terminal to see the raw values as HEX/DEC/BIN.
-```
+```plaintext
 HiZ> o
 1. HEX
 2. DEC
@@ -194,7 +194,7 @@ Adjust the speed of the serial port facing the computer (and USB->serial convert
 
 After choosing a speed you must adjust the serial terminal and press space to continue. The Buzzpirat will pause until the space key is pressed to verify that the terminal speed is correct.
 
-```
+```plaintext
 (9)> 10
 Enter raw value for BRG
 
@@ -204,14 +204,14 @@ Space to continue
 HiZ>
 ```
 
-There is an option to set a custom baud rate with a raw BRG value. The value can be calculated according to the datasheet or with a utility (key constants: PIC24, 32MHz/16MIPS, BRGH=1): https://github.com/therealdreg/buzzpirat/tree/main/bin/PicBaud.exe
+There is an option to set a custom baud rate with a raw BRG value. The value can be calculated according to the datasheet or with a utility (key constants: PIC24, 32MHz/16MIPS, BRGH=1): https://github.com/therealdreg/buzzpirat/tree/main/bin/picbaud/
 
 230400 baud is '16' (2.2% error)
 460800 baud is '8' (3.3% error)
 921600 baud is '3' (8.51% error)
 One thing to note is that on some early PIC revisions (A3) the UART is weird and the exact values won't work. On these chips try a value +/-1.
 
-```
+```plaintext
 HiZ> b
 Set serial port speed: (bps)
 1. 300
@@ -235,7 +235,7 @@ HiZ>
 
 Perform a hardware self-test. Requires jumpers between +5 and Vpu, +3.3 and ADC.
 
-```
+```plaintext
 HiZ> ~
 Disconnect any devices
 Connect (Vpu to +5V) and (ADC to +3.3V)
@@ -245,7 +245,7 @@ Space to continue
 ### '#' Reset
 Reset the Buzzpirat. 
 
-```
+```plaintext
 HiZ>#
 RESET
 
@@ -261,7 +261,7 @@ HiZ>
 
 Bootloader v4.5 will respond with a version string if a key is pressed while it's active.
 
-```
+```plaintext
 HiZ> $
 Are you sure? y
 BOOTLOADER
@@ -278,7 +278,7 @@ BL4+BL4+
 
 Toggle the switchable 1.8volt, 2.5volt, 3.3volt and 5.0volt power supplies with the w/W command. Capital 'W' enables the supplies, lowercase 'w' disables them. The power supplies on the Buzzpirat can supply up to 300mA
 
-```
+```plaintext
 1-WIRE> w
 POWER SUPPLIES OFF
 1-WIRE> W
@@ -298,7 +298,7 @@ The third line shows the current direction of each pin. I is an input pin, O is 
 
 The fourth line shows the current state of each pin. A voltage measurement is displayed for analog pins. The current pin reading, H high and L low, is printed for each digital pins.
 
-```
+```plaintext
 I2C>v
 Pinstates:
 1.(BR)  2.(RD)  3.(OR)  4.(YW)  5.(GN)  6.(BL)  7.(PU)  8.(GR)  9.(WT)  0.(Blk)
@@ -321,7 +321,7 @@ The on-board pull-up resistors must be powered through the Vpullup pin of the IO
 
 Pull-up resistors are generally used with open collector/open drain bus types. A warning is displayed when the pull-ups are enabled if the Buzzpirat is configured for normal pin output.
 
-```
+```plaintext
 I2C>P
 Pull-up resistors ON
 I2C>
@@ -331,7 +331,7 @@ I2C>
 
 Measures frequency from 0Hz to 40MHz on the AUX pin, the method is an actual 1 second tick count. If the frequency is lower than a few MHz, the Buzzpirat does an 'autorange' and measures the frequency again for an additional second.
 
-```
+```plaintext
 2WIRE> f
 Frequency on AUX pin: autorange 50,283 Hz
 2WIRE>
@@ -343,7 +343,7 @@ Enable the frequency generator with g, then set frequency and duty cycle. Freque
 
 Note that the resolution at 4MHz is only 1 bit. Anything other than 50% duty cycle will be 100% off or 100% on.
 
-```
+```plaintext
 2WIRE> g
 1KHz-4,000KHz PWM/frequency generator
 Frequency in KHz
@@ -360,7 +360,7 @@ PWM disabled
 
 S positions the servo arm to the desired angle, 0-180 degrees. The servo value can be updated as needed, press enter or x to exit. Use 'S' or 'g' again to disable the servo.
 
-```
+```plaintext
 1-WIRE>S
 Position in degrees
 (90)>20
@@ -385,7 +385,7 @@ Servo active
 
 Base conversion command, available in all modes. Press '=' and enter any byte value to see the HEX/DEC/BIN equivalent. Firmware v2.1+
 
-```
+```plaintext
 2WIRE> =0b110
 0x06 = 6 = 0b00000110
 2WIRE> =0xa
@@ -399,7 +399,7 @@ Base conversion command, available in all modes. Press '=' and enter any byte va
 
 Reverse bit order in byte X. Displays the HEX/DEC/BIN value of the reversed byte.
 
-```
+```plaintext
 I2C> |0b10101010
 0x55 = 85 = 0b01010101
 I2C> |0b10000000
@@ -412,7 +412,7 @@ I2C>
 ### 's' BASIC script engine
 Simple BASIC scripts can automate repetitive and tedious tasks.
 
-```
+```plaintext
 2WIRE> s
 2WIRE(BASIC)> list
 
@@ -429,7 +429,7 @@ A capital D takes continuous measurements from the voltage probe, press any key 
 
 The Buzzpirat voltage probe can measure up to 6.0volts (max 6.6volts, but with some margin for error).
 
-```
+```plaintext
 HiZ> d
 VOLTAGE PROBE: 3.31V
 HiZ> D
@@ -444,7 +444,7 @@ The axillary pin is a general purpose digital pin that can be controlled from th
 
 a/A/@ can also be used to control the CS pin using the 'c'/'C' commands.
 
-```
+```plaintext
 UART> A
 AUX HIGH
 UART> a
@@ -459,7 +459,7 @@ Macros perform complex actions, like scanning for I2C addresses, interrogating a
 
 
 ### (0) List mode macros
-```
+```plaintext
 I2C> (0)
 0.Macro menu
 1.7bit address search
@@ -470,7 +470,7 @@ I2C>
 Macro (0) always displays a list of macros available in the current bus mode.
 
 ### (#) Run macro
-```
+```plaintext
 I2C>(1)<<<I2C search macro
 Searching 7bit I2C address space.
 Found devices at:
@@ -481,7 +481,7 @@ I2C>
 Execute a macro by typing the macro number between ().
 
 ### <x= > Assign user macro
-```
+```plaintext
 I2C> <1=[0xa1 r:8]>
 I2C>
 ```
@@ -489,7 +489,7 @@ I2C>
 5 user macros can be stored to automate common commands. Each position can store 32 chars (including space).
 
 ### <0> List user macros
-```
+```plaintext
 I2C> <0>
 1. <[0xa1 r:8]>
 2. <>
@@ -502,7 +502,7 @@ I2C>
 User macro <0> lists the currently stored use macros.
 
 ### <#> Run user macro #
-```
+```plaintext
 I2C> <1>
 I2C> [0xa1 r:8]
 ```
@@ -513,7 +513,7 @@ Enter the macro number to recall the command. Press enter to execute.
 Bitwise commands are only available in certain bus modes.
 
 ### '^' Send one clock tick
-```
+```plaintext
 2WIRE> ^
 CLOCK TICK
 2WIRE>
@@ -523,7 +523,7 @@ Send one clock tick. ^:1…255 for multiple clock ticks.
 
 ### '/' or '\\' Toggle clock level high (/) and low (\\)
 
-```
+```plaintext
 2WIRE> /\
 CLOCK, 1
 CLOCK, 0
@@ -533,7 +533,7 @@ CLOCK, 0
 Set the clock signal high or low. Includes clock delay.
 
 ### '-' or '&#95;' Toggle data state high (-) and low ('&#95;')
-```
+```plaintext
 2WIRE> -_
 DATA OUTPUT, 1
 DATA OUTPUT, 0
@@ -543,7 +543,7 @@ DATA OUTPUT, 0
 Set the data signal high or low. Includes data setup delay
 
 ### '!' Read one bit with clock
-```
+```plaintext
 2WIRE> !
 READ BIT:
 0 *pin is now HiZ
@@ -555,7 +555,7 @@ Send one clock tick and read one bit from the bus.
 On a bus with a bi-directional data line (raw2wire, 1-Wire), the data pin is left as a high-impedance input after this command.
 
 ### '.' Read data pin state (no clock)
-```
+```plaintext
 2WIRE> .
 0 *pin is now HiZ
 2WIRE>
@@ -571,7 +571,7 @@ These commands actually manipulate the bus and interacts with chips. These comma
 
 ### '&#123;' or '&#91;' Bus start condition
 
-``` 
+```plaintext 
 I2C> [
 I2C START BIT
 I2C>
@@ -580,7 +580,7 @@ I2C>
 This command generally starts bus activity. In various modes it starts (I2C), selects (SPI), resets (1-wire), or opens (UART).
 
 ### ']' or '}' Bus stop condition
-```
+```plaintext
 SPI> ]
 CS DISABLED
 SPI>
@@ -589,7 +589,7 @@ SPI>
 This command generally stops bus activity. In various modes it stops (I2C), deselects (SPI), or closes (UART).
 
 ### 'r' Read byte
-```
+```plaintext
 I2C> r
 READ: 0x00
 I2C> r:3
@@ -600,7 +600,7 @@ I2C>
 r reads a byte from the bus. Use with the repeat command (r:1…255) for bulk reads.
 
 ### 0b01 Write this binary value
-```
+```plaintext
 I2C> 0b1001
 WRITE: 0x09 ACK
 I2C> 0b1001:2
@@ -613,7 +613,7 @@ Enter a binary value to write it to the bus.
 Binary values are commonly used in electronics because the 1's and 0's correspond to register 'switches' that control various aspects of a device. Enter a binary number as 0b and then the bits. Padding 0's are not required, 0b00000001=0b1. Can be used with the repeat command.
 
 ### 0x01 Write this HEX value
-```
+```plaintext
 SPI> 0x15
 WRITE: 0x15
 SPI> 0xfa:5
@@ -626,7 +626,7 @@ Enter a HEX value to write it to the bus.
 Hexadecimal values are base 16 numbers that use a-f for the numbers 10-15, this format is very common in computers and electronics. Enter HEX values as shown above, precede the value with 0x or 0h. Single digit numbers don't need 0 padding, 0x01 and 0x1 are interpreted the same. A-F can be lower-case or capital letters.
 
 ### 0-255 Write this decimal value
-```
+```plaintext
 SPI> 18
 WRITE: 0x12
 SPI> 13:5
@@ -639,7 +639,7 @@ Any number not preceded by 0x, 0h, or 0b is interpreted as a decimal value and s
 Decimal values are common base 10 numbers. Just enter the value, no special designator is required.
 
 ### "abc" Write this ASCII string
-```
+```plaintext
 SPI> "abcd"
 WRITE: "abcd"
 SPI>
@@ -648,7 +648,7 @@ SPI>
 The ASCII values enclosed in "" are sent to the bus. 
 
 ### ' ' (space), Value delimiter
-```
+```plaintext
 SPI> [1 2,3rr]
 CS ENABLED
 WRITE: 0x01
@@ -663,7 +663,7 @@ SPI>
 Use a coma or space to separate numbers. Any combination is fine, no delimiter is required between non-number values.
 
 ### '&'/'%' Delay 1uS/MS
-```
+```plaintext
 SPI> &
 DELAY 1us
 SPI> &:10
@@ -678,7 +678,7 @@ SPI>
 & delays 1us, % delays 1ms. Use the repeat command for multiple delays.
 
 ### ':' Repeat (e.g. r:10)
-```
+```plaintext
 SPI> &:10
 DELAY 10us
 SPI> r:0b10
@@ -691,21 +691,21 @@ SPI>
 Many Buzzpirat commands can be repeated by adding ': ' to a command, followed by the number of times to repeat the command. To read five byte, enter r:5, etc. The repeat values can be HEX/DEC/BIN.
 
 ### ';' Partial (<16 bit) read/write (e.g. 0x55;3)
-```
+```plaintext
 2WIRE> 0xaa;4
 WRITE: 0x0A;4
 ```
 
 Will write 0x0a (4 bits) to the bus.
 
-```
+```plaintext
 2WIRE> 0xFFFF;12
 WRITE: 0x0FFF;12
 ```
 
 Will write 0x0FFF (12 bits) to the bus.
 
-```
+```plaintext
 2WIRE> 0x55:4;2
 WRITE: 0x01;2 0x01;2 0x1;2 0x01;2
 ```
@@ -814,7 +814,7 @@ UART is also known as the common PC serial port. The PC serial port operates at 
 UART mode requires special handling compared to the other Buzzpirat modes because data can arrive at any time. UART mode displays framing and parity errors, and automatically clears buffer overruns.
 
 ### Parity and framing errors
-```
+```plaintext
 READ: -p -f 0×40 <<<-p -f flag set
 ```
 
@@ -822,7 +822,7 @@ The Buzzpirat reports framing errors (-f) and parity errors (-p) when reading a 
 
 ### Buffer overrun errors
 The Buzzpirat hardware has a four-byte UART buffer that holds data until you read it with an ‘r’ command, or until it can be printed to the terminal if live display is enabled with ‘['. After it fills, new data will be lost. This is called a buffer overrun.
-```
+```plaintext
 READ: 0x40 *Bytes dropped*<<<bytes dropped error
 ```
 
@@ -847,7 +847,7 @@ Set the calculator with the Buzzpirat values: PIC24, 32MHz clock. Enter the desi
 
 #### Transparent UART bridge
 
-```
+```plaintext
 UART>(1)<<<macro 1, transparent UART bridge
 UART bridge. Space continues, anything else exits.
 Reset to exit.
@@ -864,7 +864,7 @@ Note that the Buzzpirat serial port UART facing the computer (the one that conne
 If you use the UART bridge with a computer program that opens the virtual serial port at a different baud rate, say 9600bps, the exchange will be garbled because the Buzzpirat expects 115200bps input from the computer. Adjust the computer-side serial speed first with the 'b' menu, then start the serial bridge at the desired speed.
 
 #### Live UART monitor
-```
+```plaintext
 UART>(2)<<<macro 2, UART monitor
 Raw UART input. Space to exit.
 UART>
@@ -902,7 +902,7 @@ I2C implementation does not currently support clock stretching.
 
 - **Speed:** I2C has three speed options:~50kHz, ~100kHz, and ~400kHz.
 
-```
+```plaintext
 HiZ>m<<<open the mode menu
 1. HiZ
 …
@@ -962,7 +962,7 @@ I2C chips respond to a 7bit address, so up to 128 devices can share the same two
 
 I connected the Buzzpirat to the 3EEPROM explorer board. The 7bit base address for the 24LC/AA I2C EEPROM is 101 0000 (0x50 in HEX). It answers at the write address 1010 0000 (0xA0) and the read address 1010 0001 (0xA1).
 
-```
+```plaintext
 I2C>(1)
 Searching 7bit I2C address space.
 Found devices at:
@@ -972,7 +972,7 @@ I2C>
 
 Macro 1 in the I2C library runs the address scanner. The scanner displays the raw addresses the chip acknowledged (0xA0, 0xA1), and the 7bit address equivalent (0x50) with write or read bit indicators (W/R). Datasheets usually list the 7bit address, but the 8bit value is more recognizable on a logic analyzer, snooper, debugger, etc.
 
-```
+```plaintext
 I2C> (1)
 Searching I2C address space. Found devices at:
 Warning: *Short or no pull-up
@@ -998,7 +998,7 @@ The I2C sniffer is implemented in software and seems to work up to 100kHz (firmw
 - +/- – ACK/NACK
 
 I2C start and stop bits are represented by the normal Buzzpirat syntax.
-```
+```plaintext
 I2C> (2)
 Sniffer
 Any key to exit
@@ -1017,7 +1017,7 @@ The I2C sniffer maximum speed is around 100kHz.
 
 ### ACK/NACK management
 These examples read and write from the RAM of a DS1307 RTC chip.
-```
+```plaintext
 I2C> [0xd1 rrrr]
 I2C START CONDITION
 WRITE: 0xD1 GOT ACK: YES<<<read address
@@ -1033,7 +1033,7 @@ I2C read operations must be ACKed or NACKed by the host (the Buzzpirat). The Buz
 
 The I2C library doesn't ACK/NACK a read operation until the following command. If the next command is a STOP (or START) the Buzzpirat sends a NACK bit. On all other commands it sends an ACK bit. The terminal output displays the (N)ACK status.
 
-```
+```plaintext
 I2C> [0xd1 r:5]
 I2C START CONDITION
 WRITE: 0xD1 GOT ACK: YES
@@ -1045,7 +1045,7 @@ I2C>
 
 Nothing changes for write commands because the slave ACKs to the Buzzpirat during writes. Here’s an example using the bulk read command (r:5).
 
-```
+```plaintext
 I2C>[0xd1 r <<<setup and read one byte
 I2C START CONDITION
 WRITE: 0xD1 GOT ACK: YES
@@ -1142,7 +1142,7 @@ Pin connections are the same as normal SPI mode. Connect the Buzzpirat clock to 
 
 SPI CS pin transitions are represented by the normal Buzzpirat syntax. The byte sniffed on the MISO pin is displayed inside `()`.
 
-```
+```plaintext
 SPI> (0)
 0.Macro menu
 1.Sniff CS low
@@ -1177,7 +1177,7 @@ Reset with the CS pin to clear garbage if needed
 Macros 10-15 change SPI settings without disabling the SPI module. These macros were added at a user's request, but they never reported if it worked. 
 
 
-```
+```plaintext
 SPI> (10)(11)(12)(13)(14)(15)
 SPI (spd ckp ske smp csl hiz)=( 3 0 1 0 1 1 )
 SPI (spd ckp ske smp csl hiz)=( 3 1 1 0 1 1 )
@@ -1387,14 +1387,14 @@ BASIC script mode is entered by typing 's' at the Buzzpirat commandline. You nee
 This isn't intended as a guide in learning how to program. General programming knowledge is assumed. Be aware that only basic checking is done and there are no warnings printed to the terminal (except those intended by the program with print statements). The editor is very rudimentary and does not check if the syntax is right. The language is loosely based on BASIC.
 
 Enter script mode:
-```
+```plaintext
 HiZ> s
 HiZ(BASIC)>
 ```
 
 ### NEW
 The memory is cleared by entering the NEW command.
-```
+```plaintext
 HiZ(BASIC)> new
 Ready.
 HiZ(BASIC)>
@@ -1404,7 +1404,7 @@ NOTE: With firmware before version 5.8 this command was mandatory before enterin
 
 ### LIST
 From the basic commandline programs can be entered. The basicinterpreter uses linenumbers followed by statements. After this the program can be listed by the command 'LIST'
-```
+```plaintext
 HiZ(BASIC)> list
 
 100 REM BASICDEMO
@@ -1417,7 +1417,7 @@ HiZ(BASIC)>
 ```
 ### RUN
 You can also run it with the command run:
-```
+```plaintext
 HiZ(BASIC)> run
 HELLO WORLD!
 HELLO AGAIN
@@ -1432,21 +1432,21 @@ A..Z (26) variables are possible. The variable are internally 16bit signed
 ### LET
 assigns a variable. Another variable, constants or functions that returns a value (e.g. RECEIVE)
 
-```
+```plaintext
 10 LET A=B+1
 ```
 
 ### IF {ifstat} THEN {truestat} ELSE {falsestat}
 Evaluate the {ifstat} if it evaluate to a value that is not zero {truestat} get executed otherwise {falsestat}.
 
-```
+```plaintext
 10 IF A=1 THEN GOTO 100 ELSE PRINT "A IS NOT 1"
 ```
 
 ### GOTO {line}
 jumps to line {line}, without remembering where it came from (see also GOSUB)
 
-```
+```plaintext
 10 GOTO 100
 20 PRINT "line 20"
 100 PRINT "line 100"
@@ -1457,7 +1457,7 @@ line 20 doesn't get executed
 
 ### GOSUB {line} and RETURN
 jumps to line {line}, executes from there till a RETURN and return to the line after the GOSUB.
-```
+```plaintext
 10 GOSUB 1000
 20 PRINT "line 20"
 30 END
@@ -1468,14 +1468,14 @@ Stack is 10 levels deep, so 10 nested gosubs are possible.
 
 ### REM {text}
 Puts a remark into the code, but gets skipped.
-```
+```plaintext
 10 REM A WONDERFULL PROGRAM
 ```
 Don't use REM between DATA statements!
 
 ### PRINT {text}
 Prints {text} to the terminal. Variable and statement can be mixed and are seperated with a ';'. A ';' at the end suppresses a newline.
-```
+```plaintext
 10 PRINT "A = ";A
 20 PRINT "RECEIVED: ";RECEIVE
 30 PRINT "B = ";
@@ -1485,14 +1485,14 @@ Prints {text} to the terminal. Variable and statement can be mixed and are seper
 ### INPUT {question},{var}
 Ask {question} and put the answer the user gave into {var}
 
-```
+```plaintext
 10 INPUT "A = ",A
 ```
 
 ### FOR {var}={minvalue} TO {maxvalue} {stats} NEXT {var}
 Assigns value {minvalue} to variable {var}, executes statements {stats} until NEXT is encountered. Variable {var} wil be increased by one, {stats} is again executed, until {var} has the value {maxvalue}.
 
-```
+```plaintext
 10 FOR A=1 TO 10
 20 PRINT "A = ";A
 30 NEXT A
@@ -1502,7 +1502,7 @@ for/nexts can be nested 4 deep.
 
 ### READ {var} & DATA {val1}, {val2}, .. {val1}, {val2},
 Read a value into variable {var}. The values are stored in DATA statements.
-```
+```plaintext
 10 READ A
 20 PRINT "A = ";A
 30 READ A
@@ -1513,42 +1513,42 @@ Read a value into variable {var}. The values are stored in DATA statements.
 ### START
 Same as the Buzzpirat '[' command
 
-```
+```plaintext
 10 START
 ```
 
 ### STOP
 Same as the Buzzpirat ']' command
 
-```
+```plaintext
 10 STOP
 ```
 
 ###  STARTR
 Same as the Buzzpirat '{' command
 
-```
+```plaintext
 10 STARTR
 ```
 
 ### STOPR
 Same as the Buzzpirat '}' command
 
-```
+```plaintext
 10 STOPR
 ```
 
 ### SEND {val/var}
 Sends a value {val} or variable {var} over the bus.
 
-```
+```plaintext
 10 SEND 10
 20 SEND A
 ```
 
 Some protocols send/receive at the same time. This is also possible:
 
-```
+```plaintext
 10 LET A=SEND 100
 20 PRINT "SEND 100 GOT ";A
 ```
@@ -1556,7 +1556,7 @@ Some protocols send/receive at the same time. This is also possible:
 ###  RECEIVE
 Receives data from the bus. With some protocols it returns value >255 to signal busstates (like no data, got ACK, etc), other protocols are 16 bit (like pic).
 
-```
+```plaintext
 10 LET A=RECEIVE
 20 PRINT "A = ";A
 ```
@@ -1564,19 +1564,19 @@ Receives data from the bus. With some protocols it returns value >255 to signal 
 ### CLK {val}
 Controls the CLK line, its behaviour depends on val; 0=low, 1=high, 2=pulse.
 
-```
+```plaintext
 10 CLK 2
 ```
 
 ### DAT {val}
 Controls the DAT line, its behaviour depends on val; 0=low, 1=high.
 
-```
+```plaintext
 10 DAT 0
 ```
 
 DAT value can also be read:
-```
+```plaintext
 10 LET A=DAT
 20 PRINT "A = ";A
 ```
@@ -1584,7 +1584,7 @@ DAT value can also be read:
 ### BITREAD
 Same as the Buzzpirat '!' command.
 
-```
+```plaintext
 10 LET A=BITREAD
 20 PRINT "A = ";A
 ```
@@ -1592,7 +1592,7 @@ Same as the Buzzpirat '!' command.
 ### ADC
 Reads the ADC. Value returned is 10bits (no conversion!).
 
-```
+```plaintext
 10 LET A=ADC
 20 PRINT "A = ";A
 ```
@@ -1600,13 +1600,13 @@ Reads the ADC. Value returned is 10bits (no conversion!).
 ### AUX {val}
 Controls the AUX line, its behaviour depends on val; 0=low, 1=high.
 
-```
+```plaintext
 10 AUX 1
 ```
 
 AUX value can also be read:
 
-```
+```plaintext
 10 LET A=AUX
 20 PRINT "A = ";A
 ```
@@ -1614,35 +1614,35 @@ AUX value can also be read:
 ### AUXPIN {val}
 Controls which pin is controlled by the AUX statement; 0=AUX; 1=CS
 
-```
+```plaintext
 10 AUXPIN 1
 ```
 
 ### PSU {val}
 Controls the onboard voltage regulators; 0=off, 1=on
 
-```
+```plaintext
 10 PSU 1
 ```
 
 ### PULLUP {val}
 Controls the onboard pullup resistors; 0=off, 1=on
 
-```
+```plaintext
 10 PULLUP 0
 ```
 
 ### DELAY {var}
 Delays {var} ms
 
-```
+```plaintext
 10 DELAY 100
 ```
 
 ### FREQ {var} & DUTY {var}
 Controls the onboard PWM generator. Frequency of 0 disables it. (same limits apply as regular PWM command ('g'))
 
-```
+```plaintext
 10 freq 100
 20 duty 25
 ```

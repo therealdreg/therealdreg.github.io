@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: What does your user need to know to try your project?
+description: I've purchased a Buzzpirat, but I have no knowledge of electronics or hardware hacking. What should I do now?
 categories: [Examples, Placeholders]
 tags: [test, docs]
 weight: 2
