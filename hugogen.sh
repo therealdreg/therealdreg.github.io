@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
 
 set -x
-hugo && cp docs/CNAME public/ && rm -rf docs/ && mv public/ docs/ && git add . && git commit -a -m 'commit'
+hugo &&\
+rm -rf docs/ &&\
+mv public/ docs/ &&\
+echo -n "buzzpirat.com" > docs/CNAME &&\
+git add . &&\
+git commit -a -m 'commit'

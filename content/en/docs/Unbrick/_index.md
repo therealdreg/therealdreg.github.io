@@ -89,7 +89,7 @@ If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex 
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
 
 If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/bpv3comp
+- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp
 
 Download the last picprog app from this page:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/picprog
@@ -132,3 +132,19 @@ HiZ>
 Now, [reinstall]({{< ref "/Firmware Update" >}}) the latest firmware on your Bus Pirate v3 (the one you used as a PIC programmer). 
 
 
+## Unbrick using clones like PICkit3.5
+
+Buy a PICkit3.5 from Aliexpress (an inexpensive PIC programmer).
+
+Total cost: ~30$
+
+Download the last pickit minus app from this page:
+- https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus
+
+If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:
+- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
+
+If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:
+- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp
+
+- Open the pickitminus app
