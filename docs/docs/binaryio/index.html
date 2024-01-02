@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.03c12646465b875f4669cf4ab1368b36.json"
+    data-offline-search-index-json-src="/offline-search-index.4e66f3959b5a67be3fde2e9d33cfdcff.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -112,7 +112,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.03c12646465b875f4669cf4ab1368b36.json"
+    data-offline-search-index-json-src="/offline-search-index.4e66f3959b5a67be3fde2e9d33cfdcff.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -213,12 +213,12 @@
       <ul>
         <li><a href="#spi-mode-key-points">SPI Mode, Key points</a></li>
         <li><a href="#spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</a></li>
-        <li><a href="#spi-b0000001x---cs-high-1-or-low-0">SPI b0000001x - CS high (1) or low (0)</a></li>
-        <li><a href="#spi-b000011xx---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx - Sniff SPI traffic when CS low(10)/all(01)</a></li>
-        <li><a href="#spi-b0001xxxx---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
-        <li><a href="#spi-b01100xxx---spi-speed">SPI b01100xxx - SPI speed</a></li>
-        <li><a href="#spi-b1000wxyz---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
+        <li><a href="#spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</a></li>
+        <li><a href="#spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</a></li>
+        <li><a href="#spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
+        <li><a href="#spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</a></li>
+        <li><a href="#spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
         <li><a href="#spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</a></li>
         <li><a href="#spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</a></li>
         <li><a href="#spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -234,9 +234,9 @@
         <li><a href="#i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</a></li>
         <li><a href="#i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</a></li>
         <li><a href="#i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</a></li>
-        <li><a href="#i2c-b0001xxxx--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#i2c-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#i2c-b011000xx---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
         <li><a href="#i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</a></li>
         <li><a href="#i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</a></li>
         <li><a href="#i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -246,13 +246,13 @@
       <ul>
         <li><a href="#uart-mode-key-points">UART Mode, Key points</a></li>
         <li><a href="#uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</a></li>
-        <li><a href="#uart-b0000001x--start-0stop1-echo-uart-rx">UART b0000001x – Start (0)/stop(1) echo UART RX</a></li>
+        <li><a href="#uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</a></li>
         <li><a href="#uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</a></li>
         <li><a href="#uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</a></li>
-        <li><a href="#uart-b0001xxxx--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#uart-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#uart-b011000xx---set-uart-speed">UART b011000xx - Set UART speed</a></li>
-        <li><a href="#uart-b100wxxyz--configure-uart-settings">UART b100wxxyz – Configure UART settings</a></li>
+        <li><a href="#uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</a></li>
+        <li><a href="#uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</a></li>
         <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
       </ul>
     </li>
@@ -264,8 +264,8 @@
         <li><a href="#1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</a></li>
         <li><a href="#1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</a></li>
         <li><a href="#1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</a></li>
-        <li><a href="#1-wire-b0001xxxx--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#1-wire-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
         <li><a href="#1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</a></li>
       </ul>
     </li>
@@ -273,20 +273,20 @@
       <ul>
         <li><a href="#raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</a></li>
         <li><a href="#raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</a></li>
-        <li><a href="#raw-wire--b0000001x---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x - I2C-style start (0) / stop (1) bit</a></li>
-        <li><a href="#raw-wire--b0000010x--cs-low-0--high-1">RAW-WIRE  b0000010x- CS low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</a></li>
+        <li><a href="#raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</a></li>
         <li><a href="#raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</a></li>
         <li><a href="#raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</a></li>
         <li><a href="#raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</a></li>
         <li><a href="#raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</a></li>
-        <li><a href="#raw-wire--b0000101x---clock-low-0--high-1">RAW-WIRE  b0000101x - Clock low (0) / high (1)</a></li>
-        <li><a href="#raw-wire--b0000110x---data-low-0--high-1">RAW-WIRE  b0000110x - Data low (0) / high (1)</a></li>
-        <li><a href="#raw-wire--b0001xxxx--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#raw-wire--b0010xxxx---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx - Bulk clock ticks, send 1-16 ticks</a></li>
-        <li><a href="#raw-wire--b0011xxxx---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
-        <li><a href="#raw-wire--b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#raw-wire--b011000xx---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
-        <li><a href="#raw-wire--b1000wxyz--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
+        <li><a href="#raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</a></li>
+        <li><a href="#raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
+        <li><a href="#raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
         <li><a href="#raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</a></li>
         <li><a href="#raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</a></li>
         <li><a href="#raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -316,8 +316,8 @@
     <li><a href="#main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
     <li><a href="#main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</a></li>
     <li><a href="#main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
-    <li><a href="#main-b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
-    <li><a href="#main-b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
     <li><a href="#adc-calculation">ADC Calculation</a>
       <ul>
         <li><a href="#python-3">Python 3</a></li>
@@ -394,12 +394,12 @@
       <ul>
         <li><a href="#spi-mode-key-points">SPI Mode, Key points</a></li>
         <li><a href="#spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</a></li>
-        <li><a href="#spi-b0000001x---cs-high-1-or-low-0">SPI b0000001x - CS high (1) or low (0)</a></li>
-        <li><a href="#spi-b000011xx---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx - Sniff SPI traffic when CS low(10)/all(01)</a></li>
-        <li><a href="#spi-b0001xxxx---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
-        <li><a href="#spi-b01100xxx---spi-speed">SPI b01100xxx - SPI speed</a></li>
-        <li><a href="#spi-b1000wxyz---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
+        <li><a href="#spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</a></li>
+        <li><a href="#spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</a></li>
+        <li><a href="#spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
+        <li><a href="#spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</a></li>
+        <li><a href="#spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
         <li><a href="#spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</a></li>
         <li><a href="#spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</a></li>
         <li><a href="#spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -415,9 +415,9 @@
         <li><a href="#i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</a></li>
         <li><a href="#i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</a></li>
         <li><a href="#i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</a></li>
-        <li><a href="#i2c-b0001xxxx--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#i2c-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#i2c-b011000xx---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
         <li><a href="#i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</a></li>
         <li><a href="#i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</a></li>
         <li><a href="#i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -427,13 +427,13 @@
       <ul>
         <li><a href="#uart-mode-key-points">UART Mode, Key points</a></li>
         <li><a href="#uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</a></li>
-        <li><a href="#uart-b0000001x--start-0stop1-echo-uart-rx">UART b0000001x – Start (0)/stop(1) echo UART RX</a></li>
+        <li><a href="#uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</a></li>
         <li><a href="#uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</a></li>
         <li><a href="#uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</a></li>
-        <li><a href="#uart-b0001xxxx--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#uart-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#uart-b011000xx---set-uart-speed">UART b011000xx - Set UART speed</a></li>
-        <li><a href="#uart-b100wxxyz--configure-uart-settings">UART b100wxxyz – Configure UART settings</a></li>
+        <li><a href="#uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</a></li>
+        <li><a href="#uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</a></li>
         <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
       </ul>
     </li>
@@ -445,8 +445,8 @@
         <li><a href="#1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</a></li>
         <li><a href="#1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</a></li>
         <li><a href="#1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</a></li>
-        <li><a href="#1-wire-b0001xxxx--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#1-wire-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
         <li><a href="#1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</a></li>
       </ul>
     </li>
@@ -454,20 +454,20 @@
       <ul>
         <li><a href="#raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</a></li>
         <li><a href="#raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</a></li>
-        <li><a href="#raw-wire--b0000001x---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x - I2C-style start (0) / stop (1) bit</a></li>
-        <li><a href="#raw-wire--b0000010x--cs-low-0--high-1">RAW-WIRE  b0000010x- CS low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</a></li>
+        <li><a href="#raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</a></li>
         <li><a href="#raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</a></li>
         <li><a href="#raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</a></li>
         <li><a href="#raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</a></li>
         <li><a href="#raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</a></li>
-        <li><a href="#raw-wire--b0000101x---clock-low-0--high-1">RAW-WIRE  b0000101x - Clock low (0) / high (1)</a></li>
-        <li><a href="#raw-wire--b0000110x---data-low-0--high-1">RAW-WIRE  b0000110x - Data low (0) / high (1)</a></li>
-        <li><a href="#raw-wire--b0001xxxx--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
-        <li><a href="#raw-wire--b0010xxxx---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx - Bulk clock ticks, send 1-16 ticks</a></li>
-        <li><a href="#raw-wire--b0011xxxx---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
-        <li><a href="#raw-wire--b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
-        <li><a href="#raw-wire--b011000xx---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
-        <li><a href="#raw-wire--b1000wxyz--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
+        <li><a href="#raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</a></li>
+        <li><a href="#raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
+        <li><a href="#raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
         <li><a href="#raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</a></li>
         <li><a href="#raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</a></li>
         <li><a href="#raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</a></li>
@@ -497,8 +497,8 @@
     <li><a href="#main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
     <li><a href="#main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</a></li>
     <li><a href="#main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
-    <li><a href="#main-b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
-    <li><a href="#main-b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
     <li><a href="#adc-calculation">ADC Calculation</a>
       <ul>
         <li><a href="#python-3">Python 3</a></li>
@@ -540,9 +540,9 @@
 <p>Once you have successfully entered the mode, you can use the following commands:</p>
 <h3 id="spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</h3>
 <p>Once in raw bitbang mode, send 0x01 to enter raw SPI mode. The Buzzpirat responds &lsquo;SPI1&rsquo;, where 1 is the raw SPI protocol version. Get the version string at any time by sending 0x01 again.</p>
-<h3 id="spi-b0000001x---cs-high-1-or-low-0">SPI b0000001x - CS high (1) or low (0)</h3>
+<h3 id="spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</h3>
 <p>Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.</p>
-<h3 id="spi-b000011xx---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx - Sniff SPI traffic when CS low(10)/all(01)</h3>
+<h3 id="spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</h3>
 <p>The SPI sniffer is implemented in hardware and should work up to 10MHz. It follows the configuration settings you entered for SPI mode. The sniffer can read all traffic, or filter by the state of the CS pin.</p>
 <ul>
 <li>[/] - CS enable/disable</li>
@@ -552,7 +552,7 @@
 <p>Send the SPI sniffer command to start the sniffer, the Buzzpirat responds 0x01 then sniffed data starts to flow. Send any byte to exit.</p>
 <p>If the sniffer can&rsquo;t keep with the SPI data, the MODE LED turns off and the sniff is aborted.</p>
 <p>The sniffer follows the output clock edge and output polarity settings of the SPI mode, but not the input sample phase.</p>
-<h3 id="spi-b0001xxxx---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</h3>
+<h3 id="spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</h3>
 <p>Bulk SPI allows direct byte reads and writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once, each returns a byte read from the SPI bus during the write.</p>
 <p>Note that 0000 indicates 1 byte because there&rsquo;s no reason to send 0. BP replies 0x01 to the bulk SPI command, and returns the value read from SPI after each data byte write.</p>
 <p>The way it goes together:</p>
@@ -561,7 +561,7 @@
 <li>xxxx = the number of bytes to read. 0000=1, 0001=2, etc, up to 1111=16</li>
 </ul>
 <p>If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
-<h3 id="spi-b0100wxyz---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</h3>
+<h3 id="spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
 
@@ -572,10 +572,10 @@
 
 </div>
 
-<h3 id="spi-b01100xxx---spi-speed">SPI b01100xxx - SPI speed</h3>
+<h3 id="spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</h3>
 <p>000=30kHz, 001=125kHz, 010=250kHz, 011=1MHz, 100=2MHz, 101=2.6MHz, 110=4MHz, 111=8MHz</p>
 <p>This command sets the SPI bus speed according to the values shown. Default startup speed is 000 (30kHz).</p>
-<h3 id="spi-b1000wxyz---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</h3>
+<h3 id="spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</h3>
 <p>This command configures the SPI settings. Options and start-up defaults are the same as the user terminal SPI mode. w= pin output HiZ(0)/3.3v(1), x=CKP clock idle phase (low=0), y=CKE clock edge (active to idle=1), z=SMP sample time (middle=0). The Buzzpirat responds 0x01 on success.</p>
 <p>Default raw SPI startup condition is 0010. HiZ mode configuration applies to the SPI pins and the CS pin, but not the AUX pin. See the PIC24FJ64GA002 datasheet and the SPI section of the PIC24 family manual for more about the SPI configuration settings.</p>
 <h3 id="spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</h3>
@@ -646,10 +646,10 @@
 <li>+/- - ACK/NACK</li>
 </ul>
 <p>Sniffed traffic is encoded according to the table above. Data bytes are escaped with the &lsquo;' character. Send a single byte to exit, Buzzpirat responds 0x01 on exit.</p>
-<h3 id="i2c-b0001xxxx--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx – Bulk I2C write, send 1-16 bytes (0=1byte!)</h3>
+<h3 id="i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</h3>
 <p>Bulk I2C allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0.</p>
 <p>BP replies 0x01 to the bulk I2C command. After each data byte the Buzzpirat returns the ACK (0x00) or NACK (0x01) bit from the slave device.</p>
-<h3 id="i2c-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<h3 id="i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
 
@@ -660,7 +660,7 @@
 
 </div>
 
-<h3 id="i2c-b011000xx---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
+<h3 id="i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
 <p>0110000x - Set I2C speed, 1=high (50kHz) 0=low (5kHz)</p>
 <p>The lower bits of the speed command determine the I2C bus speed. Binary mode currently uses the software I2C library, though it may be configurable in a future update. Startup default is high-speed. Buzzpirat responds 0x01 on success.</p>
 <h3 id="i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</h3>
@@ -714,7 +714,7 @@
 <p>Once you have successfully entered the mode, you can use the following commands:</p>
 <h3 id="uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</h3>
 <p>Once in binary UART mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘ART1’, where 1 is the raw UART protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
-<h3 id="uart-b0000001x--start-0stop1-echo-uart-rx">UART b0000001x – Start (0)/stop(1) echo UART RX</h3>
+<h3 id="uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</h3>
 <p>In binary UART mode the UART is always active and receiving. Incoming data is only copied to the USB side if UART RX echo is enabled. This allows you to configure and control the UART mode settings without random data colliding with response codes. UART mode starts with echo disabled. This mode has no impact on data transmissions.</p>
 <p>Responds 0x01. Clears buffer overrun bit.</p>
 <h3 id="uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</h3>
@@ -722,9 +722,9 @@
 <p>Use the UART manual or an online calculator to find the correct value (key values: fosc 32mHz, clock divider = 2, BRGH=1) . Buzzpirat responds 0x01 to each byte. Settings take effect immediately.</p>
 <h3 id="uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</h3>
 <p>Starts a transparent UART bridge using the current configuration. Unplug the Buzzpirat to exit.</p>
-<h3 id="uart-b0001xxxx--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx – Bulk UART write, send 1-16 bytes (0=1byte!)</h3>
+<h3 id="uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</h3>
 <p>Bulk UART allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. Buzzpirat replies 0x01 to each byte.</p>
-<h3 id="uart-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<h3 id="uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
 
@@ -735,10 +735,10 @@
 
 </div>
 
-<h3 id="uart-b011000xx---set-uart-speed">UART b011000xx - Set UART speed</h3>
+<h3 id="uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</h3>
 <p>Set the UART at a preconfigured speed value: 0000=300, 0001=1200, 0010=2400,0011=4800,0100=9600,0101=19200,0110=31250 (MIDI), 0111=38400,1000=57600,1010=115200</p>
 <p>Start default is 300 baud. Buzzpirat responds 0x01 on success. A read command is planned but not implemented in this version.</p>
-<h3 id="uart-b100wxxyz--configure-uart-settings">UART b100wxxyz – Configure UART settings</h3>
+<h3 id="uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</h3>
 <ul>
 <li>w=pin output HiZ(0)/3.3v(1)</li>
 <li>xx=databits and parity 8/N(0), 8/E(1), 8/O(2), 9/N(3)</li>
@@ -782,9 +782,9 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <h3 id="1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</h3>
 <h3 id="1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</h3>
 <p>Search macros are special 1-Wire procedures that determine device addresses. The command returns 0x01, and then each 8-byte 1-Wire address located. Data ends with 8 bytes of 0xff.</p>
-<h3 id="1-wire-b0001xxxx--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</h3>
+<h3 id="1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</h3>
 <p>Bulk write transfers a packet of xxxx+1 bytes to the 1-Wire bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.</p>
-<h3 id="1-wire-b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<h3 id="1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
 
@@ -815,9 +815,9 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Once you have successfully entered the mode, you can use the following commands:</p>
 <h3 id="raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</h3>
 <p>Once in binary RAW-WIRE  mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘RAW1’, where 1 is the raw RAW-WIRE  protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
-<h3 id="raw-wire--b0000001x---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x - I2C-style start (0) / stop (1) bit</h3>
+<h3 id="raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</h3>
 <p>Send an I2C start or stop bit. Responds 0x01. Useful for I2C-like 2-wire protocols, or building a custom implementation of I2C using the raw-wire library.</p>
-<h3 id="raw-wire--b0000010x--cs-low-0--high-1">RAW-WIRE  b0000010x- CS low (0) / high (1)</h3>
+<h3 id="raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</h3>
 <p>Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.</p>
 <h3 id="raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</h3>
 <p>Reads a byte from the bus, returns the byte. Writes 0xff to bus in 3-wire mode.</p>
@@ -827,18 +827,18 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 <p>Returns the state of the data input pin without sending a clock tick.</p>
 <h3 id="raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</h3>
 <p>Sends one clock tick (low-&gt;high-&gt;low). Responds 0x01.</p>
-<h3 id="raw-wire--b0000101x---clock-low-0--high-1">RAW-WIRE  b0000101x - Clock low (0) / high (1)</h3>
+<h3 id="raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</h3>
 <p>Set clock signal low or high. Responds 0x01.</p>
-<h3 id="raw-wire--b0000110x---data-low-0--high-1">RAW-WIRE  b0000110x - Data low (0) / high (1)</h3>
+<h3 id="raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</h3>
 <p>Set data signal low or high. Responds 0x01.</p>
-<h3 id="raw-wire--b0001xxxx--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx – Bulk transfer, send 1-16 bytes (0=1byte!)</h3>
+<h3 id="raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</h3>
 <p>Bulk write transfers a packet of xxxx+1 bytes to the bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte in 2wire mode, returns the bus read in 3wire (SPI) mode.</p>
-<h3 id="raw-wire--b0010xxxx---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx - Bulk clock ticks, send 1-16 ticks</h3>
+<h3 id="raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</h3>
 <p>Create bulk clock ticks on the bus. Note that 0000 indicates 1 clock tick because there’s no reason to send 0. BP replies 0x01.</p>
-<h3 id="raw-wire--b0011xxxx---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</h3>
+<h3 id="raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</h3>
 <p>Bulk bits sends xxxx+1 bits of the next byte to the bus. Up to 8 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.</p>
 <p>This is a PIC programming extension that only supports 2wire mode. All writes are most significant bit first, regardless of the mode set with the configuration command.</p>
-<h3 id="raw-wire--b0100wxyz--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<h3 id="raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
 <p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
 
 
@@ -849,9 +849,9 @@ Most 1-Wire mode commands are a single byte. Commands generally return 1 for suc
 
 </div>
 
-<h3 id="raw-wire--b011000xx---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
+<h3 id="raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
 <p>The last bit of the speed command determines the bus speed. Startup default is high-speed. Buzzpirat responds 0x01.</p>
-<h3 id="raw-wire--b1000wxyz--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</h3>
+<h3 id="raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</h3>
 <p>Configure the raw-wire mode settings. w= pin output type HiZ(0)/3.3v(1). x= protocol wires (0=2, 1=3), toggles between a shared input/output pin (raw2wire), and a separate input pin (raw3wire). y= bit order (0=MSB, 1=LSB). The Buzzpirat responds 0x01 on success.</p>
 <p>Default raw startup condition is 000z. HiZ mode configuration applies to the data pins and the CS pin, but not the AUX pin.</p>
 <h3 id="raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</h3>
@@ -1122,14 +1122,14 @@ Note: there may be garbage data between the 0x01 reply and the version informati
 <h2 id="main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</h2>
 <p>Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.</p>
 <hr>
-<h2 id="main-b010xxxxx---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</h2>
+<h2 id="main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</h2>
 <p>Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:</p>
 <ul>
 <li>AUX|MOSI|CLK|MISO|CS.</li>
 </ul>
 <p>The Buzzpirat responds to each direction update with a byte showing the current state of the pins, regardless of direction. This is useful for open collector I/O modes.</p>
 <hr>
-<h2 id="main-b1xxxxxxx---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</h2>
+<h2 id="main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</h2>
 <p>The lower 7bits of the command byte control the Buzzpirat pins and peripherals. Bitbang works like a player piano or bitmap. The Buzzpirat pins map to the bits in the command byte as follows:</p>
 <ul>
 <li>1|POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</li>

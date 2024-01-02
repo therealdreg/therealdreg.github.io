@@ -40,10 +40,10 @@ Once you have successfully entered the mode, you can use the following commands:
 ### SPI b00000001 (0x01) - Enter raw SPI mode, display version string
 Once in raw bitbang mode, send 0x01 to enter raw SPI mode. The Buzzpirat responds 'SPI1', where 1 is the raw SPI protocol version. Get the version string at any time by sending 0x01 again.
 
-### SPI b0000001x - CS high (1) or low (0)
+### SPI b0000001x (0x02-0x03) - CS high (1) or low (0)
 Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.
 
-### SPI b000011xx - Sniff SPI traffic when CS low(10)/all(01)
+### SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)
 
 The SPI sniffer is implemented in hardware and should work up to 10MHz. It follows the configuration settings you entered for SPI mode. The sniffer can read all traffic, or filter by the state of the CS pin.
 
@@ -58,7 +58,7 @@ If the sniffer can't keep with the SPI data, the MODE LED turns off and the snif
 
 The sniffer follows the output clock edge and output polarity settings of the SPI mode, but not the input sample phase.
 
-### SPI b0001xxxx - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)
+### SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)
 Bulk SPI allows direct byte reads and writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once, each returns a byte read from the SPI bus during the write.
 
 Note that 0000 indicates 1 byte because there's no reason to send 0. BP replies 0x01 to the bulk SPI command, and returns the value read from SPI after each data byte write.
@@ -69,17 +69,17 @@ The way it goes together:
 
 If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13
 
-### SPI b0100wxyz - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS
+### SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
 
 {{< alert title="Note" >}}CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts){{< /alert >}}
 
-### SPI b01100xxx - SPI speed
+### SPI b01100xxx (0x60-0x67) - SPI speed
 000=30kHz, 001=125kHz, 010=250kHz, 011=1MHz, 100=2MHz, 101=2.6MHz, 110=4MHz, 111=8MHz
 
 This command sets the SPI bus speed according to the values shown. Default startup speed is 000 (30kHz).
 
-### SPI b1000wxyz - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample
+### SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample
 This command configures the SPI settings. Options and start-up defaults are the same as the user terminal SPI mode. w= pin output HiZ(0)/3.3v(1), x=CKP clock idle phase (low=0), y=CKE clock edge (active to idle=1), z=SMP sample time (middle=0). The Buzzpirat responds 0x01 on success.
 
 Default raw SPI startup condition is 0010. HiZ mode configuration applies to the SPI pins and the CS pin, but not the AUX pin. See the PIC24FJ64GA002 datasheet and the SPI section of the PIC24 family manual for more about the SPI configuration settings.
@@ -169,18 +169,17 @@ Sniff traffic on an I2C bus.
 
 Sniffed traffic is encoded according to the table above. Data bytes are escaped with the '\' character. Send a single byte to exit, Buzzpirat responds 0x01 on exit.
 
-### I2C b0001xxxx – Bulk I2C write, send 1-16 bytes (0=1byte!)
+### I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)
 Bulk I2C allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0.
 
 BP replies 0x01 to the bulk I2C command. After each data byte the Buzzpirat returns the ACK (0x00) or NACK (0x01) bit from the slave device.
 
-### I2C b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS
+### I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
 
 {{< alert title="Note" >}}CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts){{< /alert >}}
 
-
-### I2C b011000xx - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz
+### I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz
 0110000x - Set I2C speed, 1=high (50kHz) 0=low (5kHz)
 
 The lower bits of the speed command determine the I2C bus speed. Binary mode currently uses the software I2C library, though it may be configurable in a future update. Startup default is high-speed. Buzzpirat responds 0x01 on success.
@@ -249,7 +248,7 @@ Once you have successfully entered the mode, you can use the following commands:
 Once in binary UART mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘ART1’, where 1 is the raw UART protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.
 
 
-### UART b0000001x – Start (0)/stop(1) echo UART RX
+### UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX
 In binary UART mode the UART is always active and receiving. Incoming data is only copied to the USB side if UART RX echo is enabled. This allows you to configure and control the UART mode settings without random data colliding with response codes. UART mode starts with echo disabled. This mode has no impact on data transmissions.
 
 Responds 0x01. Clears buffer overrun bit.
@@ -262,20 +261,20 @@ Use the UART manual or an online calculator to find the correct value (key value
 ### UART b00001111 (0x0F) - UART bridge mode (reset to exit)
 Starts a transparent UART bridge using the current configuration. Unplug the Buzzpirat to exit.
 
-### UART b0001xxxx – Bulk UART write, send 1-16 bytes (0=1byte!)
+### UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)
 Bulk UART allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. Buzzpirat replies 0x01 to each byte.
 
-### UART b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS
+### UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
 
 {{< alert title="Note" >}}CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts){{< /alert >}}
 
-### UART b011000xx - Set UART speed
+### UART b011000xx (0x60-0x63) - Set UART speed
 Set the UART at a preconfigured speed value: 0000=300, 0001=1200, 0010=2400,0011=4800,0100=9600,0101=19200,0110=31250 (MIDI), 0111=38400,1000=57600,1010=115200
 
 Start default is 300 baud. Buzzpirat responds 0x01 on success. A read command is planned but not implemented in this version.
 
-### UART b100wxxyz – Configure UART settings
+### UART b100wxxyz (0x80-0x9F) – Configure UART settings
 - w=pin output HiZ(0)/3.3v(1)
 - xx=databits and parity 8/N(0), 8/E(1), 8/O(2), 9/N(3)
 - y=stop bits 1(0)/2(1)
@@ -326,10 +325,10 @@ Reads a byte from the bus, returns the byte.
 ### 1-Wire b00001001 (0x09) - ALARM search macro (0xEC)
 Search macros are special 1-Wire procedures that determine device addresses. The command returns 0x01, and then each 8-byte 1-Wire address located. Data ends with 8 bytes of 0xff.
 
-### 1-Wire b0001xxxx – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)
+### 1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)
 Bulk write transfers a packet of xxxx+1 bytes to the 1-Wire bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.
 
-### 1-Wire b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS
+### 1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
 
 {{< alert title="Note" >}}CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts){{< /alert >}}
@@ -365,10 +364,10 @@ Once you have successfully entered the mode, you can use the following commands:
 ### RAW-WIRE  b00000001 (0x01) – Display mode version string, responds "RAW1"
 Once in binary RAW-WIRE  mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘RAW1’, where 1 is the raw RAW-WIRE  protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.
 
-### RAW-WIRE  b0000001x - I2C-style start (0) / stop (1) bit
+### RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit
 Send an I2C start or stop bit. Responds 0x01. Useful for I2C-like 2-wire protocols, or building a custom implementation of I2C using the raw-wire library.
 
-### RAW-WIRE  b0000010x- CS low (0) / high (1)
+### RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)
 Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.
 
 ### RAW-WIRE  b00000110 (0x06) - Read byte
@@ -383,34 +382,34 @@ Returns the state of the data input pin without sending a clock tick.
 ### RAW-WIRE  b00001001 (0x09) - Clock Tick
 Sends one clock tick (low->high->low). Responds 0x01.
 
-### RAW-WIRE  b0000101x - Clock low (0) / high (1)
+### RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)
 Set clock signal low or high. Responds 0x01.
 
-### RAW-WIRE  b0000110x - Data low (0) / high (1)
+### RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)
 Set data signal low or high. Responds 0x01.
 
 
-### RAW-WIRE  b0001xxxx – Bulk transfer, send 1-16 bytes (0=1byte!)
+### RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)
 Bulk write transfers a packet of xxxx+1 bytes to the bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte in 2wire mode, returns the bus read in 3wire (SPI) mode.
 
-### RAW-WIRE  b0010xxxx - Bulk clock ticks, send 1-16 ticks
+### RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks
 Create bulk clock ticks on the bus. Note that 0000 indicates 1 clock tick because there’s no reason to send 0. BP replies 0x01.
 
-### RAW-WIRE  b0011xxxx - Bulk bits, send 1-8 bits of the next byte (0=1bit!)
+### RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)
 Bulk bits sends xxxx+1 bits of the next byte to the bus. Up to 8 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.
 
 This is a PIC programming extension that only supports 2wire mode. All writes are most significant bit first, regardless of the mode set with the configuration command.
 
-### RAW-WIRE  b0100wxyz – Configure peripherals w=power, x=pullups, y=AUX, z=CS
+### RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS
 
 Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.
 
 {{< alert title="Note" >}}CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts){{< /alert >}}
 
-### RAW-WIRE  b011000xx - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz
+### RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz
 The last bit of the speed command determines the bus speed. Startup default is high-speed. Buzzpirat responds 0x01.
 
-### RAW-WIRE  b1000wxyz – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used
+### RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used
 Configure the raw-wire mode settings. w= pin output type HiZ(0)/3.3v(1). x= protocol wires (0=2, 1=3), toggles between a shared input/output pin (raw2wire), and a separate input pin (raw3wire). y= bit order (0=MSB, 1=LSB). The Buzzpirat responds 0x01 on success.
 
 Default raw startup condition is 000z. HiZ mode configuration applies to the data pins and the CS pin, but not the AUX pin.
@@ -635,7 +634,7 @@ Takes frequency measurement on AUX pin. Returns 4byte frequency count, most sign
 
 ----------------
 
-## MAIN b010xxxxx - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
+## MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS
 
 Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:
 - AUX|MOSI|CLK|MISO|CS.
@@ -644,7 +643,7 @@ The Buzzpirat responds to each direction update with a byte showing the current 
 
 ----------------
 
-## MAIN b1xxxxxxx - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS
+## MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS
 The lower 7bits of the command byte control the Buzzpirat pins and peripherals. Bitbang works like a player piano or bitmap. The Buzzpirat pins map to the bits in the command byte as follows:
 
 - 1|POWER|PULLUP|AUX|MOSI|CLK|MISO|CS
