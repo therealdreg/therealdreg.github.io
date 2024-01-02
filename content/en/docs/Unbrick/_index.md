@@ -147,4 +147,32 @@ If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex 
 If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp
 
-- Open the pickitminus app
+Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:
+
+![](pcktmins0.png)
+
+Open the pickitminus app
+
+![](pcktmins1.png)
+
+Go to Tools -> Download PICkit Operating System
+
+![](pcktmins2.png)
+
+Select .hex for pickit minus use
+
+![](pcktmins3.png)
+
+![](pcktmins4.png)
+
+Go to File -> Import Hex
+
+And select the Buzzpirat / Buspirate "bootloader + firmware" .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)
+
+![](pcktmins5.png)
+
+Click on Write
+
+![](pcktmins6.png)
+
+Done!
