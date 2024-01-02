@@ -7,6 +7,8 @@ weight: 1
 
 Have you tried updating the bootloader of Buzzpirat or Bus Pirate v3 and it doesn't work? Doesn't it even enter bootloader mode when bridging the PGD and PGC pins? Don't worry, there are several ways to fix it.
 
+{{< toc >}}
+
 ## Unbrick using another Bus Pirate v3
 
 The Bus Pirate v3 can be used as an inexpensive PIC programmer.
@@ -138,7 +140,7 @@ Buy a PICkit3.5 from Aliexpress (an inexpensive PIC programmer).
 
 Total cost: ~30$
 
-Download the last pickit minus app from this page:
+Download & install the last pickit minus app from this page:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus
 
 If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:
@@ -151,6 +153,8 @@ Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of
 
 ![](pcktmins0.png)
 
+Connect Buzzpirat / Buspirate & Pickit to PC USB
+
 Open the pickitminus app
 
 ![](pcktmins1.png)
@@ -158,6 +162,8 @@ Open the pickitminus app
 Go to Tools -> Download PICkit Operating System
 
 ![](pcktmins2.png)
+
+Make sure the PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002
 
 Select .hex for pickit minus use
 
@@ -176,3 +182,41 @@ Click on Write
 ![](pcktmins6.png)
 
 Done!
+
+Disconnect Buzzpirat / Buspirate & Pickit from PC USB
+
+## Unbrick using official MPLAB PICkit 5
+
+Buy a PICkit 5 from Microchip.
+
+Total cost: ~100$
+
+Download & install the last MPLAB X IDE from this page:
+
+https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide
+
+
+Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:
+
+![](mplabipe0.png)
+
+Connect Buzzpirat / Buspirate & Pickit to PC USB
+
+Open MPLAB IPE (included with MPLAB X IDE): 
+
+Select your Pickit Programmer, PIC24FJ64GA002 
+
+And click on Connect, after that check that the PICKIT & PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002:
+
+![](mplabipe1.png)
+
+Go to Browse and select the Buzzpirat / Buspirate "bootloader + firmware" .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)
+
+And click on Program
+
+![](mplabipe2.png)
+
+Done!
+
+Disconnect Buzzpirat / Buspirate & Pickit from PC USB
+

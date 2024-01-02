@@ -87,7 +87,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.eacd21faaa9a2b21554073af456e0420.json"
+    data-offline-search-index-json-src="/offline-search-index.ebbc66ac6673449faf2288db120a84cd.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -138,6 +138,20 @@ This is the multi-page printable view of this section.
 
 <div class="content">
       <p>Have you tried updating the bootloader of Buzzpirat or Bus Pirate v3 and it doesn&rsquo;t work? Doesn&rsquo;t it even enter bootloader mode when bridging the PGD and PGC pins? Don&rsquo;t worry, there are several ways to fix it.</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#unbrick-using-another-bus-pirate-v3">Unbrick using another Bus Pirate v3</a>
+      <ul>
+        <li><a href="#downgrade-your-bus-pirate-v3-firmware">Downgrade your Bus Pirate v3 firmware</a></li>
+        <li><a href="#connect-to-the-bus-pirate-v3-to-bricked-buzzpirat--bricked-bus-pirate-v3">Connect to the Bus Pirate v3 to Bricked Buzzpirat / Bricked Bus Pirate v3</a></li>
+        <li><a href="#burn-a-new-bootloader-and-firmware-to-the-bricked-device">Burn a new bootloader and firmware to the bricked device</a></li>
+      </ul>
+    </li>
+    <li><a href="#unbrick-using-clones-like-pickit35">Unbrick using clones like PICkit3.5</a></li>
+    <li><a href="#unbrick-using-official-mplab-pickit-5">Unbrick using official MPLAB PICkit 5</a></li>
+  </ul>
+</nav>
+
 <h2 id="unbrick-using-another-bus-pirate-v3">Unbrick using another Bus Pirate v3</h2>
 <p>The Bus Pirate v3 can be used as an inexpensive PIC programmer.</p>
 <p>Total cost: ~40$</p>
@@ -277,7 +291,7 @@ This is the multi-page printable view of this section.
 <h2 id="unbrick-using-clones-like-pickit35">Unbrick using clones like PICkit3.5</h2>
 <p>Buy a PICkit3.5 from Aliexpress (an inexpensive PIC programmer).</p>
 <p>Total cost: ~30$</p>
-<p>Download the last pickit minus app from this page:</p>
+<p>Download &amp; install the last pickit minus app from this page:</p>
 <ul>
 <li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus">https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus</a></li>
 </ul>
@@ -291,10 +305,12 @@ This is the multi-page printable view of this section.
 </ul>
 <p>Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:</p>
 <p><img src="pcktmins0.png" alt=""></p>
+<p>Connect Buzzpirat / Buspirate &amp; Pickit to PC USB</p>
 <p>Open the pickitminus app</p>
 <p><img src="pcktmins1.png" alt=""></p>
 <p>Go to Tools -&gt; Download PICkit Operating System</p>
 <p><img src="pcktmins2.png" alt=""></p>
+<p>Make sure the PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002</p>
 <p>Select .hex for pickit minus use</p>
 <p><img src="pcktmins3.png" alt=""></p>
 <p><img src="pcktmins4.png" alt=""></p>
@@ -304,6 +320,24 @@ This is the multi-page printable view of this section.
 <p>Click on Write</p>
 <p><img src="pcktmins6.png" alt=""></p>
 <p>Done!</p>
+<p>Disconnect Buzzpirat / Buspirate &amp; Pickit from PC USB</p>
+<h2 id="unbrick-using-official-mplab-pickit-5">Unbrick using official MPLAB PICkit 5</h2>
+<p>Buy a PICkit 5 from Microchip.</p>
+<p>Total cost: ~100$</p>
+<p>Download &amp; install the last MPLAB X IDE from this page:</p>
+<p><a href="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide">https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide</a></p>
+<p>Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:</p>
+<p><img src="mplabipe0.png" alt=""></p>
+<p>Connect Buzzpirat / Buspirate &amp; Pickit to PC USB</p>
+<p>Open MPLAB IPE (included with MPLAB X IDE):</p>
+<p>Select your Pickit Programmer, PIC24FJ64GA002</p>
+<p>And click on Connect, after that check that the PICKIT &amp; PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002:</p>
+<p><img src="mplabipe1.png" alt=""></p>
+<p>Go to Browse and select the Buzzpirat / Buspirate &ldquo;bootloader + firmware&rdquo; .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)</p>
+<p>And click on Program</p>
+<p><img src="mplabipe2.png" alt=""></p>
+<p>Done!</p>
+<p>Disconnect Buzzpirat / Buspirate &amp; Pickit from PC USB</p>
 
 </div>
 </div>
