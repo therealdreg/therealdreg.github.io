@@ -1,0 +1,1343 @@
+<!doctype html>
+<html itemscope itemtype="http://schema.org/WebPage" lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.110.0">
+<link rel="alternate" type="text/html" href="/docs/binaryio/_print/">
+<link rel="alternate" type="application/rss&#43;xml" href="/docs/binaryio/index.xml">
+<meta name="robots" content="index, follow">
+
+
+<link rel="shortcut icon" href="/favicons/favicon.ico" >
+<link rel="apple-touch-icon" href="/favicons/apple-touch-icon-180x180.png" sizes="180x180">
+<link rel="icon" type="image/png" href="/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/png" href="/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/favicons/android-36x36.png" sizes="36x36">
+<link rel="icon" type="image/png" href="/favicons/android-48x48.png" sizes="48x48">
+<link rel="icon" type="image/png" href="/favicons/android-72x72.png" sizes="72x72">
+<link rel="icon" type="image/png" href="/favicons/android-96x96.png" sizes="96x96">
+<link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
+<link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
+
+<title>Binary I/O | buzzpirat</title>
+<meta name="description" content="Binary I/O mod from dangerousprototypes">
+<meta property="og:title" content="Binary I/O" />
+<meta property="og:description" content="Binary I/O mod from dangerousprototypes" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/docs/binaryio/" /><meta property="og:site_name" content="buzzpirat" />
+<meta itemprop="name" content="Binary I/O">
+<meta itemprop="description" content="Binary I/O mod from dangerousprototypes"><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Binary I/O"/>
+<meta name="twitter:description" content="Binary I/O mod from dangerousprototypes"/>
+
+
+
+
+<link rel="preload" href="/scss/main.min.291c723daa8f2fb6b09f56ac9a2ca71406607a4268e1fe586dddad1a8583b4e7.css" as="style">
+<link href="/scss/main.min.291c723daa8f2fb6b09f56ac9a2ca71406607a4268e1fe586dddad1a8583b4e7.css" rel="stylesheet" integrity="">
+
+<script
+  src="https://code.jquery.com/jquery-3.6.3.min.js"
+  integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+  crossorigin="anonymous"></script>
+<script defer
+  src="https://unpkg.com/lunr@2.3.9/lunr.min.js"
+  integrity="sha384-203J0SNzyqHby3iU6hzvzltrWi/M41wOP5Gu+BiJMz5nwKykbkUx8Kp7iti0Lpli"
+  crossorigin="anonymous"></script>
+
+  </head>
+  <body class="td-section">
+    <header>
+      <nav class="td-navbar navbar-dark js-navbar-scroll">
+<div class="container-fluid flex-column flex-md-row">
+  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500" style="enable-background:new 0 0 500 500"><g><path style="fill:#fff" d="M116.8525 421.9722c-5.7041.0-10.3442-4.3127-10.3442-9.6129V88.183c0-5.3002 4.6401-9.6117 10.3442-9.6117H320.858c3.0347.0 9.3959.5498 11.7506 2.6302l.3545.3442 58.905 63.2912c2.3101 2.491 2.9202 8.4928 2.9202 11.3184v256.2039c0 5.3002-4.6407 9.6129-10.3436 9.6129H116.8525z"/><g><g><g><path style="fill:#767676" d="M384.4445 423.2066H116.852c-6.3839.0-11.5786-4.8658-11.5786-10.8474V88.1831c0-5.9804 5.1947-10.8461 11.5786-10.8461h204.0062c.377.0 9.2786.0329 12.568 2.9389l.3947.3833 58.9508 63.337c3.2135 3.4652 3.2514 11.7924 3.2514 12.1593v256.2036C396.0231 418.3408 390.8284 423.2066 384.4445 423.2066zM116.5079 411.9189c.0848.0278.1999.0531.3441.0531h267.5925c.1442.0.2581-.0253.3441-.0531V156.1556c-.0076-.9033-.3593-3.7347-.7034-5.0037l-57.6527-61.9416c-1.4651-.3176-4.4533-.6389-5.5742-.6389H116.852c-.143.0-.2594.024-.3441.0531V411.9189zm267.4533-261.149zM327.0321 89.371v.0013V89.371z"/></g></g></g><g><g><path style="fill:#5b7fc0" d="M189.0874 210.1754l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4473C177.5953 212.627 183.0601 210.1742 189.0874 210.1754zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 234.1722 197.0804 232.033z"/><path style="opacity:.3;fill:#fff" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/><g><defs><path id="SVGID_1_" d="M194.7376 237.6875c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 234.2399 196.1861 236.239 194.7376 237.6875z"/></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_2_);fill:#fff" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/><path style="opacity:.13;clip-path:url(#SVGID_2_);fill:#020202" d="M190.0704 225.0237c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 225.7247 191.9774 225.0237 190.0704 225.0237z"/></g><g><defs><path id="SVGID_3_" d="M189.0898 210.176c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 212.6276 183.0612 210.176 189.0898 210.176zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 236.239 197.0839 234.2399 197.0839 232.0372z"/></defs><clipPath id="SVGID_4_"><use xlink:href="#SVGID_3_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_4_);fill:#5b7fc0" d="M172.6595 215.6045c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8475-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 209.1953 176.6171 211.647 172.6595 215.6045z"/></g></g><rect x="198.8952" y="225.1043" style="fill:#5b7fc0" width="122.6266" height="13.8671"/></g><g><path style="fill:#d95140" d="M189.0874 155.7611l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.0249 2.454-11.4897 6.4116-15.4473C177.5953 158.2128 183.0601 155.7599 189.0874 155.7611zm7.993 21.8577c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.2508 181.7667 197.0816 179.758 197.0804 177.6188z"/><path style="opacity:.3;fill:#fff" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/><g><defs><path id="SVGID_5_" d="M194.7376 183.2733c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 179.8256 196.1861 181.8248 194.7376 183.2733z"/></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_6_);fill:#fff" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/><path style="opacity:.13;clip-path:url(#SVGID_6_);fill:#020202" d="M190.0704 170.6095c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9546.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.663-2.8588-6.116.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C193.7885 171.3104 191.9774 170.6095 190.0704 170.6095z"/></g><g><defs><path id="SVGID_7_" d="M189.0898 155.7617c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8066-21.8612-21.8613.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 158.2134 183.0612 155.7617 189.0898 155.7617zm7.9941 21.8613c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 181.8248 197.0839 179.8256 197.0839 177.623z"/></defs><clipPath id="SVGID_8_"><use xlink:href="#SVGID_7_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_8_);fill:#d95140" d="M172.6595 161.1903c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 154.7811 176.6171 157.2327 172.6595 161.1903z"/></g><rect x="198.8952" y="170.69" style="fill:#d95140" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#56a55c" d="M189.5379 264.6147l.0012-.0012c7.7751.0012 15.0294 4.1862 18.932 10.9235 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3304-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032-5.8394.0-11.3281-2.2733-15.458-6.4032-4.13-4.13-6.4032-9.6186-6.4056-15.4628.0012-6.0249 2.454-11.4897 6.4116-15.4472C178.0458 267.0663 183.5105 264.6135 189.5379 264.6147zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6538 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403C196.7013 290.6202 197.5321 288.6115 197.5309 286.4723z"/><path style="opacity:.3;fill:#fff" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/><g><defs><path id="SVGID_9_" d="M195.1881 292.1268c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.9989 7.9942-7.9941 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.5344 288.6792 196.6366 290.6783 195.1881 292.1268z"/></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_10_);fill:#fff" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/><path style="opacity:.13;clip-path:url(#SVGID_10_);fill:#020202" d="M190.5209 279.463c-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7446-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9941 2.3802-1e-4 4.616 1.0833 6.1218 2.8788C194.239 280.164 192.4279 279.463 190.5209 279.463z"/></g><g><defs><path id="SVGID_11_" d="M189.5403 264.6153c7.7763.0 15.0283 4.1826 18.926 10.9151 1.9201 3.3135 2.9377 7.0987 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8613-12.0547.0024-21.8636-9.8065-21.8612-21.8613.0-6.0285 2.4516-11.492 6.4116-15.452C178.0482 267.0669 183.5117 264.6153 189.5403 264.6153zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9941.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.6366 290.6783 197.5344 288.6792 197.5344 286.4765z"/></defs><clipPath id="SVGID_12_"><use xlink:href="#SVGID_11_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_12_);fill:#56a55c" d="M173.11 270.0439c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8613 12.0547.0024 21.8636-9.797 21.8613-21.8613.0024-3.8474-1.0151-7.6326-2.9353-10.9462-3.8977-6.7325-11.1497-10.9151-18.926-10.9151C182.5311 263.6346 177.0676 266.0863 173.11 270.0439z"/></g></g><rect x="199.3456" y="279.5436" style="fill:#56a55c" width="122.6266" height="13.8671"/></g><g><g><path style="fill:#f1bc42" d="M189.0874 318.7208l.0012-.0012c7.7751.0012 15.0295 4.1862 18.932 10.9234 1.9177 3.3159 2.9305 7.1011 2.9293 10.9378.0 5.8394-2.2733 11.3305-6.4032 15.4604-4.1288 4.1288-9.6186 6.4032-15.458 6.4032s-11.328-2.2733-15.458-6.4032-6.4032-9.6186-6.4056-15.4628c.0012-6.025 2.454-11.4897 6.4116-15.4472C177.5953 321.1724 183.0601 318.7196 189.0874 318.7208zm7.993 21.8576c.0012-1.4042-.3687-2.7868-1.063-3.9887-1.4293-2.4684-4.0833-3.9995-6.9299-4.0019-4.4077.0024-7.993 3.5877-7.993 7.993.0 2.1356.832 4.1431 2.3427 5.6539 1.5083 1.5083 3.5159 2.3403 5.6503 2.3415 2.1356.0 4.1443-.8308 5.6539-2.3403S197.0816 342.7176 197.0804 340.5784z"/><path style="opacity:.3;fill:#fff" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/><g><defs><path id="SVGID_13_" d="M194.7376 346.2329c-1.4461 1.4461-3.4452 2.3439-5.6479 2.3439-4.4077-.0024-7.9918-3.5865-7.9942-7.9942.0024-4.4125 3.5937-7.999 7.9942-7.9942 2.8443.0 5.497 1.5323 6.924 3.9983.6991 1.2067 1.0702 2.5881 1.0702 3.9959C197.0839 342.7853 196.1861 344.7844 194.7376 346.2329z"/></defs><clipPath id="SVGID_14_"><use xlink:href="#SVGID_13_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_14_);fill:#fff" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/><path style="opacity:.13;clip-path:url(#SVGID_14_);fill:#020202" d="M190.0704 333.5691c-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0011 1.9547.7088 3.7452 1.8782 5.1354-1.7447-1.4674-2.8575-3.6631-2.8588-6.1161.0024-4.4125 3.5936-7.999 7.9942-7.9942 2.3802-1e-4 4.616 1.0834 6.1218 2.8788C193.7885 334.2701 191.9774 333.5691 190.0704 333.5691z"/></g><g><defs><path id="SVGID_15_" d="M189.0898 318.7214c7.7763.0 15.0283 4.1826 18.926 10.915 1.9201 3.3136 2.9377 7.0988 2.9353 10.9462.0024 12.0643-9.8065 21.8636-21.8613 21.8612-12.0547.0024-21.8636-9.8065-21.8612-21.8612.0-6.0285 2.4516-11.4921 6.4116-15.452C177.5977 321.173 183.0612 318.7214 189.0898 318.7214zm7.9941 21.8612c0-1.4078-.3711-2.7892-1.0702-3.9959-1.4269-2.466-4.0797-3.9983-6.924-3.9983-4.4005-.0048-7.9918 3.5817-7.9942 7.9942.0024 4.4077 3.5865 7.9918 7.9942 7.9942 2.2027.0 4.2018-.8978 5.6479-2.3439C196.1861 344.7844 197.0839 342.7853 197.0839 340.5826z"/></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" style="overflow:visible"/></clipPath><path style="clip-path:url(#SVGID_16_);fill:#f1bc42" d="M172.6595 324.15c-3.96 3.96-6.4116 9.4235-6.4116 15.452-.0024 12.0547 9.8066 21.8636 21.8613 21.8612 12.0547.0024 21.8636-9.797 21.8613-21.8612.0024-3.8474-1.0151-7.6327-2.9353-10.9462-3.8977-6.7324-11.1497-10.9151-18.926-10.9151C182.0806 317.7407 176.6171 320.1924 172.6595 324.15z"/></g></g><rect x="198.8952" y="333.6497" style="fill:#f1bc42" width="122.6266" height="13.8671"/></g></g></svg></span><span class="navbar-brand__name">buzzpirat</span></a>
+  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="https://fr33project.org/buzz.php" target="_blank" rel="noopener"><span>Buy</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/"><span>Home</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about/"><span>About</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="/docs/"><span>Docs</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/blog/"><span>Blog</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat/discussions" target="_blank" rel="noopener"><span>Community</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat" target="_blank" rel="noopener"><span>GitHub</span></a>
+      </li>
+      </ul>
+  </div>
+  <div class="d-none d-lg-block">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.b40b0ef7524820a1dc391268981d7975.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+  </div>
+</div>
+</nav>
+    </header>
+    <div class="container-fluid td-outer">
+      <div class="td-main">
+        <div class="row flex-xl-nowrap">
+          <aside class="col-12 col-md-3 col-xl-2 td-sidebar d-print-none">
+            <div id="td-sidebar-menu" class="td-sidebar__inner">
+  <form class="td-sidebar__search d-flex align-items-center">
+    <div class="td-search td-search--offline">
+  <div class="td-search__icon"></div>
+  <input
+    type="search"
+    class="td-search__input form-control"
+    placeholder="Search this site…"
+    aria-label="Search this site…"
+    autocomplete="off"
+    
+    data-offline-search-index-json-src="/offline-search-index.b40b0ef7524820a1dc391268981d7975.json"
+    data-offline-search-base-href="/"
+    data-offline-search-max-results="10"
+  >
+</div>
+
+    <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
+    </button>
+  </form>
+  <nav class="collapse td-sidebar-nav" id="td-section-nav">
+    <ul class="td-sidebar-nav__section pe-md-3 ul-0">
+      <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
+  <a href="/docs/" title="Documentation" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
+  <ul class="ul-1">
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsbinaryio-li">
+  <a href="/docs/binaryio/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsbinaryio"><span class="td-sidebar-nav-active-item">Binary I/O</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsfirmware-update-li">
+  <a href="/docs/firmware-update/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsfirmware-update"><span class="">Firmware Update</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docshow-to-use-li">
+  <a href="/docs/how-to-use/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docshow-to-use"><span class="">How to use</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsunbrick-li">
+  <a href="/docs/unbrick/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsunbrick"><span class="">Unbrick</span></a>
+</li>
+  </ul>
+</li>
+    </ul>
+  </nav>
+</div>
+
+          </aside>
+          <aside class="d-none d-xl-block col-xl-2 td-sidebar-toc d-print-none">
+            
+<div class="td-page-meta ms-2 pb-1 pt-2 mb-0">
+<a href="https://github.com/therealdreg/buzzpiratweb/tree/main/content/en/docs/BinaryIO/_index.md" class="td-page-meta--view" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines fa-fw"></i> View page source</a>
+  <a href="https://github.com/therealdreg/buzzpiratweb/edit/main/content/en/docs/BinaryIO/_index.md" class="td-page-meta--edit" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Edit this page</a>
+  <a href="https://github.com/therealdreg/buzzpiratweb/new/main/content/en/docs/BinaryIO/_index.md?filename=change-me.md&amp;value=---%0Atitle%3A&#43;%22Long&#43;Page&#43;Title%22%0AlinkTitle%3A&#43;%22Short&#43;Nav&#43;Title%22%0Aweight%3A&#43;100%0Adescription%3A&#43;%3E-%0A&#43;&#43;&#43;&#43;&#43;Page&#43;description&#43;for&#43;heading&#43;and&#43;indexes.%0A---%0A%0A%23%23&#43;Heading%0A%0AEdit&#43;this&#43;template&#43;to&#43;create&#43;your&#43;new&#43;page.%0A%0A%2A&#43;Give&#43;it&#43;a&#43;good&#43;name%2C&#43;ending&#43;in&#43;%60.md%60&#43;-&#43;e.g.&#43;%60getting-started.md%60%0A%2A&#43;Edit&#43;the&#43;%22front&#43;matter%22&#43;section&#43;at&#43;the&#43;top&#43;of&#43;the&#43;page&#43;%28weight&#43;controls&#43;how&#43;its&#43;ordered&#43;amongst&#43;other&#43;pages&#43;in&#43;the&#43;same&#43;directory%3B&#43;lowest&#43;number&#43;first%29.%0A%2A&#43;Add&#43;a&#43;good&#43;commit&#43;message&#43;at&#43;the&#43;bottom&#43;of&#43;the&#43;page&#43;%28%3C80&#43;characters%3B&#43;use&#43;the&#43;extended&#43;description&#43;field&#43;for&#43;more&#43;detail%29.%0A%2A&#43;Create&#43;a&#43;new&#43;branch&#43;so&#43;you&#43;can&#43;preview&#43;your&#43;new&#43;file&#43;and&#43;request&#43;a&#43;review&#43;via&#43;Pull&#43;Request.%0A" class="td-page-meta--child" target="_blank" rel="noopener"><i class="fa-solid fa-pen-to-square fa-fw"></i> Create child page</a>
+  <a href="https://github.com/therealdreg/buzzpiratweb/issues/new?title=Binary%20I/O" class="td-page-meta--issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create documentation issue</a>
+  <a href="https://github.com/therealdreg/buzzpirat/issues/new" class="td-page-meta--project-issue" target="_blank" rel="noopener"><i class="fa-solid fa-list-check fa-fw"></i> Create project issue</a>
+  <a id="print" href="/docs/binaryio/_print/"><i class="fa-solid fa-print fa-fw"></i> Print entire section</a>
+
+</div>
+
+            <div class="td-toc">
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#main-b00000000-0x00---reset-responds-bbio1">MAIN b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</a></li>
+    <li><a href="#main-b00000001-0x01---enter-binary-spi-mode-responds-spi1">MAIN b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</a>
+      <ul>
+        <li><a href="#spi-mode-key-points">SPI Mode, Key points</a></li>
+        <li><a href="#spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</a></li>
+        <li><a href="#spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</a></li>
+        <li><a href="#spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</a></li>
+        <li><a href="#spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
+        <li><a href="#spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</a></li>
+        <li><a href="#spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
+        <li><a href="#spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</a></li>
+        <li><a href="#spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</a></li>
+        <li><a href="#spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</a>
+      <ul>
+        <li><a href="#i2c-mode-key-points">I2C Mode, Key points</a></li>
+        <li><a href="#i2c-b00000001-0x01--display-mode-version-string-responds-i2c1">I2C b00000001 (0x01) – Display mode version string, responds &ldquo;I2C1&rdquo;</a></li>
+        <li><a href="#i2c-b00000010-0x02--i2c-start-bit">I2C b00000010 (0x02) – I2C start bit</a></li>
+        <li><a href="#i2c-b00000011-0x03---i2c-stop-bit">I2C b00000011 (0x03) - I2C stop bit</a></li>
+        <li><a href="#i2c-b00000100-0x04---i2c-read-byte">I2C b00000100 (0x04) - I2C Read Byte</a></li>
+        <li><a href="#i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</a></li>
+        <li><a href="#i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</a></li>
+        <li><a href="#i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</a></li>
+        <li><a href="#i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</a></li>
+        <li><a href="#i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</a></li>
+        <li><a href="#i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</a>
+      <ul>
+        <li><a href="#uart-mode-key-points">UART Mode, Key points</a></li>
+        <li><a href="#uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</a></li>
+        <li><a href="#uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</a></li>
+        <li><a href="#uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</a></li>
+        <li><a href="#uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</a></li>
+        <li><a href="#uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</a></li>
+        <li><a href="#uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</a></li>
+        <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</a>
+      <ul>
+        <li><a href="#1-wire-mode-key-points">1-Wire Mode, Key points</a></li>
+        <li><a href="#1-wire-b00000001-0x01--display-mode-version-string-responds-1w01">1-Wire b00000001 (0x01) – Display mode version string, responds &ldquo;1W01&rdquo;</a></li>
+        <li><a href="#1-wire-b00000010-0x02--1-wire-reset">1-Wire b00000010 (0x02) – 1-Wire reset</a></li>
+        <li><a href="#1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</a></li>
+        <li><a href="#1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</a></li>
+        <li><a href="#1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</a></li>
+        <li><a href="#1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</a>
+      <ul>
+        <li><a href="#raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</a></li>
+        <li><a href="#raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</a></li>
+        <li><a href="#raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</a></li>
+        <li><a href="#raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</a></li>
+        <li><a href="#raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</a></li>
+        <li><a href="#raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</a></li>
+        <li><a href="#raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</a></li>
+        <li><a href="#raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</a></li>
+        <li><a href="#raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
+        <li><a href="#raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
+        <li><a href="#raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</a></li>
+        <li><a href="#raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</a></li>
+        <li><a href="#raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</a></li>
+    <li><a href="#main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</a>
+      <ul>
+        <li><a href="#buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</a></li>
+        <li><a href="#buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</a></li>
+        <li><a href="#buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</a></li>
+        <li><a href="#buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</a></li>
+        <li><a href="#buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</a></li>
+        <li><a href="#buzz-b00000011-0x03---read-tp0-status">Buzz b00000011 (0x03) - Read TP0 status</a></li>
+        <li><a href="#buzz-b00010000-0x10---check-for-short-circuits-in-the-power-supply-units">Buzz b00010000 (0x10) - Check for short circuits in the power supply units</a></li>
+        <li><a href="#buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+        <li><a href="#buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</a></li>
+        <li><a href="#buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+        <li><a href="#buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+        <li><a href="#buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00001111-0x0f---reset-buzzpirat">MAIN b00001111 (0x0F) - Reset Buzzpirat</a></li>
+    <li><a href="#main-b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">MAIN b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</a></li>
+    <li><a href="#main-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+    <li><a href="#main-b00010011-0x13---cleardisable-pwm">MAIN b00010011 (0x13) - Clear/disable PWM</a></li>
+    <li><a href="#main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+    <li><a href="#main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+    <li><a href="#main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+    <li><a href="#main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#adc-calculation">ADC Calculation</a>
+      <ul>
+        <li><a href="#python-3">Python 3</a></li>
+        <li><a href="#c">C</a></li>
+      </ul>
+    </li>
+    <li><a href="#pwm-computation">PWM Computation</a>
+      <ul>
+        <li><a href="#python-3-1">Python 3</a></li>
+        <li><a href="#c-1">C</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+      </div>
+    
+            
+	
+          </aside>
+          <main class="col-12 col-md-9 col-xl-8 ps-md-5" role="main">
+            
+  
+
+            <nav aria-label="breadcrumb" class="td-breadcrumbs">
+  <ol class="breadcrumb">
+  <li class="breadcrumb-item">
+    <a href="/docs/">Docs</a></li>
+  <li class="breadcrumb-item active" aria-current="page">
+    Binary I/O</li>
+  </ol>
+</nav>
+            
+<div class="td-content">
+	<h1>Binary I/O</h1>
+  <div class="lead">Binary I/O mod from dangerousprototypes</div>
+	<header class="article-meta">
+		
+  </header>
+	<p>The bitbang protocol uses a single byte for all commands. The default start-up state is pin input (HiZ).</p>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Check in between if BBIO1 is returned.</li>
+<li>Send 0x0F to exit raw bitbang mode and reset the Buzzpirat.</li>
+<li>Other raw protocol modes are accessible from within bitbang mode, 0x00 always returns to raw bitbang mode and prints the version string.</li>
+<li>There is a slight settling delay between pin updates, currently about 5us.</li>
+</ul>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    To avoid the BBIO1 endless loop bug in the Buzzpirat, it is crucial to send each 0x00 command individually and verify the presence of a &ldquo;BBIO1&rdquo; response. Transmitting multiple 0x00 commands rapidly in succession may lead to a continuous BBIO1 response loop. The sole solution to this loop issue is to disconnect and then reconnect the USB: <a href="http://dangerousprototypes.com/forum/index.php?topic=4227.0">http://dangerousprototypes.com/forum/index.php?topic=4227.0</a>
+
+</div>
+
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#main-b00000000-0x00---reset-responds-bbio1">MAIN b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</a></li>
+    <li><a href="#main-b00000001-0x01---enter-binary-spi-mode-responds-spi1">MAIN b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</a>
+      <ul>
+        <li><a href="#spi-mode-key-points">SPI Mode, Key points</a></li>
+        <li><a href="#spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</a></li>
+        <li><a href="#spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</a></li>
+        <li><a href="#spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</a></li>
+        <li><a href="#spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</a></li>
+        <li><a href="#spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</a></li>
+        <li><a href="#spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</a></li>
+        <li><a href="#spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</a></li>
+        <li><a href="#spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</a></li>
+        <li><a href="#spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</a>
+      <ul>
+        <li><a href="#i2c-mode-key-points">I2C Mode, Key points</a></li>
+        <li><a href="#i2c-b00000001-0x01--display-mode-version-string-responds-i2c1">I2C b00000001 (0x01) – Display mode version string, responds &ldquo;I2C1&rdquo;</a></li>
+        <li><a href="#i2c-b00000010-0x02--i2c-start-bit">I2C b00000010 (0x02) – I2C start bit</a></li>
+        <li><a href="#i2c-b00000011-0x03---i2c-stop-bit">I2C b00000011 (0x03) - I2C stop bit</a></li>
+        <li><a href="#i2c-b00000100-0x04---i2c-read-byte">I2C b00000100 (0x04) - I2C Read Byte</a></li>
+        <li><a href="#i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</a></li>
+        <li><a href="#i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</a></li>
+        <li><a href="#i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</a></li>
+        <li><a href="#i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</a></li>
+        <li><a href="#i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</a></li>
+        <li><a href="#i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</a>
+      <ul>
+        <li><a href="#uart-mode-key-points">UART Mode, Key points</a></li>
+        <li><a href="#uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</a></li>
+        <li><a href="#uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</a></li>
+        <li><a href="#uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</a></li>
+        <li><a href="#uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</a></li>
+        <li><a href="#uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</a></li>
+        <li><a href="#uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</a></li>
+        <li><a href="#uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</a>
+      <ul>
+        <li><a href="#1-wire-mode-key-points">1-Wire Mode, Key points</a></li>
+        <li><a href="#1-wire-b00000001-0x01--display-mode-version-string-responds-1w01">1-Wire b00000001 (0x01) – Display mode version string, responds &ldquo;1W01&rdquo;</a></li>
+        <li><a href="#1-wire-b00000010-0x02--1-wire-reset">1-Wire b00000010 (0x02) – 1-Wire reset</a></li>
+        <li><a href="#1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</a></li>
+        <li><a href="#1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</a></li>
+        <li><a href="#1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</a></li>
+        <li><a href="#1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</a>
+      <ul>
+        <li><a href="#raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</a></li>
+        <li><a href="#raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</a></li>
+        <li><a href="#raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</a></li>
+        <li><a href="#raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</a></li>
+        <li><a href="#raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</a></li>
+        <li><a href="#raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</a></li>
+        <li><a href="#raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</a></li>
+        <li><a href="#raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</a></li>
+        <li><a href="#raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</a></li>
+        <li><a href="#raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</a></li>
+        <li><a href="#raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</a></li>
+        <li><a href="#raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</a></li>
+        <li><a href="#raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</a></li>
+        <li><a href="#raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</a></li>
+        <li><a href="#raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</a></li>
+        <li><a href="#raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</a></li>
+        <li><a href="#raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</a></li>
+    <li><a href="#main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</a>
+      <ul>
+        <li><a href="#buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</a></li>
+        <li><a href="#buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</a></li>
+        <li><a href="#buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</a></li>
+        <li><a href="#buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</a></li>
+        <li><a href="#buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</a></li>
+        <li><a href="#buzz-b00000011-0x03---read-tp0-status">Buzz b00000011 (0x03) - Read TP0 status</a></li>
+        <li><a href="#buzz-b00010000-0x10---check-for-short-circuits-in-the-power-supply-units">Buzz b00010000 (0x10) - Check for short circuits in the power supply units</a></li>
+        <li><a href="#buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+        <li><a href="#buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</a></li>
+        <li><a href="#buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+        <li><a href="#buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+        <li><a href="#buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+      </ul>
+    </li>
+    <li><a href="#main-b00001111-0x0f---reset-buzzpirat">MAIN b00001111 (0x0F) - Reset Buzzpirat</a></li>
+    <li><a href="#main-b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">MAIN b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</a></li>
+    <li><a href="#main-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</a></li>
+    <li><a href="#main-b00010011-0x13---cleardisable-pwm">MAIN b00010011 (0x13) - Clear/disable PWM</a></li>
+    <li><a href="#main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</a></li>
+    <li><a href="#main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</a></li>
+    <li><a href="#main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</a></li>
+    <li><a href="#main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</a></li>
+    <li><a href="#adc-calculation">ADC Calculation</a>
+      <ul>
+        <li><a href="#python-3">Python 3</a></li>
+        <li><a href="#c">C</a></li>
+      </ul>
+    </li>
+    <li><a href="#pwm-computation">PWM Computation</a>
+      <ul>
+        <li><a href="#python-3-1">Python 3</a></li>
+        <li><a href="#c-1">C</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+<h2 id="main-b00000000-0x00---reset-responds-bbio1">MAIN b00000000 (0x00) - Reset, responds &ldquo;BBIO1&rdquo;</h2>
+<p>This command resets the Buzzpirat into raw bitbang mode from the user terminal. It also resets to raw bitbang mode from raw SPI mode, or any other protocol mode. This command always returns a five byte bitbang version string &ldquo;BBIO1&rdquo;, where 1 is the current protocol version.</p>
+<p>Some terminals send a NULL character (0x00) on start-up, causing the Buzzpirat to enter binary mode when it wasn&rsquo;t wanted. To get around this, you must now enter 0x00 at least 20 times to enter raw bitbang mode.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    The Buzzpirat user terminal could be stuck in a configuration menu when your program attempts to enter binary mode. One way to ensure that you&rsquo;re at the command line is to send <enter> at least 10 times, and then send &lsquo;#&rsquo; to reset. Next, send 0x00 to the command line 20+ times until you get the BBIO1 string.
+
+</div>
+
+<p>After entering bitbang mode, you can enter other binary protocol modes.</p>
+<h2 id="main-b00000001-0x01---enter-binary-spi-mode-responds-spi1">MAIN b00000001 (0x01) - Enter binary SPI mode, responds &ldquo;SPI1&rdquo;</h2>
+<p>Commands are a single byte, except bulk SPI transfers. The Buzzpirat responds to SPI write commands with the data read from the SPI bus during the write. Most other commands return 0x01 for success, or 0x00 for failure/unknown command.</p>
+<h3 id="spi-mode-key-points">SPI Mode, Key points</h3>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Pause briefly after sending each 0x00 to check if BBIO1 is returned. Example binary mode entry functions.</li>
+<li>Enter 0x01 in bitbang mode to enter raw SPI mode.</li>
+<li>Return to raw bitbang mode from raw SPI mode by sending 0x00 one time.</li>
+<li>Operations that write a byte to the SPI bus also return a byte read from the SPI bus.</li>
+<li>Hex values shown here, like 0x00, represent actual byte values; not typed ASCII entered into a terminal.</li>
+</ul>
+<p>Once you have successfully entered the mode, you can use the following commands:</p>
+<h3 id="spi-b00000001-0x01---enter-raw-spi-mode-display-version-string">SPI b00000001 (0x01) - Enter raw SPI mode, display version string</h3>
+<p>Once in raw bitbang mode, send 0x01 to enter raw SPI mode. The Buzzpirat responds &lsquo;SPI1&rsquo;, where 1 is the raw SPI protocol version. Get the version string at any time by sending 0x01 again.</p>
+<h3 id="spi-b0000001x-0x02-0x03---cs-high-1-or-low-0">SPI b0000001x (0x02-0x03) - CS high (1) or low (0)</h3>
+<p>Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.</p>
+<h3 id="spi-b000011xx-0x0c-0x0f---sniff-spi-traffic-when-cs-low10all01">SPI b000011xx (0x0C-0x0F) - Sniff SPI traffic when CS low(10)/all(01)</h3>
+<p>The SPI sniffer is implemented in hardware and should work up to 10MHz. It follows the configuration settings you entered for SPI mode. The sniffer can read all traffic, or filter by the state of the CS pin.</p>
+<ul>
+<li>[/] - CS enable/disable</li>
+<li>\xy - escape character (\) precedes two byte values X (MOSI pin) and Y (MISO pin)</li>
+</ul>
+<p>Sniffed traffic is encoded according to the table above. The two data bytes are escaped with the &lsquo;' character to help locate data in the stream.</p>
+<p>Send the SPI sniffer command to start the sniffer, the Buzzpirat responds 0x01 then sniffed data starts to flow. Send any byte to exit.</p>
+<p>If the sniffer can&rsquo;t keep with the SPI data, the MODE LED turns off and the sniff is aborted.</p>
+<p>The sniffer follows the output clock edge and output polarity settings of the SPI mode, but not the input sample phase.</p>
+<h3 id="spi-b0001xxxx-0x10-0x1f---bulk-spi-transfer-sendread-1-16-bytes-01byte">SPI b0001xxxx (0x10-0x1F) - Bulk SPI transfer, send/read 1-16 bytes (0=1byte!)</h3>
+<p>Bulk SPI allows direct byte reads and writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once, each returns a byte read from the SPI bus during the write.</p>
+<p>Note that 0000 indicates 1 byte because there&rsquo;s no reason to send 0. BP replies 0x01 to the bulk SPI command, and returns the value read from SPI after each data byte write.</p>
+<p>The way it goes together:</p>
+<ul>
+<li>The upper 4 bit of the command byte are the bulk read command (0001xxxx)</li>
+<li>xxxx = the number of bytes to read. 0000=1, 0001=2, etc, up to 1111=16</li>
+</ul>
+<p>If I want to read (0001) four bytes (0011=3=read 4) the full command is 00010011 (0001 + 0011 ). Convert from binary to hex and it is 0x13</p>
+<h3 id="spi-b0100wxyz-0x40-0x4f---configure-peripherals-wpower-xpull-ups-yaux-zcs">SPI b0100wxyz (0x40-0x4F) - Configure peripherals w=power, x=pull-ups, y=AUX, z=CS</h3>
+<p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts)
+
+</div>
+
+<h3 id="spi-b01100xxx-0x60-0x67---spi-speed">SPI b01100xxx (0x60-0x67) - SPI speed</h3>
+<p>000=30kHz, 001=125kHz, 010=250kHz, 011=1MHz, 100=2MHz, 101=2.6MHz, 110=4MHz, 111=8MHz</p>
+<p>This command sets the SPI bus speed according to the values shown. Default startup speed is 000 (30kHz).</p>
+<h3 id="spi-b1000wxyz-0x80-0x8f---spi-config-whiz33v-xckp-idle-ycke-edge-zsmp-sample">SPI b1000wxyz (0x80-0x8F) - SPI config, w=HiZ/3.3v, x=CKP idle, y=CKE edge, z=SMP sample</h3>
+<p>This command configures the SPI settings. Options and start-up defaults are the same as the user terminal SPI mode. w= pin output HiZ(0)/3.3v(1), x=CKP clock idle phase (low=0), y=CKE clock edge (active to idle=1), z=SMP sample time (middle=0). The Buzzpirat responds 0x01 on success.</p>
+<p>Default raw SPI startup condition is 0010. HiZ mode configuration applies to the SPI pins and the CS pin, but not the AUX pin. See the PIC24FJ64GA002 datasheet and the SPI section of the PIC24 family manual for more about the SPI configuration settings.</p>
+<h3 id="spi-b00000100-0x04---write-then-read--b00000101-0x05---write-then-read-no-cs">SPI b00000100 (0x04) - Write then read &amp; b00000101 (0x05) - Write then read, no CS</h3>
+<p>This command was developed to help speed ROM programming with Flashrom, asprogrammer dreg mod. It might be helpful for a lot of common SPI operations.</p>
+<ul>
+<li>b00000100 - Write then read: It enables chip select, writes 0-4096 bytes, reads 0-4096 bytes, then disables chip select.</li>
+<li>b00000101 - Write then read, no CS: writes 0-4096 bytes, reads 0-4096 bytes (CS transitions are NOT automated/included).</li>
+</ul>
+<p>All data for this command can be sent at once, and it will be buffered in the Buzzpirat. The write and read operations happen all at once, and the read data is buffered. At the end of the operation, the read data is returned from the buffer. The goal is to meet the stringent timing requirements of some ROM chips by buffering everything instead of letting the serial port delay things.</p>
+<p>Write then read command format:</p>
+<ol>
+<li>send 1 byte: b00000100 (Write then read command) or b00000101 (Write then read, no CS)</li>
+<li>send 2 bytes: number of write bytes 0-4096 (first byte High8, second Low8)</li>
+<li>send 2 bytes: number of read bytes 0-4096 (first byte High8, second Low8)</li>
+<li>If the number of bytes to read or write are out of bounds, the Buzzpirat will send 0x00 now</li>
+<li>send 0-4096 bytes: bytes to write (specified by step 2)</li>
+<li>read 1 byte: success/0x01</li>
+<li>read 0-4096 bytes: bytes to read (specified by step 3)</li>
+</ol>
+<p>Key Points:</p>
+<ul>
+<li>There is no acknowledgment that a byte is received.</li>
+<li>All write bytes are sent at once (before that CS goes low for b00000100 - Write then read command)</li>
+<li>Read starts immediately, all bytes are put into a buffer at max SPI speed (no waiting for UART)</li>
+<li>At the end of the read, CS goes high for b00000100 - Write then read command</li>
+</ul>
+<h3 id="spi-b00000110-0x06---avr-extended-commands">SPI b00000110 (0x06) - AVR Extended Commands</h3>
+<ul>
+<li>b00000000 (0x00) - Null operation - verifies extended commands are available.</li>
+<li>b00000001 (0x01) - Return version (2 bytes)</li>
+<li>b00000010 (0x02) - Bulk Memory Read from Flash</li>
+</ul>
+<h3 id="spi-b11111110-0xfe---execute-buzz-commands">SPI b11111110 (0xFE) - Execute Buzz Commands</h3>
+<p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below.</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="spi-buzz-commands-0x97-0xff">SPI Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
+<hr>
+<h2 id="main-b00000010-0x02---enter-binary-i2c-mode-responds-i2c1">MAIN b00000010 (0x02) - Enter binary I2C mode, responds &ldquo;I2C1&rdquo;</h2>
+<p>Enter binary I2C mode by first entering bitbang mode, then send 0x02 to enter I2C mode.</p>
+<p>Most I2C mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
+<h3 id="i2c-mode-key-points">I2C Mode, Key points</h3>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Pause briefly after sending each 0x00 to check if BBIO1 is returned. Example binary mode entry functions.</li>
+<li>Enter 0x02 in bitbang mode to enter raw I2C mode.</li>
+<li>Return to raw bitbang mode from raw I2C mode by sending 0x00 one time.</li>
+<li>Hex values shown here, like 0x00, represent actual byte values; not typed ASCII entered into a terminal.</li>
+</ul>
+<p>Once you have successfully entered the mode, you can use the following commands:</p>
+<h3 id="i2c-b00000001-0x01--display-mode-version-string-responds-i2c1">I2C b00000001 (0x01) – Display mode version string, responds &ldquo;I2C1&rdquo;</h3>
+<p>Once in binary I2C mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘I2C1’, where x is the raw I2C protocol version (currently 1). Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
+<h3 id="i2c-b00000010-0x02--i2c-start-bit">I2C b00000010 (0x02) – I2C start bit</h3>
+<p>Send an I2C start bit. Responds 0x01.</p>
+<h3 id="i2c-b00000011-0x03---i2c-stop-bit">I2C b00000011 (0x03) - I2C stop bit</h3>
+<p>Send an I2C stop bit. Responds 0x01.</p>
+<h3 id="i2c-b00000100-0x04---i2c-read-byte">I2C b00000100 (0x04) - I2C Read Byte</h3>
+<p>Reads a byte from the I2C bus and returns the byte. You must manually ACK or NACK each byte!</p>
+<h3 id="i2c-b00000110-0x06---ack-bit">I2C b00000110 (0x06) - ACK bit</h3>
+<p>Send an I2C ACK bit after reading a byte. Tells a slave device that you will read another byte. Responds 0x01.</p>
+<h3 id="i2c-b00000111-0x07---nack-bit">I2C b00000111 (0x07) - NACK bit</h3>
+<p>Send an I2C NACK bit after reading a byte. Tells a slave device that you will stop reading, next bit should be an I2C stop bit. Responds 0x01.</p>
+<h3 id="i2c-b00001111-0x0f---start-bus-sniffer">I2C b00001111 (0x0F) - Start bus sniffer</h3>
+<p>Sniff traffic on an I2C bus.</p>
+<ul>
+<li>[/] - Start/stop bit</li>
+<li>\ - escape character precedes a data byte value</li>
+<li>+/- - ACK/NACK</li>
+</ul>
+<p>Sniffed traffic is encoded according to the table above. Data bytes are escaped with the &lsquo;' character. Send a single byte to exit, Buzzpirat responds 0x01 on exit.</p>
+<h3 id="i2c-b0001xxxx-0x10-0x1f--bulk-i2c-write-send-1-16-bytes-01byte">I2C b0001xxxx (0x10-0x1F) – Bulk I2C write, send 1-16 bytes (0=1byte!)</h3>
+<p>Bulk I2C allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0.</p>
+<p>BP replies 0x01 to the bulk I2C command. After each data byte the Buzzpirat returns the ACK (0x00) or NACK (0x01) bit from the slave device.</p>
+<h3 id="i2c-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">I2C b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts)
+
+</div>
+
+<h3 id="i2c-b011000xx-0x60-0x63---set-i2c-speed-3400khz-2100khz-150khz-05khz">I2C b011000xx (0x60-0x63) - Set I2C speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
+<p>0110000x - Set I2C speed, 1=high (50kHz) 0=low (5kHz)</p>
+<p>The lower bits of the speed command determine the I2C bus speed. Binary mode currently uses the software I2C library, though it may be configurable in a future update. Startup default is high-speed. Buzzpirat responds 0x01 on success.</p>
+<h3 id="i2c-b00001000-0x08---write-then-read">I2C b00001000 (0x08) - Write then read</h3>
+<p>This command internally sends I2C start, writes from 0-4096 bytes, then reads 0-4096 bytes into the Buzzpirats internal buffer, ACKing each byte internally until the final byte at which point it sends an NACK stop bit.</p>
+<p>All data for this command can be sent at once, and it will be buffered in the Buzzpirat. The write and read operations happen once the completed command has been passed to the Buzzpirat. Any write data is internally buffered by the Buzzpirat. At the end of the operation, any read data is returned from the buffer, be aware that the write buffer is re-used as the read buffer, as such any write data needs to be re-loaded if the command is re-executed.</p>
+<p>Write then read command format:</p>
+<ol>
+<li>send 1 byte: b00001000 (Write then read command)</li>
+<li>send 2 bytes: number of write bytes 0-4096 (first byte High8, second Low8)</li>
+<li>send 2 bytes: number of read bytes 0-4096 (first byte High8, second Low8)</li>
+<li>If the number of bytes to read or write are out of bounds, the Buzzpirat will send 0x00 now</li>
+<li>send 0-4096 bytes: bytes to write (specified by step 2. The initial byte can serve as the I2C address. Therefore, in step 2, it&rsquo;s necessary to specify at least one byte for writing).</li>
+<li>read 1 byte: success/0x01, would be 0x00 If an I2C write is not ACKed by a slave device, then the operation will abort.</li>
+<li>read 0-4096 bytes: bytes to read (specified by step 3).</li>
+</ol>
+<p>Key points:</p>
+<ul>
+<li>The Buzzpirat sends an I2C start bit, then all write bytes are sent at once.</li>
+<li>All read bytes are ACKed, except the last byte which is NACKed, this process is handled internally between the Buzzpirat and the I2C device.</li>
+<li>At the end of the read process, the Buzzpirat sends an I2C stop</li>
+<li>Except as described above, there is no acknowledgment that a byte is received.</li>
+</ul>
+<h3 id="i2c-b00001001-0x09-extended-aux-command">I2C b00001001 (0x09) Extended AUX command</h3>
+<p>Provides extended use of AUX pin. Requires one command byte. Buzzpirat acknowledges 0x01.</p>
+<p>Command	Function</p>
+<ul>
+<li>b00000000 (0x00) - AUX/CS low</li>
+<li>b00000001 (0x01) - AUX/CS high</li>
+<li>b00000010 (0x02) - AUX/CS HiZ</li>
+<li>b00000011 (0x03) - AUX read</li>
+<li>b00010000 (0x10) - use AUX</li>
+<li>b00100000 (0x20) - use CS</li>
+</ul>
+<h3 id="i2c-b11111110-0xfe---execute-buzz-commands">I2C b11111110 (0xFE) - Execute Buzz Commands</h3>
+<p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="i2c-buzz-commands-0x97-0xff">I2C Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
+<hr>
+<h2 id="main-b00000011-0x03---enter-binary-uart-mode-responds-art1">MAIN b00000011 (0x03) - Enter binary UART mode, responds &ldquo;ART1&rdquo;</h2>
+<p>Enter binary UART mode by first entering bitbang mode, then send 0x03 to enter UART mode.</p>
+<p>Most UART mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
+<h3 id="uart-mode-key-points">UART Mode, Key points</h3>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Pause briefly after sending each 0x00 to check if BBIO1 is returned. Example binary mode entry functions.</li>
+<li>Enter 0x03 in bitbang mode to enter raw UART mode.</li>
+<li>Return to raw bitbang mode from raw UART mode by sending 0x00 one time.</li>
+<li>Hex values shown here, like 0x00, represent actual byte values; not typed ASCII entered into a terminal.</li>
+</ul>
+<p>Once you have successfully entered the mode, you can use the following commands:</p>
+<h3 id="uart-b00000001-0x01--display-mode-version-string-responds-art1">UART b00000001 (0x01) – Display mode version string, responds &ldquo;ART1&rdquo;</h3>
+<p>Once in binary UART mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘ART1’, where 1 is the raw UART protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
+<h3 id="uart-b0000001x-0x02-0x03--start-0stop1-echo-uart-rx">UART b0000001x (0x02-0x03) – Start (0)/stop(1) echo UART RX</h3>
+<p>In binary UART mode the UART is always active and receiving. Incoming data is only copied to the USB side if UART RX echo is enabled. This allows you to configure and control the UART mode settings without random data colliding with response codes. UART mode starts with echo disabled. This mode has no impact on data transmissions.</p>
+<p>Responds 0x01. Clears buffer overrun bit.</p>
+<h3 id="uart-b00000111-0x07--manual-baud-rate-configuration-send-2-bytes">UART b00000111 (0x07) – Manual baud rate configuration, send 2 bytes</h3>
+<p>Configures the UART using custom baud rate generator settings. This command is followed by two data bytes that represent the BRG register value. Send the high 8 bits first, then the low 8 bits.</p>
+<p>Use the UART manual or an online calculator to find the correct value (key values: fosc 32mHz, clock divider = 2, BRGH=1) . Buzzpirat responds 0x01 to each byte. Settings take effect immediately.</p>
+<h3 id="uart-b00001111-0x0f---uart-bridge-mode-reset-to-exit">UART b00001111 (0x0F) - UART bridge mode (reset to exit)</h3>
+<p>Starts a transparent UART bridge using the current configuration. Unplug the Buzzpirat to exit.</p>
+<h3 id="uart-b0001xxxx-0x10-0x1f--bulk-uart-write-send-1-16-bytes-01byte">UART b0001xxxx (0x10-0x1F) – Bulk UART write, send 1-16 bytes (0=1byte!)</h3>
+<p>Bulk UART allows multi-byte writes. The Buzzpirat expects xxxx+1 data bytes. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. Buzzpirat replies 0x01 to each byte.</p>
+<h3 id="uart-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">UART b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts)
+
+</div>
+
+<h3 id="uart-b011000xx-0x60-0x63---set-uart-speed">UART b011000xx (0x60-0x63) - Set UART speed</h3>
+<p>Set the UART at a preconfigured speed value: 0000=300, 0001=1200, 0010=2400,0011=4800,0100=9600,0101=19200,0110=31250 (MIDI), 0111=38400,1000=57600,1010=115200</p>
+<p>Start default is 300 baud. Buzzpirat responds 0x01 on success. A read command is planned but not implemented in this version.</p>
+<h3 id="uart-b100wxxyz-0x80-0x9f--configure-uart-settings">UART b100wxxyz (0x80-0x9F) – Configure UART settings</h3>
+<ul>
+<li>w=pin output HiZ(0)/3.3v(1)</li>
+<li>xx=databits and parity 8/N(0), 8/E(1), 8/O(2), 9/N(3)</li>
+<li>y=stop bits 1(0)/2(1)</li>
+<li>z=RX polarity idle 1 (0), idle 0 (1)</li>
+</ul>
+<p>Startup default is 00000. Buzzpirat responds 0x01 on success. A read command is planned but not implemented in this version.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    that this command code is three bits because the databits and parity setting consists of two bits. It is not quite the same as the binary SPI mode configuration command code.
+
+</div>
+
+<h3 id="uart-b11111110-0xfe---execute-buzz-commands">UART b11111110 (0xFE) - Execute Buzz Commands</h3>
+<p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="uart-buzz-commands-0x97-0xff">UART Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
+<hr>
+<h2 id="main-b00000100-0x04---enter-binary-1-wire-mode-responds-1w01">MAIN b00000100 (0x04) - Enter binary 1-Wire mode, responds &ldquo;1W01&rdquo;</h2>
+<p>Enter binary 1-Wire mode by first entering bitbang mode, then send 0x04 to enter 1-Wire mode.
+Most 1-Wire mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
+<h3 id="1-wire-mode-key-points">1-Wire Mode, Key points</h3>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Pause briefly after sending each 0x00 to check if BBIO1 is returned. Example binary mode entry functions.</li>
+<li>Enter 0x04 in bitbang mode to enter raw 1-Wire mode.</li>
+<li>Return to raw bitbang mode from raw 1-Wire mode by sending 0x00 one time.</li>
+<li>Hex values shown here, like 0x00, represent actual byte values; not typed ASCII entered into a terminal.</li>
+</ul>
+<p>Once you have successfully entered the mode, you can use the following commands:</p>
+<h3 id="1-wire-b00000001-0x01--display-mode-version-string-responds-1w01">1-Wire b00000001 (0x01) – Display mode version string, responds &ldquo;1W01&rdquo;</h3>
+<p>Once in binary 1-Wire mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘1W01’, where 1 is the raw 1-Wire protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
+<h3 id="1-wire-b00000010-0x02--1-wire-reset">1-Wire b00000010 (0x02) – 1-Wire reset</h3>
+<p>Send a 1-Wire reset. Responds 0x01.</p>
+<h3 id="1-wire-b00000100-0x04--read-byte">1-Wire b00000100 (0x04) – Read byte</h3>
+<p>Reads a byte from the bus, returns the byte.</p>
+<h3 id="1-wire-b00001000-0x08---rom-search-macro-0xf0">1-Wire b00001000 (0x08) - ROM search macro (0xF0)</h3>
+<h3 id="1-wire-b00001001-0x09---alarm-search-macro-0xec">1-Wire b00001001 (0x09) - ALARM search macro (0xEC)</h3>
+<p>Search macros are special 1-Wire procedures that determine device addresses. The command returns 0x01, and then each 8-byte 1-Wire address located. Data ends with 8 bytes of 0xff.</p>
+<h3 id="1-wire-b0001xxxx-0x10-0x1f--bulk-1-wire-write-send-1-16-bytes-01byte">1-Wire b0001xxxx (0x10-0x1F) – Bulk 1-Wire write, send 1-16 bytes (0=1byte!)</h3>
+<p>Bulk write transfers a packet of xxxx+1 bytes to the 1-Wire bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.</p>
+<h3 id="1-wire-b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">1-Wire b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts)
+
+</div>
+
+<h3 id="1-wire-b11111110-0xfe---execute-buzz-commands">1-Wire b11111110 (0xFE) - Execute Buzz Commands</h3>
+<p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="1-wire-buzz-commands-0x97-0xff">1-Wire Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
+<hr>
+<h2 id="main-b00000101-0x05---enter-binary-raw-wire-mode-responds-raw1">MAIN b00000101 (0x05) - Enter binary RAW-WIRE mode, responds &ldquo;RAW1&rdquo;</h2>
+<p>Enter binary RAW-WIRE  mode by first entering bitbang mode, then send 0x05 to enter RAW2WIRE mode.</p>
+<p>Most RAW-WIRE  mode commands are a single byte. Commands generally return 1 for success, 0 for failure.</p>
+<h3 id="raw-wire--mode-key-points">RAW-WIRE  Mode, Key points</h3>
+<ul>
+<li>Send 0x00 to the user terminal (max.) 20 times to enter the raw binary bitbang mode. Pause briefly after sending each 0x00 to check if BBIO1 is returned.</li>
+<li>Enter 0x05 in bitbang mode to enter raw RAW-WIRE  mode.</li>
+<li>Return to raw bitbang mode from raw RAW-WIRE  mode by sending 0x00 one time.</li>
+<li>Hex values shown here, like 0x00, represent actual byte values; not typed ASCII entered into a terminal.</li>
+</ul>
+<p>Once you have successfully entered the mode, you can use the following commands:</p>
+<h3 id="raw-wire--b00000001-0x01--display-mode-version-string-responds-raw1">RAW-WIRE  b00000001 (0x01) – Display mode version string, responds &ldquo;RAW1&rdquo;</h3>
+<p>Once in binary RAW-WIRE  mode, send 0x01 to get the current mode version string. The Buzzpirat responds ‘RAW1’, where 1 is the raw RAW-WIRE  protocol version. Get the version string at any time by sending 0x01 again. This command is the same in all binary modes, the current mode can always be determined by sending 0x01.</p>
+<h3 id="raw-wire--b0000001x-0x02-0x03---i2c-style-start-0--stop-1-bit">RAW-WIRE  b0000001x (0x02-0x03) - I2C-style start (0) / stop (1) bit</h3>
+<p>Send an I2C start or stop bit. Responds 0x01. Useful for I2C-like 2-wire protocols, or building a custom implementation of I2C using the raw-wire library.</p>
+<h3 id="raw-wire--b0000010x-0x04-0x05---cs-low-0--high-1">RAW-WIRE  b0000010x (0x04-0x05) - CS low (0) / high (1)</h3>
+<p>Toggle the Buzzpirat chip select pin, follows HiZ configuration setting. CS high is pin output at 3.3volts, or HiZ. CS low is pin output at ground. Buzzpirat responds 0x01.</p>
+<h3 id="raw-wire--b00000110-0x06---read-byte">RAW-WIRE  b00000110 (0x06) - Read byte</h3>
+<p>Reads a byte from the bus, returns the byte. Writes 0xff to bus in 3-wire mode.</p>
+<h3 id="raw-wire--b00000111-0x07---read-bit">RAW-WIRE  b00000111 (0x07) - Read bit</h3>
+<p>Read a single bit from the bus, returns the bit value.</p>
+<h3 id="raw-wire--b00001000-0x08---peek-at-input-pin">RAW-WIRE  b00001000 (0x08) - Peek at input pin</h3>
+<p>Returns the state of the data input pin without sending a clock tick.</p>
+<h3 id="raw-wire--b00001001-0x09---clock-tick">RAW-WIRE  b00001001 (0x09) - Clock Tick</h3>
+<p>Sends one clock tick (low-&gt;high-&gt;low). Responds 0x01.</p>
+<h3 id="raw-wire--b0000101x-0x0a-0x0b---clock-low-0--high-1">RAW-WIRE  b0000101x (0x0A-0x0B) - Clock low (0) / high (1)</h3>
+<p>Set clock signal low or high. Responds 0x01.</p>
+<h3 id="raw-wire--b0000110x-0x0c-0x0d---data-low-0--high-1">RAW-WIRE  b0000110x (0x0C-0x0D) - Data low (0) / high (1)</h3>
+<p>Set data signal low or high. Responds 0x01.</p>
+<h3 id="raw-wire--b0001xxxx-0x10-0x1f--bulk-transfer-send-1-16-bytes-01byte">RAW-WIRE  b0001xxxx (0x10-0x1F) – Bulk transfer, send 1-16 bytes (0=1byte!)</h3>
+<p>Bulk write transfers a packet of xxxx+1 bytes to the bus. Up to 16 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte in 2wire mode, returns the bus read in 3wire (SPI) mode.</p>
+<h3 id="raw-wire--b0010xxxx-0x20-0x2f---bulk-clock-ticks-send-1-16-ticks">RAW-WIRE  b0010xxxx (0x20-0x2F) - Bulk clock ticks, send 1-16 ticks</h3>
+<p>Create bulk clock ticks on the bus. Note that 0000 indicates 1 clock tick because there’s no reason to send 0. BP replies 0x01.</p>
+<h3 id="raw-wire--b0011xxxx-0x30-0x3f---bulk-bits-send-1-8-bits-of-the-next-byte-01bit">RAW-WIRE  b0011xxxx (0x30-0x3F) - Bulk bits, send 1-8 bits of the next byte (0=1bit!)</h3>
+<p>Bulk bits sends xxxx+1 bits of the next byte to the bus. Up to 8 data bytes can be sent at once. Note that 0000 indicates 1 byte because there’s no reason to send 0. BP replies 0x01 to each byte.</p>
+<p>This is a PIC programming extension that only supports 2wire mode. All writes are most significant bit first, regardless of the mode set with the configuration command.</p>
+<h3 id="raw-wire--b0100wxyz-0x40-0x4f--configure-peripherals-wpower-xpullups-yaux-zcs">RAW-WIRE  b0100wxyz (0x40-0x4F) – Configure peripherals w=power, x=pullups, y=AUX, z=CS</h3>
+<p>Enable (1) and disable (0) Buzzpirat peripherals and pins. Bit w enables the power supplies, bit x toggles the on-board pull-up resistors, y sets the state of the auxiliary pin, and z sets the chip select pin. Features not present in a specific hardware version are ignored. Buzzpirat responds 0x01 on success.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    CS pin always follows the current HiZ pin configuration. AUX is always a normal pin output (0=GND, 1=3.3volts)
+
+</div>
+
+<h3 id="raw-wire--b011000xx-0x60-0x63---set-bus-speed-3400khz-2100khz-150khz-05khz">RAW-WIRE  b011000xx (0x60-0x63) - Set bus speed, 3=~400kHz, 2=~100kHz, 1=~50kHz, 0=~5kHz</h3>
+<p>The last bit of the speed command determines the bus speed. Startup default is high-speed. Buzzpirat responds 0x01.</p>
+<h3 id="raw-wire--b1000wxyz-0x80-0x8f--config-whiz33v-x23wire-ymsblsb-znot-used">RAW-WIRE  b1000wxyz (0x80-0x8F) – Config, w=HiZ/3.3v, x=2/3wire, y=msb/lsb, z=not used</h3>
+<p>Configure the raw-wire mode settings. w= pin output type HiZ(0)/3.3v(1). x= protocol wires (0=2, 1=3), toggles between a shared input/output pin (raw2wire), and a separate input pin (raw3wire). y= bit order (0=MSB, 1=LSB). The Buzzpirat responds 0x01 on success.</p>
+<p>Default raw startup condition is 000z. HiZ mode configuration applies to the data pins and the CS pin, but not the AUX pin.</p>
+<h3 id="raw-wire--b10100100-0xa4---pic-write-send-command--2-bytes-of-data-read-1-byte">RAW-WIRE  b10100100 (0xA4) - PIC write. Send command + 2 bytes of data, read 1 byte</h3>
+<p>An extension for programming PIC microcontrollers. Writes 20bits to the 2wire interface.</p>
+<p>Payload is three bytes.</p>
+<p>The first byte is XXYYYYYY, where XX are the delay in MS to hold the PGC pin high on the last command bit, this is a delay required at the end of a page write. YYYYYY is a 4 or 6 bit ICSP programming command to send to the PIC (enter 4 bit commands as 00YYYY, commands clocked in LSB first).</p>
+<p>The second and third bytes are 16bit instructions to execute on the PIC.</p>
+<p>See the PIC 16F/18F programming specifications for more about ICSP.</p>
+<h3 id="raw-wire--b10100101-0xa5---pic-read-send-command-read-1-byte-of-data">RAW-WIRE  b10100101 (0xA5) - PIC read. Send command, read 1 byte of data</h3>
+<p>An extension for programming PIC microcontrollers. Writes 12bits, reads 8bits.</p>
+<p>Payload is one byte 00YYYYYY, where YYYYYY is a 4 or 6 bit ICSP programming command to send to the PIC. Enter 4 bit commands as 00YYYY, all commands are clocked in LSB first.</p>
+<p>The Buzzpirat send the 4/6bit command, then 8 &lsquo;0&rsquo; bits, then reads one byte. The read byte is returned.</p>
+<p>See the PIC 16F/18F programming specifications for more about ICSP.</p>
+<h3 id="raw-wire-b11111110-0xfe---execute-buzz-commands">RAW-WIRE b11111110 (0xFE) - Execute Buzz Commands</h3>
+<p>Buzz Commands allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>You have access to the same commands as when you enter Buzz Mode using 0x0A. A list of the supported commands is available further below (the first one is 0x00)</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<h4 id="raw-wire-buzz-commands-0x97-0xff">RAW-WIRE Buzz Commands (0x97-0xFF)</h4>
+<p>Each protocol has reserved the range from 0x97 to 0xFF for protocol-specific Buzz commands. However, none have been defined for this protocol yet.</p>
+<hr>
+<h2 id="main-b00000110-0x06---enter-openocd-jtag-mode">MAIN b00000110 (0x06) - Enter OpenOCD JTAG mode</h2>
+<p>OpenOCD mode is documented in the source only.</p>
+<hr>
+<h2 id="main-b00001010-0x0a---enter-buzz-mode">MAIN b00001010 (0x0A) - Enter Buzz mode</h2>
+<p>This mode is exclusive to Buzzpirat and allows for actions such as reading all voltages (similar to the &lsquo;v&rsquo; command), manipulating the TP0 pin, etc.</p>
+<p>Buzzpirat returns 0x01 if it has successfully entered this mode.</p>
+<p>Once you have successfully entered to the Buzz mode via b00001010 (0x0A) (from the main bitbang) or via b11111110 (0xFE) (from a protocol mode), you can use the following Buzz mode commands:</p>
+<h3 id="buzz-b01101001-0x69---null-command">Buzz b01101001 (0x69) - NULL COMMAND</h3>
+<p>This command doesn&rsquo;t do anything; it does not return any response. It is designed for when you only want to check if the Buzz mode exists and don&rsquo;t want to execute anything.</p>
+<h3 id="buzz-b10010110-0x96---check-if-firmware-is-bpv3">Buzz b10010110 (0x96) - Check if firmware is BPv3</h3>
+<p>For each firmware version, I also generate a firmware that is 100% compatible with the Bus Pirate v3 hardware.</p>
+<ul>
+<li>
+<p>returns 0x01 if the firmware currently running is the version for BPv3 hardware.</p>
+</li>
+<li>
+<p>returns 0x00 if the firmware currently running is the official version for Buzzpirat hardware.</p>
+</li>
+</ul>
+<h3 id="buzz-b00000000-0x00---take-voltage-measurement-from-all-sources">Buzz b00000000 (0x00) - Take voltage measurement from all sources</h3>
+<p>Take a measurement from the Buzzpirat voltage sources.</p>
+<ol>
+<li>Returns a 2 byte ADC reading for 5v0 PWR, high 8bits come first.</li>
+<li>Returns a 2 byte ADC reading for 3v3 PWR, high 8bits come first.</li>
+<li>Returns a 2 byte ADC reading for 2v5 PWR, high 8bits come first.</li>
+<li>Returns a 2 byte ADC reading for 1v8 PWR, high 8bits come first.</li>
+<li>Returns a 2 byte ADC reading for VPU, high 8bits come first.</li>
+<li>Returns a 2 byte ADC reading for ADC PROBE, high 8bits come first.</li>
+<li>returns 0x01</li>
+</ol>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    At the end of this page, you will find a code to convert each 2-byte ADC value.
+
+</div>
+
+<h3 id="buzz-b00000001-0x01---tp0-input-low">Buzz b00000001 (0x01) - TP0 INPUT LOW</h3>
+<p>Configure TP0 as INPUT LOW.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    TP0 is connected to VPU like MOSI, MISO.. pins.
+
+</div>
+
+<p>returns 0x01 if it has successfull.</p>
+<h3 id="buzz-b00000010-0x02---tp0-output-low">Buzz b00000010 (0x02) - TP0 OUTPUT LOW</h3>
+<p>Configure TP0 as OUTPUT LOW.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    TP0 is connected to VPU like MOSI, MISO.. pins.
+
+</div>
+
+<p>returns 0x01 if it has successfull.</p>
+<h3 id="buzz-b00000011-0x03---read-tp0-status">Buzz b00000011 (0x03) - Read TP0 status</h3>
+<p>Return 0x01 or 0x00 depending on the status of TP0 (1=HIGH, 0=LOW).</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    TP0 is connected to VPU like MOSI, MISO.. pins.
+
+</div>
+
+<p>returns 0x01 if it has successfull.</p>
+<h3 id="buzz-b00010000-0x10---check-for-short-circuits-in-the-power-supply-units">Buzz b00010000 (0x10) - Check for short circuits in the power supply units</h3>
+<p>Inspect the power supply units for short circuits across the 5V, 3.3V, 2.5V, and 1.8V lines.</p>
+<p>Return 0x01 if any PSU voltage is abnormally low, indicating a potential short circuit.</p>
+<p>Return 0x00 if all PSU voltages are within normal parameters.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    This command activates all the PSUs, checks the voltage of each one, and then turns off all the PSUs as quickly as possible
+
+</div>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    It is recommended to use this command before executing the command: &ldquo;Configure peripherals w=1&rdquo;
+
+</div>
+
+<h3 id="buzz-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">Buzz b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h3>
+<p>Configure and enable pulse-width modulation output in the AUX pin.</p>
+<p>Requires a 5 byte configuration sequence.</p>
+<p>Equations to calculate the PWM frequency and period are in the PIC24F output compare manual.</p>
+<ul>
+<li>Bit 0 and 1 of the first configuration byte set the prescaler value.</li>
+<li>The Next two bytes set the duty cycle register, high 8bits first.</li>
+<li>The final two bytes set the period register, high 8bits first.</li>
+</ul>
+<p>Responds 0x01 after a complete sequence is received.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    The PWM remains active after leaving binary bitbang mode!
+
+</div>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Further down on this page, you will find examples of how to generate the 5 byte setup.
+
+</div>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..
+
+</div>
+
+<h3 id="buzz-b00010011-0x13---cleardisable-pwm">Buzz b00010011 (0x13) - Clear/disable PWM</h3>
+<p>Clears the PWM, disables PWM output. Responds 0x01.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..
+
+</div>
+
+<h3 id="buzz-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">Buzz b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h3>
+<p>Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    At the end of this page, you will find a code to convert the ADC value.
+
+</div>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..
+
+</div>
+
+<h3 id="buzz-b00010101-0x15---continuous-voltage-probe-measurement">Buzz b00010101 (0x15) - Continuous voltage probe measurement</h3>
+<p>Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.</p>
+<p>To exit this mode, send any single character.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..
+
+</div>
+
+<h3 id="buzz-b00010110-0x16---frequency-measurement-on-aux-pin">Buzz b00010110 (0x16) - Frequency measurement on AUX pin</h3>
+<p>Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    This command was previously available only in the main menu; now, you can use it from any mode, including SPI, I2C, etc..
+
+</div>
+
+<hr>
+<h2 id="main-b00001111-0x0f---reset-buzzpirat">MAIN b00001111 (0x0F) - Reset Buzzpirat</h2>
+<p>The Buzzpirat responds 0x01 and then performs a complete hardware reset. The hardware and firmware version is printed (same as the &lsquo;i&rsquo; command in the terminal), and the Buzzpirat returns to the user terminal interface. Send 0x00 20 times to enter binary mode again.
+Note: there may be garbage data between the 0x01 reply and the version information as the PIC UART initializes.</p>
+<hr>
+<h2 id="main-b00010000-0x10---buzzpirat-short-self-test--b00010001-0x11-long-self-test">MAIN b00010000 (0x10) - Buzzpirat Short self-test &amp; b00010001 (0x11) Long self-test</h2>
+<p>Self-test commands</p>
+<p>b00010001 (0x11) Long test (requires jumpers between +5 and Vpu, +3.3 and ADC)</p>
+<p>The full test is the same as self-test in the user terminal, it requires jumpers between two sets of pins in order to test some features. The short test eliminates the six checks that require jumpers.</p>
+<p>After the test is complete, the Buzzpirat responds with the number of errors. It also echoes any input plus the number of errors. The MODE LED blinks if the test was successful, or remains solid if there were errors. Exit the self-test by sending 0xff, the Buzzpirat will respond 0x01 and return to binary bitbang mode.</p>
+<hr>
+<h2 id="main-b00010010-0x12---setup-pulse-width-modulation-requires-5-byte-setup">MAIN b00010010 (0x12) - Setup pulse-width modulation (requires 5 byte setup)</h2>
+<p>Configure and enable pulse-width modulation output in the AUX pin.</p>
+<p>Requires a 5 byte configuration sequence.</p>
+<p>Equations to calculate the PWM frequency and period are in the PIC24F output compare manual.</p>
+<ul>
+<li>Bit 0 and 1 of the first configuration byte set the prescaler value.</li>
+<li>The Next two bytes set the duty cycle register, high 8bits first.</li>
+<li>The final two bytes set the period register, high 8bits first.</li>
+</ul>
+<p>Responds 0x01 after a complete sequence is received.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    The PWM remains active after leaving binary bitbang mode!
+
+</div>
+
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    Further down on this page, you will find examples of how to generate the 5 byte setup.
+
+</div>
+
+<hr>
+<h2 id="main-b00010011-0x13---cleardisable-pwm">MAIN b00010011 (0x13) - Clear/disable PWM</h2>
+<p>Clears the PWM, disables PWM output. Responds 0x01.</p>
+<hr>
+<h2 id="main-b00010100-0x14---take-voltage-probe-measurement-returns-2-bytes">MAIN b00010100 (0x14) - Take voltage probe measurement (returns 2 bytes)</h2>
+<p>Take a measurement from the Buzzpirat voltage probe. Returns a 2 byte ADC reading, high 8bits come first. To determine the actual voltage measurement: (ADC/1024)x3.3voltsx2; or simply (ADC/1024)x6.6.</p>
+
+
+<div class="alert alert-primary" role="alert">
+<h4 class="alert-heading">Note</h4>
+
+    At the end of this page, you will find a code to convert the ADC value.
+
+</div>
+
+<hr>
+<h2 id="main-b00010101-0x15---continuous-voltage-probe-measurement">MAIN b00010101 (0x15) - Continuous voltage probe measurement</h2>
+<p>Sends ADC data (2bytes, high 8 first) as fast as UART will allow. A new reading is not taken until the previous finishes transmitting to the PC, this prevents time distortion from the buffer. Added for the oscilloscope script.</p>
+<p>To exit this mode, send any single character.</p>
+<hr>
+<h2 id="main-b00010110-0x16---frequency-measurement-on-aux-pin">MAIN b00010110 (0x16) - Frequency measurement on AUX pin</h2>
+<p>Takes frequency measurement on AUX pin. Returns 4byte frequency count, most significant byte first.</p>
+<hr>
+<h2 id="main-b010xxxxx-0x40-0x5f---configure-pins-as-input1-or-output0-auxmosiclkmisocs">MAIN b010xxxxx (0x40-0x5F) - Configure pins as input(1) or output(0): AUX|MOSI|CLK|MISO|CS</h2>
+<p>Configure pins as an input (1) or output(0). The pins are mapped to the lower five bits in this order:</p>
+<ul>
+<li>AUX|MOSI|CLK|MISO|CS.</li>
+</ul>
+<p>The Buzzpirat responds to each direction update with a byte showing the current state of the pins, regardless of direction. This is useful for open collector I/O modes.</p>
+<hr>
+<h2 id="main-b1xxxxxxx-0x80-0xff---set-on-1-or-off-0-powerpullupauxmosiclkmisocs">MAIN b1xxxxxxx (0x80-0xFF) - Set on (1) or off (0): POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</h2>
+<p>The lower 7bits of the command byte control the Buzzpirat pins and peripherals. Bitbang works like a player piano or bitmap. The Buzzpirat pins map to the bits in the command byte as follows:</p>
+<ul>
+<li>1|POWER|PULLUP|AUX|MOSI|CLK|MISO|CS</li>
+</ul>
+<p>The Buzzpirat responds to each update with a byte in the same format that shows the current state of the pins.</p>
+<hr>
+<h2 id="adc-calculation">ADC Calculation</h2>
+<h3 id="python-3">Python 3</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">adc_high</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x03</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">adc_low</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x08</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">adc_buzz</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_high</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">adc_low</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Combined ADC value (hex): </span><span style="color:#4e9a06">{</span><span style="color:#204a87">hex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_buzz</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#0000cf;font-weight:bold">1024</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">6.6</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Result for ADC value </span><span style="color:#4e9a06">{</span><span style="color:#000">adc_buzz</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> (hex </span><span style="color:#4e9a06">{</span><span style="color:#204a87">hex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">): </span><span style="color:#4e9a06">{</span><span style="color:#000">result</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Combined ADC value (hex): 0x308
+</span></span><span style="display:flex;"><span>Result for ADC value 776 (hex 0x308): 5.0015624999999995
+</span></span></code></pre></div><h3 id="c">C</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stdio.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">char</span> <span style="color:#000">adc_high</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x03</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">char</span> <span style="color:#000">adc_low</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0x08</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">adc_buzz</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">adc_high</span> <span style="color:#ce5c00;font-weight:bold">&lt;&lt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">adc_low</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Combined ADC value (hex): 0x%x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">result</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">(((</span><span style="color:#204a87;font-weight:bold">double</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#0000cf;font-weight:bold">1024.0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#0000cf;font-weight:bold">6.6</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Result for ADC value %u (hex 0x%x): %f</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">adc_buzz</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">result</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Combined ADC value (hex): 0x308
+</span></span><span style="display:flex;"><span>Result for ADC value 776 (hex 0x308): 5.001562
+</span></span></code></pre></div><hr>
+<h2 id="pwm-computation">PWM Computation</h2>
+<h3 id="python-3-1">Python 3</h3>
+<p>Here is a Python Script for computing the PWM for Buzzpirat.</p>
+<p>For example, setup PWM with Period of 1msec, 50% duty cycle. Using 1:1 Prescaler.</p>
+<p>Modify only the 3 lines:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Prescaler=1 # 1:1
+</span></span><span style="display:flex;"><span>PwmPeriod=1e-3  # 0.1msec
+</span></span><span style="display:flex;"><span>DutyCycleInPercent=.5 # 50%
+</span></span></code></pre></div><p>It will output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>======================
+</span></span><span style="display:flex;"><span>PwmPeriod: 0.00100000000000000002 sec.
+</span></span><span style="display:flex;"><span>Tcy: 0.00000006250000000000 sec.
+</span></span><span style="display:flex;"><span>Prescaler: 1
+</span></span><span style="display:flex;"><span>PR2: 0x3e7f = 15999
+</span></span><span style="display:flex;"><span>OCR: 0x1f3f = 7999
+</span></span><span style="display:flex;"><span>5 Byte Setup:
+</span></span><span style="display:flex;"><span>1st Byte: 0x00
+</span></span><span style="display:flex;"><span>2nd Byte: 0x1f
+</span></span><span style="display:flex;"><span>3rd Byte: 0x3f
+</span></span><span style="display:flex;"><span>4th Byte: 0x3e
+</span></span><span style="display:flex;"><span>5th Byte: 0x7f
+</span></span></code></pre></div><p>Use the 5byte setup to set the PWM.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#!/usr/bin/env python3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Python Script 00.08.00
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">    - by 7 mod by Dreg
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"># 32MHz Crystal Oscillator</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Fosc</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">32e6</span>  <span style="color:#8f5902;font-style:italic"># DONT MODIFY THIS</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Prescaler</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span>  <span style="color:#8f5902;font-style:italic"># [1, 8, 64, 256]</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PwmPeriod</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1e-3</span>  <span style="color:#8f5902;font-style:italic"># 0.1 msec</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">DutyCycleInPercent</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0.5</span>  <span style="color:#8f5902;font-style:italic"># 50%</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">###################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#### ---------------------------------------- #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#### -- DON&#39;T MODIFY ANYTHING BELOW THIS LINE #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#### ---------------------------------------- #####</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">###################################################</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#39;&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Configure and enable pulse-width modulation output in the AUX pin.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Requires a 5 byte configuration sequence.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Responds 0x01 after a complete sequence is received.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">The PWM remains active after leaving binary bitbang mode! 
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">Equations to calculate the PWM frequency and period are in the PIC24F
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">output compare manual. Bit 0 and 1 of the first configuration byte
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">set the prescaler value. The Next two bytes set the duty cycle register,
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">high 8 bits first. The final two bytes set the period register, high 8 bits first.
+</span></span></span><span style="display:flex;"><span><span style="color:#4e9a06">&#39;&#39;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PrescalerList</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">{</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">64</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">256</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">Tcy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2.0</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000">Fosc</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PwmPeriod</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Tcy</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#000">OCR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">DutyCycleInPercent</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;======================&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;PwmPeriod: </span><span style="color:#4e9a06">{</span><span style="color:#000">PwmPeriod</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">.20f</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> sec.&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Tcy: </span><span style="color:#4e9a06">{</span><span style="color:#000">Tcy</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">.20f</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> sec.&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;Prescaler: </span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;PR2: 0x</span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> = </span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;OCR: 0x</span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06"> = </span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">)</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#####</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;5 Byte Setup:&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;1st Byte: 0x</span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PrescalerList</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">])</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">02x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;2nd Byte: 0x</span><span style="color:#4e9a06">{</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">02x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;3rd Byte: 0x</span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">02x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;4th Byte: 0x</span><span style="color:#4e9a06">{</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">02x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">f</span><span style="color:#4e9a06">&#34;5th Byte: 0x</span><span style="color:#4e9a06">{</span><span style="color:#204a87">int</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#4e9a06">:</span><span style="color:#4e9a06">02x</span><span style="color:#4e9a06">}</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</span></span></code></pre></div><h3 id="c-1">C</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stdio.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// 32MHz Crystal Oscillator
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">Fosc</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">32e6</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// DON&#39;T MODIFY THIS
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">Prescaler</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">//unsigned int Prescaler = 8;  
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">//unsigned int Prescaler = 64; 
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">//unsigned int Prescaler = 256;  
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">PwmPeriod</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1e-3</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 0.1 msec
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">DutyCycleInPercent</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0.5</span><span style="color:#000;font-weight:bold">;</span>  <span style="color:#8f5902;font-style:italic">// 50%
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// DON&#39;T MODIFY ANYTHING BELOW THIS LINE
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8f5902;font-style:italic">// Configure and enable pulse-width modulation output in the AUX pin
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">listv</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">switch</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">listv</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">listv</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#0000cf;font-weight:bold">64</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">listv</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">case</span> <span style="color:#0000cf;font-weight:bold">256</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">listv</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#204a87;font-weight:bold">default</span><span style="color:#ce5c00;font-weight:bold">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#000">listv</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">Tcy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">2.0</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000">Fosc</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PwmPeriod</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Tcy</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">double</span> <span style="color:#000">OCR</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000">DutyCycleInPercent</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;======================</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;PwmPeriod: %.20f sec.</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">PwmPeriod</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Tcy: %.20f sec.</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Tcy</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;Prescaler: %u</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">Prescaler</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;PR2: 0x%x = %u</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">PRy</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;OCR: 0x%x = %u</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">OCR</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;5 Byte Setup:</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;1st Byte: 0x%02x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">listv</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;2nd Byte: 0x%02x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">OCR</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;3rd Byte: 0x%02x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">OCR</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;4th Byte: 0x%02x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">((</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">&gt;&gt;</span> <span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;5th Byte: 0x%02x</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">unsigned</span> <span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">)</span><span style="color:#000">PRy</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span> <span style="color:#0000cf;font-weight:bold">0xFF</span><span style="color:#000;font-weight:bold">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}</span>
+</span></span></code></pre></div><p>Output:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>======================
+</span></span><span style="display:flex;"><span>PwmPeriod: 0.00100000000000000002 sec.
+</span></span><span style="display:flex;"><span>Tcy: 0.00000006250000000000 sec.
+</span></span><span style="display:flex;"><span>Prescaler: 1
+</span></span><span style="display:flex;"><span>PR2: 0x3e7f = 15999
+</span></span><span style="display:flex;"><span>OCR: 0x1f3f = 7999
+</span></span><span style="display:flex;"><span>5 Byte Setup:
+</span></span><span style="display:flex;"><span>1st Byte: 0x00
+</span></span><span style="display:flex;"><span>2nd Byte: 0x1f
+</span></span><span style="display:flex;"><span>3rd Byte: 0x3f
+</span></span><span style="display:flex;"><span>4th Byte: 0x3e
+</span></span><span style="display:flex;"><span>5th Byte: 0x7f
+</span></span></code></pre></div>
+  <div class="section-index">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</div>
+<div class="text-muted mt-5 pt-3 border-top">
+  Last modified January 2, 2024: <a href="https://github.com/therealdreg/buzzpiratweb/commit/bddb05c1fba1f0f81557301dc43fcbf4a1b004d1">commit (bddb05c)</a>
+</div>
+</div>
+
+          </main>
+        </div>
+      </div>
+      <footer class="td-footer row d-print-none">
+  <div class="container-fluid">
+    <div class="row mx-md-2">
+      <div class="col-6 col-sm-4 text-xs-center order-sm-2">
+        
+        
+        
+<ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="User mailing list" aria-label="User mailing list">
+    <a target="_blank" rel="noopener" href="https://example.org/mail" aria-label="User mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Twitter" aria-label="Twitter">
+    <a target="_blank" rel="noopener" href="https://example.org/twitter" aria-label="Twitter">
+      <i class="fab fa-twitter"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Stack Overflow" aria-label="Stack Overflow">
+    <a target="_blank" rel="noopener" href="https://example.org/stack" aria-label="Stack Overflow">
+      <i class="fab fa-stack-overflow"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="col-6 col-sm-4 text-end text-xs-center order-sm-3">
+        
+        
+        
+<ul class="td-footer__links-list">
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="GitHub" aria-label="GitHub">
+    <a target="_blank" rel="noopener" href="https://github.com/google/docsy" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Slack" aria-label="Slack">
+    <a target="_blank" rel="noopener" href="https://example.org/slack" aria-label="Slack">
+      <i class="fab fa-slack"></i>
+    </a>
+  </li>
+  
+  <li class="td-footer__links-item" data-bs-toggle="tooltip" title="Developer mailing list" aria-label="Developer mailing list">
+    <a target="_blank" rel="noopener" href="https://example.org/mail" aria-label="Developer mailing list">
+      <i class="fa fa-envelope"></i>
+    </a>
+  </li>
+  
+</ul>
+
+        
+        
+      </div>
+      <div class="td-footer__copyright-etc col-12 col-sm-4 text-center py-2 order-sm-2">
+        <span>&copy; 2024 The Docsy Authors All Rights Reserved</span>
+        <span class="ms-1"><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a></span>
+        <p class="td-footer__about mt-2"><a href="/about/">About Goldydocs</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <script src="/js/main.min.99abe30f7fb05785a480d405ee1665ebd520cec6bbadffe966b7737e103675b8.js" integrity="sha256-mavjD3&#43;wV4WkgNQF7hZl69Ugzsa7rf/pZrdzfhA2dbg=" crossorigin="anonymous"></script>
+<script defer src="/js/click-to-copy.min.f724d3de49218995223b7316aa2e53e2b34bf42026bf399ebb21bb02212402d1.js" integrity="sha256-9yTT3kkhiZUiO3MWqi5T4rNL9CAmvzmeuyG7AiEkAtE=" crossorigin="anonymous"></script>
+<script src='/js/tabpane-persist.js'></script>
+
+  </body>
+</html>
