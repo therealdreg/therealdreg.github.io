@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 set -x
+rm -rf public/ &&\
 hugo &&\
-rm -rf docs/ &&\
-mv public/ docs/ &&\
-echo -n "buzzpirat.com" > docs/CNAME &&\
+echo -n "buzzpirat.com" > public/CNAME &&\
 git add . &&\
 git commit -a -m 'commit'
