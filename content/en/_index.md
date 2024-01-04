@@ -15,12 +15,11 @@ title: Goldydocs
 
 
 {{% blocks/lead color="primary" %}}
-Goldydocs provides a single web UI providing visibility into porridge
-temperature, chair size, and bed softness metrics! You can even find out who's
-been eating **your** porridge.
 
-(Sadly, Goldydocs isn't a real project, but you can use this site as an example
-to create your own real websites with [Docsy](https://docsy.dev))
+Our mission is to make hardware hacking knowledge accessible to people with limited understanding of hardware, electronics, and mathematics
+
+We create tools, documentation, training, and audiovisual materials to help you learn and practice hardware hacking in a safe and legal environment.
+
 {{% /blocks/lead %}}
 
 
@@ -72,6 +71,6 @@ For announcement of latest features etc.
 
 
 {{% blocks/section %}}
-This is the another section
+![](/mitlogo.png)
 {.h1 .text-center}
 {{% /blocks/section %}}
