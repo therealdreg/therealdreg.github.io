@@ -2,14 +2,14 @@
 title: Goldydocs
 ---
 
-{{< blocks/cover title="Welcome to Goldydocs: A Docsy Example Project!" image_anchor="top" height="full" >}}
+{{< blocks/cover title="Buzzpirat: All-In-One Ruggedized Hardware Hacking tool for learning, practice and play" image_anchor="top" height="full" >}}
 <a class="btn btn-lg btn-primary me-3 mb-4" href="/docs/">
   Learn More </i>
 </a>
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://fr33project.org/buzz.php" target="_blank" rel="noopener noreferrer">
   Buy <i class="fa fa-external-link ms-2"></i>
 </a>
-<p class="lead mt-5">Porridge temperature assessment &mdash; in the cloud!</p>
+<p class="lead mt-5">Using the same hardware as Bus Pirate v3 but with some enhancements</p>
 {{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
