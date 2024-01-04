@@ -96,7 +96,7 @@ If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .
 Download the last picprog app from this page:
 - https://github.com/therealdreg/buzzpirat/tree/main/bin/picprog
 
-Ensure that the bricked device and the Bus Pirate v3 are connected to the PC via USB.
+Ensure that both the bricked device and the Bus Pirate v3 are connected to the PC via USB
 
 Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute: (my Bus Pirate v3 is on COM29):
 
