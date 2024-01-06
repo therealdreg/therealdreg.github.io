@@ -1,5 +1,5 @@
 ---
-title: Goldydocs
+title: Buzzpirat
 ---
 
 {{< blocks/cover title="Buzzpirat: All-In-One Ruggedized Hardware Hacking tool for learning, practice and play" image_anchor="top" height="full" >}}
