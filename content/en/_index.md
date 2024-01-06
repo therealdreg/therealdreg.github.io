@@ -9,7 +9,6 @@ title: Buzzpirat
 <a class="btn btn-lg btn-secondary me-3 mb-4" href="https://fr33project.org/buzz.php" target="_blank" rel="noopener noreferrer">
   Buy <i class="fa fa-external-link ms-2"></i>
 </a>
-<p class="lead mt-5">Using the same hardware as Bus Pirate v3 but with some enhancements</p>
 {{< blocks/link-down color="info" >}}
 {{< /blocks/cover >}}
 
@@ -19,6 +18,8 @@ title: Buzzpirat
 Our mission is to make hardware hacking knowledge accessible to people with limited understanding of hardware, electronics, and mathematics
 
 We create tools, documentation, training, and audiovisual materials to help you learn and practice hardware hacking in a safe and legal environment
+
+**Using the same hardware as Bus Pirate v3 but with some enhancements**
 
 {{% /blocks/lead %}}
 
