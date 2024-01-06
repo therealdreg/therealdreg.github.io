@@ -70,8 +70,20 @@ In all our work, we use the MIT license, which allows you to use, modify, and di
 {{% blocks/feature icon="fa-solid fa-toolbox" title="Flashrom, OpenOCD and AVRDude support" %}}
 We will ensure it works seamlessly with software like AVRDude, OpenOCD and Flashrom which are widely used, well-known, and stable tools in the hardware hacking scene
 
-We also create new tools and enhance support for existing ones
+We also create new hardware hacking tools and enhance support for existing ones
 {{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-solid fa-hammer" title="Artisanal" %}}
+As a small, artisanal creator without the extensive resources of a large company, we dedicate significant manual labor and attention to detail for each individual board
+
+Our commitment is to quality over quantity, and as a result, the product may be priced higher
+
+Patience is appreciated as human errors and occasional bugs are an inherent part of this bespoke process
+
+**Buzzpirat is not intended for mass production (limited stock available)**
+{{% /blocks/feature %}}
+
 
 
 
