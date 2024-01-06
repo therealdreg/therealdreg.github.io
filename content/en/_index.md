@@ -55,10 +55,25 @@ Fully compatible with both the official Bus Pirate firmware and bootloader, as w
 
 
 {{% blocks/feature icon="fa-solid fa-leaf" title="We care about the environment" %}}
-Designed for easy DIY repairs and modifications: Large components (when possible) and ample spacing between them allow for hassle-free fixes. No need for a microscope or expensive tools - a soldering iron and a pair of tweezers are all you need
+Designed for easy DIY repairs and modifications: Large components (when possible) and ample spacing between them allow for hassle-free fixes. 
+
+No need for a microscope or expensive tools - a soldering iron and a pair of tweezers are all you need
 
 We strive to use the best environmentally friendly materials whenever possible and cost-effective
 {{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-brands fa-osi" title="Open Source and Open Hardware" %}}
+In all our work, we use the MIT license, which allows you to use, modify, and distribute our work for any purpose, even commercially
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-toolbox" title="Flashrom, OpenOCD and AVRDude support" %}}
+We will ensure it works seamlessly with software like AVRDude, OpenOCD and Flashrom which are widely used, well-known, and stable tools in the hardware hacking scene
+
+We also create new tools and enhance support for existing ones
+{{% /blocks/feature %}}
+
+
 
 
 {{% /blocks/section %}}
