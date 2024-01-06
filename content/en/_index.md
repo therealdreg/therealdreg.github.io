@@ -45,7 +45,21 @@ Providing premium, labeled short cables and SMD IC hook clips, engineered for ea
 
 {{% blocks/feature icon="fa-solid fa-bolt" title="Power supply for the most common voltages" %}}
 Support for working directly with 5v, 3.3v, 2.5v and 1.8v. So you won't need an external circuit to hack a 1.8v chip
+
+Power supply capabilities allow for the connection of more power-hungry devices (~300ma)
 {{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-puzzle-piece" title="Bus Pirate v3 compatible" %}}
+Fully compatible with both the official Bus Pirate firmware and bootloader, as well as versions supported by the Bus Pirate community
+{{% /blocks/feature %}}
+
+
+{{% blocks/feature icon="fa-solid fa-leaf" title="We care about the environment" %}}
+Designed for easy DIY repairs and modifications: Large components (when possible) and ample spacing between them allow for hassle-free fixes. No need for a microscope or expensive tools - a soldering iron and a pair of tweezers are all you need
+
+We strive to use the best environmentally friendly materials whenever possible and cost-effective
+{{% /blocks/feature %}}
+
 
 {{% /blocks/section %}}
 
