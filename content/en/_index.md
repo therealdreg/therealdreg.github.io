@@ -23,24 +23,29 @@ We create tools, documentation, training, and audiovisual materials to help you 
 
 {{% /blocks/lead %}}
 
-
 {{% blocks/section color="dark" type="row" %}}
-{{% blocks/feature icon="fa-lightbulb" title="New chair metrics!" %}}
-The Goldydocs UI now shows chair size metrics by default.
+{{% blocks/feature icon="fa-solid fa-shield-halved" title="Ruggedized" %}}
+Ensuring the safety of three key components: the Buzzpirat device, the target chip, and the PC
 
-Please follow this space for updates!
+We've implemented advanced hardware protections including overvoltage and overcurrent safeguards, reverse polarity protection, and various measures to prevent device damage. 
+
+This includes a PTC (Positive Temperature Coefficient) for each I/O, Zener diodes, cut-off circuitry, and more, to enhance overall security
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-tower-broadcast" title="Bluetooth and WiFi" %}}
+Compatible with Bluetooth/WiFi UART adapters for both iOS and Android, allowing for hardware hacking without the need for a PC
+
+This functionality safeguards your computer by ensuring it remains disconnected from the target chip/board during incidents like short circuits, high voltage connections, or reverse polarity occurrences
 {{% /blocks/feature %}}
 
 
-{{% blocks/feature icon="fab fa-github" title="Contributions welcome!" url="https://github.com/google/docsy-example" %}}
-We do a [Pull Request](https://github.com/google/docsy-example/pulls) contributions workflow on **GitHub**. New users are always welcome!
+{{% blocks/feature icon="fa-solid fa-medal" title="High quality cables" %}}
+Providing premium, labeled short cables and SMD IC hook clips, engineered for easy and secure attachment to small chips
 {{% /blocks/feature %}}
 
-
-{{% blocks/feature icon="fab fa-twitter" title="Follow us on Twitter!" url="https://twitter.com/docsydocs" %}}
-For announcement of latest features etc.
+{{% blocks/feature icon="fa-solid fa-bolt" title="Power supply for the most common voltages" %}}
+Support for working directly with 5v, 3.3v, 2.5v and 1.8v. So you won't need an external circuit to hack a 1.8v chip
 {{% /blocks/feature %}}
-
 
 {{% /blocks/section %}}
 
