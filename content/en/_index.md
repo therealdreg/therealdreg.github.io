@@ -18,7 +18,7 @@ title: Goldydocs
 
 Our mission is to make hardware hacking knowledge accessible to people with limited understanding of hardware, electronics, and mathematics
 
-We create tools, documentation, training, and audiovisual materials to help you learn and practice hardware hacking in a safe and legal environment.
+We create tools, documentation, training, and audiovisual materials to help you learn and practice hardware hacking in a safe and legal environment
 
 {{% /blocks/lead %}}
 
