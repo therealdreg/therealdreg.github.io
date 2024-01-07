@@ -84,10 +84,6 @@ Patience is appreciated as human errors and occasional bugs are an inherent part
 **Buzzpirat is not intended for mass production (limited stock available)**
 {{% /blocks/feature %}}
 
-
-
-
-
 {{% /blocks/section %}}
 
 
