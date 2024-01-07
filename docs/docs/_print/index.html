@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.9622509343fd16583f638b2dbdcac8b0.json"
+    data-offline-search-index-json-src="/offline-search-index.9f733d1664a320a0e3b50507cf93e9b4.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -171,7 +171,7 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>3: <a href="#pg-e459c51a85b49d14d7b61448e704de0d">How to use</a></li>
+<li>3: <a href="#pg-d33db6d5cfbb7ff60d1e19cd08607f8c">Flashrom</a></li>
 
 
     
@@ -190,7 +190,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>4: <a href="#pg-c639f7a400d557214471d50010a514eb">Unbrick</a></li>
+<li>4: <a href="#pg-e459c51a85b49d14d7b61448e704de0d">How to use</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>5: <a href="#pg-c639f7a400d557214471d50010a514eb">Unbrick</a></li>
 
 
     
@@ -1330,7 +1349,237 @@ Note: there may be garbage data between the 0x01 reply and the version informati
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-e459c51a85b49d14d7b61448e704de0d">3 - How to use</h1>
+	<h1 id="pg-d33db6d5cfbb7ff60d1e19cd08607f8c">3 - Flashrom</h1>
+    <div class="lead">How to unbrick your Buzzpirat / Bus Pirate v3</div>
+	<p>Have you tried updating the bootloader of Buzzpirat or Bus Pirate v3 and it doesn&rsquo;t work? Doesn&rsquo;t it even enter bootloader mode when bridging the PGD and PGC pins? Don&rsquo;t worry, there are several ways to fix it.</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#unbrick-using-another-bus-pirate-v3">Unbrick using another Bus Pirate v3</a>
+      <ul>
+        <li><a href="#downgrade-your-bus-pirate-v3-firmware">Downgrade your Bus Pirate v3 firmware</a></li>
+        <li><a href="#connect-to-the-bus-pirate-v3-to-bricked-buzzpirat--bricked-bus-pirate-v3">Connect to the Bus Pirate v3 to Bricked Buzzpirat / Bricked Bus Pirate v3</a></li>
+        <li><a href="#burn-a-new-bootloader-and-firmware-to-the-bricked-device">Burn a new bootloader and firmware to the bricked device</a></li>
+      </ul>
+    </li>
+    <li><a href="#unbrick-using-clones-like-pickit35">Unbrick using clones like PICkit3.5</a></li>
+    <li><a href="#unbrick-using-official-mplab-pickit-5">Unbrick using official MPLAB PICkit 5</a></li>
+  </ul>
+</nav>
+
+<h2 id="unbrick-using-another-bus-pirate-v3">Unbrick using another Bus Pirate v3</h2>
+<p>The Bus Pirate v3 can be used as an inexpensive PIC programmer.</p>
+<p>Total cost: ~40$</p>
+<ul>
+<li>Buy a Bus Pirate v3 + USB mini -&gt; USB A cable</li>
+<li>Buy 5 dupont cables FEMALE-FEMALE</li>
+</ul>
+<h3 id="downgrade-your-bus-pirate-v3-firmware">Downgrade your Bus Pirate v3 firmware</h3>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    You must install this version because the picprog program only works with certain firmwares.
+
+</div>
+
+<p>Download <strong>BPv3-Firmware-v5.9-extras.hex</strong> firmware from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm">https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm</a></li>
+</ul>
+<p>Download the last buzzloader app (There are versions available for Windows, Linux and Mac) from this page:</p>
+<ul>
+<li>
+<p><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader">https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader</a></p>
+</li>
+<li>
+<p>put a jumper/dupont_wire connecting the PGD pin to the PGC pin</p>
+</li>
+<li>
+<p>connect the Bus Pirate v3 to your computer via a usb cable</p>
+</li>
+<li>
+<p>check for the new COM port assignment in the device manager (e.g., COM29)</p>
+</li>
+</ul>
+<p>Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>buzzloader.exe --dev=COM29 --hex=BPv3-Firmware-v5.9-extras.hex
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Erasing page 41, a400...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 328, a400...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 329, a480...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 330, a500...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 331, a580...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 332, a600...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 333, a680...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 334, a700...OK
+</span></span><span style="display:flex;"><span>Writing page 41 row 335, a780...OK
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Firmware updated successfully :)!
+</span></span><span style="display:flex;"><span>Use screen com30 115200 to verify
+</span></span></code></pre></div><p>Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you&rsquo;re all set! You should now have the  firmware installed.</p>
+<p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>i
+</span></span><span style="display:flex;"><span>Bus Pirate v3b
+</span></span><span style="display:flex;"><span>Firmware v5.9 (r529) [HiZ 2WIRE 3WIRE KEYB LCD DIO] Bootloader v4.5
+</span></span><span style="display:flex;"><span>DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
+</span></span><span style="display:flex;"><span>http://dangerousprototypes.com
+</span></span><span style="display:flex;"><span>HiZ&gt;
+</span></span></code></pre></div><h3 id="connect-to-the-bus-pirate-v3-to-bricked-buzzpirat--bricked-bus-pirate-v3">Connect to the Bus Pirate v3 to Bricked Buzzpirat / Bricked Bus Pirate v3</h3>
+<p>Locate the PIC programming pins on the bricked device. Look for the pin named: MCLR.</p>
+<p>Connect the pins using Dupont cables in the following manner:</p>
+<table>
+<thead>
+<tr>
+<th>Bus Pirate v3</th>
+<th>Bricked device</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLK</td>
+<td>PGC</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>PGD</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>+3v3</td>
+<td>+3v3</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>MCLR</td>
+</tr>
+</tbody>
+</table>
+<h3 id="burn-a-new-bootloader-and-firmware-to-the-bricked-device">Burn a new bootloader and firmware to the bricked device</h3>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    Download the firmware labeled with &ldquo;pickit&rdquo; in its name
+
+</div>
+
+<p>If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm</a></li>
+</ul>
+<p>If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp</a></li>
+</ul>
+<p>Download the last picprog app from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/picprog">https://github.com/therealdreg/buzzpirat/tree/main/bin/picprog</a></li>
+</ul>
+<p>Ensure that both the bricked device and the Bus Pirate v3 are connected to the PC via USB</p>
+<p>Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute: (my Bus Pirate v3 is on COM29):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>picprog.exe -p buspirate -u COM29 -s 115200 -c 24FJ64GA002 -t HEX -w BZ-pickit-firmware-v7.1.6969-bootloader-v4.5.hex -E
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>Skipping page 333 [ 0x014d00 ], not used
+</span></span><span style="display:flex;"><span>Skipping page 334 [ 0x014e00 ], not used
+</span></span><span style="display:flex;"><span>Writing page 335, 14f00...
+</span></span><span style="display:flex;"><span>Writing page 336, 15000...
+</span></span><span style="display:flex;"><span>Writing page 337, 15100...
+</span></span><span style="display:flex;"><span>Writing page 338, 15200...
+</span></span><span style="display:flex;"><span>Writing page 339, 15300...
+</span></span><span style="display:flex;"><span>Skipping page 340 [ 0x015400 ], not used
+</span></span><span style="display:flex;"><span>Skipping page 341 [ 0x015500 ], not used
+</span></span><span style="display:flex;"><span>Skipping page 342 [ 0x015600 ], not used
+</span></span><span style="display:flex;"><span>Writing page 343, 15700...
+</span></span></code></pre></div><p>Remove the Dupont cables from MCLR, PGD, PGC, GND, +3v3 pins, then reconnect the bricked device to the USB port, and you&rsquo;re all set! You should now have the bootloader+firmware installed.</p>
+<p>Run the &lsquo;i&rsquo; command and perform a self-test with the &lsquo;~&rsquo; command to ensure everything has gone smoothly.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plaintext" data-lang="plaintext"><span style="display:flex;"><span>HiZ&gt;i
+</span></span><span style="display:flex;"><span>Bus Pirate v3.5
+</span></span><span style="display:flex;"><span>Community Firmware v7.1 - buzzpirat.com by Dreg BZ SIXTHOUSANDNINEHUNDREDSIXTYNINE [HiZ 1-WIRE UART I2C SPI 2WIRE 3WIRE KEYB LCD PIC DIO] Bootloader v4.5
+</span></span><span style="display:flex;"><span>DEVID:0x0447 REVID:0x3046 (24FJ64GA00 2 B8)
+</span></span><span style="display:flex;"><span>http://dangerousprototypes.com
+</span></span><span style="display:flex;"><span>HiZ&gt;
+</span></span></code></pre></div><p>Now, <a href="/docs/firmware-update/">reinstall</a> the latest firmware on your Bus Pirate v3 (the one you used as a PIC programmer).</p>
+<h2 id="unbrick-using-clones-like-pickit35">Unbrick using clones like PICkit3.5</h2>
+<p>Buy a PICkit3.5 from Aliexpress (an inexpensive PIC programmer).</p>
+<p>Total cost: ~30$</p>
+<p>Download &amp; install the last pickit minus app from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus">https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus</a></li>
+</ul>
+<p>If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm</a></li>
+</ul>
+<p>If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:</p>
+<ul>
+<li><a href="https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp">https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp</a></li>
+</ul>
+<p>Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:</p>
+<p><img src="pcktmins0.png" alt=""></p>
+<p>Connect Buzzpirat / Buspirate &amp; Pickit to PC USB</p>
+<p>Open the pickitminus app</p>
+<p><img src="pcktmins1.png" alt=""></p>
+<p>Go to Tools -&gt; Download PICkit Operating System</p>
+<p><img src="pcktmins2.png" alt=""></p>
+<p>Make sure the PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002</p>
+<p>Select .hex for pickit minus use</p>
+<p><img src="pcktmins3.png" alt=""></p>
+<p><img src="pcktmins4.png" alt=""></p>
+<p>Go to File -&gt; Import Hex</p>
+<p>And select the Buzzpirat / Buspirate &ldquo;bootloader + firmware&rdquo; .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)</p>
+<p><img src="pcktmins5.png" alt=""></p>
+<p>Click on Write</p>
+<p><img src="pcktmins6.png" alt=""></p>
+<p>Done!</p>
+<p>Disconnect Buzzpirat / Buspirate &amp; Pickit from PC USB</p>
+<h2 id="unbrick-using-official-mplab-pickit-5">Unbrick using official MPLAB PICkit 5</h2>
+<p>Buy a PICkit 5 from Microchip.</p>
+<p>Total cost: ~100$</p>
+<p>Download &amp; install the last MPLAB X IDE from this page:</p>
+<p><a href="https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide">https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide</a></p>
+<p>Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:</p>
+<p><img src="mplabipe0.png" alt=""></p>
+<p>Connect Buzzpirat / Buspirate &amp; Pickit to PC USB</p>
+<p>Open MPLAB IPE (included with MPLAB X IDE):</p>
+<p>Select your Pickit Programmer, PIC24FJ64GA002</p>
+<p>And click on Connect, after that check that the PICKIT &amp; PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002:</p>
+<p><img src="mplabipe1.png" alt=""></p>
+<p>Go to Browse and select the Buzzpirat / Buspirate &ldquo;bootloader + firmware&rdquo; .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)</p>
+<p>And click on Program</p>
+<p><img src="mplabipe2.png" alt=""></p>
+<p>Done!</p>
+<p>Disconnect Buzzpirat / Buspirate &amp; Pickit from PC USB</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-e459c51a85b49d14d7b61448e704de0d">4 - How to use</h1>
     <div class="lead">How to use your Buzzpirat mod from dangerousprototypes</div>
 	<p>Once you have understood the &lsquo;Getting Started&rsquo; section, here you can delve deeper into the use of Buzzpirat.</p>
 <p>The Buzzpirat is controlled by text commands entered through the serial terminal. If the terminal is blank, press enter to show the command prompt. Press &lsquo;?&rsquo;, followed by enter, to show the help menu.</p>
@@ -3389,7 +3638,7 @@ Reset with the CS pin to clear garbage if needed</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-c639f7a400d557214471d50010a514eb">4 - Unbrick</h1>
+	<h1 id="pg-c639f7a400d557214471d50010a514eb">5 - Unbrick</h1>
     <div class="lead">How to unbrick your Buzzpirat / Bus Pirate v3</div>
 	<p>Have you tried updating the bootloader of Buzzpirat or Bus Pirate v3 and it doesn&rsquo;t work? Doesn&rsquo;t it even enter bootloader mode when bridging the PGD and PGC pins? Don&rsquo;t worry, there are several ways to fix it.</p>
 <nav id="TableOfContents">
