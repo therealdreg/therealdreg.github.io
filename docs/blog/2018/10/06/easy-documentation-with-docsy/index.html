@@ -129,25 +129,35 @@
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
-  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+  <nav class="td-sidebar-nav collapse foldable-nav" id="td-section-nav">
     <ul class="td-sidebar-nav__section pe-md-3 ul-0">
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-blog-li">
   <a href="/blog/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-blog"><span class="">Blog</span></a>
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-blognews-li">
-  <a href="/blog/news/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-blognews"><span class="">News</span></a>
+  <input type="checkbox" id="m-blognews-check" checked/>
+  <label for="m-blognews-check"><a href="/blog/news/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-blognews"><span class="">News</span></a></label>
+  
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-blog20181006easy-documentation-with-docsy-li">
-  <a href="/blog/2018/10/06/easy-documentation-with-docsy/" title="Easy documentation with Docsy" class="align-left ps-0 active td-sidebar-link td-sidebar-link__page" id="m-blog20181006easy-documentation-with-docsy"><span class="td-sidebar-nav-active-item">Announcing Docsy</span></a>
+  <input type="checkbox" id="m-blog20181006easy-documentation-with-docsy-check" checked/>
+  <label for="m-blog20181006easy-documentation-with-docsy-check"><a href="/blog/2018/10/06/easy-documentation-with-docsy/" title="Easy documentation with Docsy" class="align-left ps-0  active td-sidebar-link td-sidebar-link__page" id="m-blog20181006easy-documentation-with-docsy"><span class="td-sidebar-nav-active-item">Announcing Docsy</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20181006second-blog-post-li">
-  <a href="/blog/2018/10/06/second-blog-post/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20181006second-blog-post"><span class="">Second blog post</span></a>
+  <input type="checkbox" id="m-blog20181006second-blog-post-check"/>
+  <label for="m-blog20181006second-blog-post-check"><a href="/blog/2018/10/06/second-blog-post/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-blog20181006second-blog-post"><span class="">Second blog post</span></a></label>
+  
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-blogreleases-li">
-  <a href="/blog/releases/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-blogreleases"><span class="">Releases</span></a>
+  <input type="checkbox" id="m-blogreleases-check"/>
+  <label for="m-blogreleases-check"><a href="/blog/releases/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-blogreleases"><span class="">Releases</span></a></label>
+  
   <ul class="ul-2 foldable">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-blog20180104another-great-release-li">
-  <a href="/blog/2018/01/04/another-great-release/" class="align-left ps-0 td-sidebar-link td-sidebar-link__page" id="m-blog20180104another-great-release"><span class="">Another Great Release</span></a>
+  <input type="checkbox" id="m-blog20180104another-great-release-check"/>
+  <label for="m-blog20180104another-great-release-check"><a href="/blog/2018/01/04/another-great-release/" class="align-left ps-0  td-sidebar-link td-sidebar-link__page" id="m-blog20180104another-great-release"><span class="">Another Great Release</span></a></label>
+  
 </li>
   </ul>
 </li>
