@@ -38,17 +38,17 @@ If you value what we are building and would like to see it thrive, please consid
 {{% /blocks/section %}}
 
 
-{{% blocks/section color="yellow" type="row" %}}
+{{% blocks/section color="white" type="row" %}}
 
-{{% blocks/feature icon="fa-solid fa-shield-halved" %}}
+{{% blocks/feature icon="fa-solid fa-dollar-sign" %}}
 <a href="https://k1m3ra.gitlab.io" target="_blank" rel="noopener noreferrer">
-  k1m3rA <i class="fa fa-external-link ms-2"></i> logos & art
+  <img src="/donators/kimera.png"> k1m3rA logos & art <i class="fa fa-external-link ms-2"></i> 
 </a>
 {{% /blocks/feature %}}
 
-{{% blocks/feature icon="fa-solid fa-shield-halved" %}}
+{{% blocks/feature icon="fa-solid fa-dollar-sign" %}}
 <a href="https://github.com/Becca203" target="_blank" rel="noopener noreferrer">
-  Becca203 <i class="fa fa-external-link ms-2"></i> logos & art
+  <img src="/donators/beca.jpg"> Becca203 logos & art <i class="fa fa-external-link ms-2"></i> 
 </a>
 {{% /blocks/feature %}}
 
