@@ -42,13 +42,13 @@ If you value what we are building and would like to see it thrive, please consid
 
 {{% blocks/feature icon="fa-solid fa-dollar-sign" %}}
 <a href="https://k1m3ra.gitlab.io" target="_blank" rel="noopener noreferrer">
-  <img src="/donators/kimera.png" style="margin-right: 10px;"> k1m3rA logos & art <i class="fa fa-external-link ms-2"></i> 
+  <img src="/donators/kimera.png" style="margin-right: 10px;"> <strong>k1m3rA</strong> logos & art <i class="fa fa-external-link ms-2"></i> 
 </a>
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-solid fa-dollar-sign" %}}
 <a href="https://github.com/Becca203" target="_blank" rel="noopener noreferrer">
-  <img src="/donators/beca.jpg" style="margin-right: 10px;"> Becca203 logos & art <i class="fa fa-external-link ms-2"></i> 
+  <img src="/donators/beca.jpg" style="margin-right: 10px;"> <strong>Becca203</strong> logos & art <i class="fa fa-external-link ms-2"></i> 
 </a>
 {{% /blocks/feature %}}
 
