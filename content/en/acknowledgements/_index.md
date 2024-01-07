@@ -31,6 +31,19 @@ Thank you to everyone who collaborates with us and makes this project much bette
 </a>
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fa-solid fa-lightbulb" %}}
+<a href="https://buspirate.com" target="_blank" rel="noopener noreferrer">
+  <img src="/donators/iandanger.png" style="margin-right: 10px;"> <strong>Ian Lesnet & Dangerous Prototypes</strong> Bus Pirate creator <i class="fa fa-external-link ms-2"></i> 
+</a>
+{{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-lightbulb" %}}
+<a href="https://www.rugged-circuits.com" target="_blank" rel="noopener noreferrer">
+  <img src="/donators/ruggedlogo.jpg" style="margin-right: 10px;"> <strong>Rugged Circuits</strong> Security Ideas<i class="fa fa-external-link ms-2"></i> 
+</a>
+{{% /blocks/feature %}}
+
+
 {{% /blocks/section %}}
 
 
