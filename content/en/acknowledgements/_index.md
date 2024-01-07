@@ -15,7 +15,7 @@ Thank you to everyone who collaborates with us and makes this project much bette
 
 {{% blocks/feature icon="fa-solid fa-brain" %}}
 <a href="https://www.linkedin.com/in/juancasais" target="_blank" rel="noopener noreferrer">
-  <img src="/donators/juan.jpg" style="margin-right: 10px;"> <strong>Juan M Martinez Casais</strong> R&D Specialist in Electronics <i class="fa fa-external-link ms-2"></i> 
+  <img src="/donators/juan.jpg" style="margin-right: 10px;"> <strong>Juan M Martinez Casais</strong> R&D Electronics <i class="fa fa-external-link ms-2"></i> 
 </a>
 {{% /blocks/feature %}}
 
