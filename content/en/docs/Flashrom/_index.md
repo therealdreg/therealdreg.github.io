@@ -1,222 +1,92 @@
 ---
 title: Flashrom
-description: How to unbrick your Buzzpirat / Bus Pirate v3
-weight: 1
+description: 
+weight: 20
 ---
 
 
-Have you tried updating the bootloader of Buzzpirat or Bus Pirate v3 and it doesn't work? Doesn't it even enter bootloader mode when bridging the PGD and PGC pins? Don't worry, there are several ways to fix it.
+[Flashrom](https://www.flashrom.org) is a versatile utility for managing flash chips, capable of identifying, reading, writing, verifying, and erasing them. It's particularly adept at flashing BIOS/EFI/coreboot/firmware/optionROM images on a variety of hardware, including mainboards, network/graphics/storage controllers, and other programmer devices.
 
-{{< toc >}}
+**Key features include:**
 
-## Unbrick using another Bus Pirate v3
+- Support for over 476 flash chips, 291 chipsets, 500 mainboards, 79 PCI devices, 17 USB devices, and a range of programmers via parallel/serial ports.
+- Compatibility with parallel, LPC, FWH, and SPI flash interfaces, and various chip packages like DIP32, PLCC32, DIP8, SO8/SOIC8, TSOP32, TSOP40, TSOP48, BGA, and more.
+- Operable without physical access; root access is typically sufficient, with some programmers not requiring it.
+- No need for bootable media, keyboard, or monitor; capable of remote flashing via SSH.
+- Allows flashing within a running system with no immediate reboot required; the new firmware activates on the next boot.
+- Supports crossflashing and hotflashing, given electrical and logical compatibility of flash chips.
+- Scriptable for simultaneous flashing across multiple machines.
+- Faster than many vendor-specific flash tools.
+- Portable across various operating systems including DOS, Linux, FreeBSD, NetBSD, OpenBSD, DragonFlyBSD, Solaris-like systems, Mac OS X, and other Unix-like OSes, as well as GNU Hurd. Partial Windows support is available, excluding internal programmer support."
 
-The Bus Pirate v3 can be used as an inexpensive PIC programmer.
+## Update Flashrom & Buzzpirat
 
-Total cost: ~40$
+Flashrom supports Buzzpirat out of the box
 
-- Buy a Bus Pirate v3 + USB mini -> USB A cable
-- Buy 5 dupont cables FEMALE-FEMALE
+Ensure you have the latest stable firmware installed; learn how in the [Firmware Update](/docs/firmware-update) section. 
 
-### Downgrade your Bus Pirate v3 firmware
+Finally, make sure to use the latest development version of flashrom or our mod:
 
-{{< alert color="warning" title="Warning" >}}You must install this version because the picprog program only works with certain firmwares.{{< /alert >}}
-
-
-Download **BPv3-Firmware-v5.9-extras.hex** firmware from this page: 
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/oldfirm
+- Windows mod: https://github.com/therealdreg/flashrom_build_windows_x64
+- mod code (For Unix): https://github.com/therealdreg/flashrom-dregmod 
+- Official repo: https://github.com/flashrom/flashrom
 
 
-Download the last buzzloader app (There are versions available for Windows, Linux and Mac) from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/buzzloader
+## Help
 
-- put a jumper/dupont_wire connecting the PGD pin to the PGC pin
-- connect the Bus Pirate v3 to your computer via a usb cable
-- check for the new COM port assignment in the device manager (e.g., COM29)
+A required `dev` parameter specifies the Buzzpirat device node and an optional `spispeed` parameter specifies the frequency of the SPI bus. The parameter delimiter is a comma. Syntax is:
 
-Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute:
-```plaintext
-buzzloader.exe --dev=COM29 --hex=BPv3-Firmware-v5.9-extras.hex
+```bash
+flashrom -p buspirate_spi:dev=/dev/device,spispeed=frequency
 ```
 
+where `frequency` can be `30k`, `125k`, `250k`, `1M`, `2M`, `2.6M`, `4M` or `8M` (in Hz). The default is the maximum frequency of 8 MHz.
 
-```plaintext
-Erasing page 41, a400...OK
-Writing page 41 row 328, a400...OK
-Writing page 41 row 329, a480...OK
-Writing page 41 row 330, a500...OK
-Writing page 41 row 331, a580...OK
-Writing page 41 row 332, a600...OK
-Writing page 41 row 333, a680...OK
-Writing page 41 row 334, a700...OK
-Writing page 41 row 335, a780...OK
+The baud rate for communication between the host and the Buzzpirat can be specified with the optional `serialspeed` parameter. Syntax is:
 
-Firmware updated successfully :)!
-Use screen com30 115200 to verify
+```bash
+flashrom -p buspirate_spi:serialspeed=baud
 ```
 
-Remove the jumper/Dupont cable, then reconnect the device to the USB port, and you're all set! You should now have the  firmware installed. 
+where `baud` can be `115200`, `230400`, `250000` or `2000000` (`2M`). The default is `2M` baud.
 
-Run the 'i' command and perform a self-test with the '~' command to ensure everything has gone smoothly.
+An optional pullups parameter specifies the use of the Buzzpirat internal pull-up resistors. This may be needed if you are working with a flash ROM chip that you have physically removed from the board. Syntax is:
 
-```plaintext
-i
-Bus Pirate v3b
-Firmware v5.9 (r529) [HiZ 2WIRE 3WIRE KEYB LCD DIO] Bootloader v4.5
-DEVID:0x0447 REVID:0x3046 (24FJ64GA002 B8)
-http://dangerousprototypes.com
-HiZ>
+```bash
+flashrom -p buspirate_spi:pullups=state
 ```
 
-### Connect to the Bus Pirate v3 to Bricked Buzzpirat / Bricked Bus Pirate v3
+where `state` can be `on` or `off`.
 
-Locate the PIC programming pins on the bricked device. Look for the pin named: MCLR.
+When working with low-voltage chips, the internal 10k pull-ups of the Buzzpirat might be too high. In such cases, it’s necessary to create an external pull-up using lower-value resistors.
 
-Connect the pins using Dupont cables in the following manner:
+For this, you can use the `hiz` parameter. This way, the Buzzpirat will operate as an open drain. Syntax is:
 
-| Bus Pirate v3 | Bricked device |
-| --- | --- |
-| CLK | PGC |
-| MOSI | PGD |
-| GND | GND |
-| +3v3 | +3v3 |
-| CS | MCLR |
-
-### Burn a new bootloader and firmware to the bricked device
-
-{{< alert color="warning" title="Warning" >}}
-Download the firmware labeled with "pickit" in its name{{< /alert >}}
-
-If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
-
-If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp
-
-Download the last picprog app from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/picprog
-
-Ensure that both the bricked device and the Bus Pirate v3 are connected to the PC via USB
-
-Make sure to close Tera Term or any other software that might be using the COM port to free it up and execute: (my Bus Pirate v3 is on COM29):
-
-```plaintext
-picprog.exe -p buspirate -u COM29 -s 115200 -c 24FJ64GA002 -t HEX -w BZ-pickit-firmware-v7.1.6969-bootloader-v4.5.hex -E
+```bash
+flashrom -p buspirate_spi:hiz=state
 ```
 
-```plaintext
-Skipping page 333 [ 0x014d00 ], not used
-Skipping page 334 [ 0x014e00 ], not used
-Writing page 335, 14f00...
-Writing page 336, 15000...
-Writing page 337, 15100...
-Writing page 338, 15200...
-Writing page 339, 15300...
-Skipping page 340 [ 0x015400 ], not used
-Skipping page 341 [ 0x015500 ], not used
-Skipping page 342 [ 0x015600 ], not used
-Writing page 343, 15700...
+where `state` can be `on` or `off`.
+
+The state of the Buzzpirat power supply pins is controllable through an optional `psus` parameter. Syntax is:
+
+```bash
+flashrom -p buspirate_spi:psus=state
 ```
 
-Remove the Dupont cables from MCLR, PGD, PGC, GND, +3v3 pins, then reconnect the bricked device to the USB port, and you're all set! You should now have the bootloader+firmware installed.
+where `state` can be `on` or `off`. This allows the Buzzpirat to power the ROM chip directly. This may also be used to provide the required pullup voltage (when using the `pullups` option), by connecting the Buzzpirat’s Vpu input to the appropriate Vcc pin.
 
-Run the 'i' command and perform a self-test with the '~' command to ensure everything has gone smoothly.
+An optional aux parameter specifies the state of the Buzzpirat auxiliary pin. This may be used to drive the auxiliary pin high or low before a transfer. Syntax is:
 
-```plaintext
-HiZ>i
-Bus Pirate v3.5
-Community Firmware v7.1 - buzzpirat.com by Dreg BZ SIXTHOUSANDNINEHUNDREDSIXTYNINE [HiZ 1-WIRE UART I2C SPI 2WIRE 3WIRE KEYB LCD PIC DIO] Bootloader v4.5
-DEVID:0x0447 REVID:0x3046 (24FJ64GA00 2 B8)
-http://dangerousprototypes.com
-HiZ>
+```bash
+flashrom -p buspirate_spi:aux=state
 ```
 
-Now, [reinstall]({{< ref "/Firmware Update" >}}) the latest firmware on your Bus Pirate v3 (the one you used as a PIC programmer). 
+where `state` can be `high` or `low`. The default `state` is `high`.
 
+## Tutorial Winbond 3v3 64M-BIT w25q64fv board
 
-## Unbrick using clones like PICkit3.5
+![](/winbondcntdiag.png)
 
-Buy a PICkit3.5 from Aliexpress (an inexpensive PIC programmer).
-
-Total cost: ~30$
-
-Download & install the last pickit minus app from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/pickitminus
-
-If you are unbricking a Buzzpirat. Download the last bootloader + firmware .hex file from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm
-
-If you are unbricking a Bus Pirate v3. Download the last bootloader + firmware .hex file from this page:
-- https://github.com/therealdreg/buzzpirat/tree/main/bin/stablefirm/bpv3comp
-
-Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:
-
-![](pcktmins0.png)
-
-Connect Buzzpirat / Buspirate & Pickit to PC USB
-
-Open the pickitminus app
-
-![](pcktmins1.png)
-
-Go to Tools -> Download PICkit Operating System
-
-![](pcktmins2.png)
-
-Make sure the PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002
-
-Select .hex for pickit minus use
-
-![](pcktmins3.png)
-
-![](pcktmins4.png)
-
-Go to File -> Import Hex
-
-And select the Buzzpirat / Buspirate "bootloader + firmware" .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)
-
-![](pcktmins5.png)
-
-Click on Write
-
-![](pcktmins6.png)
-
-Done!
-
-Disconnect Buzzpirat / Buspirate & Pickit from PC USB
-
-## Unbrick using official MPLAB PICkit 5
-
-Buy a PICkit 5 from Microchip.
-
-Total cost: ~100$
-
-Download & install the last MPLAB X IDE from this page:
-
-https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide
-
-
-Connect Buzzpirat / Bus Pirate pins to the pins located furthest to the right of the Pickit:
-
-![](mplabipe0.png)
-
-Connect Buzzpirat / Buspirate & Pickit to PC USB
-
-Open MPLAB IPE (included with MPLAB X IDE): 
-
-Select your Pickit Programmer, PIC24FJ64GA002 
-
-And click on Connect, after that check that the PICKIT & PIC has been detected: PIC DEVICE FOUND, PIC24FJ64GA002:
-
-![](mplabipe1.png)
-
-Go to Browse and select the Buzzpirat / Buspirate "bootloader + firmware" .hex file (with pickit in its name, example: BZ-pickit-firmware-v7.1.9-bootloader-v4.5.hex)
-
-And click on Program
-
-![](mplabipe2.png)
-
-Done!
-
-Disconnect Buzzpirat / Buspirate & Pickit from PC USB
+![](/realclips.png)
 
