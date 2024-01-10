@@ -1,6 +1,6 @@
 ---
 title: Donations
-menu: {main: {weight: 40}}
+menu: {main: {weight: 6}}
 ---
 
 

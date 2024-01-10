@@ -244,12 +244,12 @@ enable = false
 
 [[menu.main]]
     name = "Community"
-    weight = 6
+    weight = 3
     url = "https://github.com/therealdreg/buzzpirat/discussions"
 
 [[menu.main]]
     name = "GitHub"
-    weight = 7
+    weight = 4
     url = "https://github.com/therealdreg/buzzpirat"
 
 
