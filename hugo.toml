@@ -163,10 +163,7 @@ navbar_logo = false
 # Set to true if you don't want the top navbar to be translucent when over a `block/cover`, like on the homepage.
 navbar_translucent_over_cover_disable = false
 # Enable to show the side bar menu in its compact state.
-sidebar_menu_compact = true
-ul_show = 1
-sidebar_menu_foldable = true
-sidebar_cache_limit = 1000
+sidebar_menu_compact = false
 # Set to true to hide the sidebar search box (the top nav search box will still be displayed if search is enabled)
 sidebar_search_disable = false
 
@@ -247,12 +244,12 @@ enable = false
 
 [[menu.main]]
     name = "Community"
-    weight = 3
+    weight = 6
     url = "https://github.com/therealdreg/buzzpirat/discussions"
 
 [[menu.main]]
     name = "GitHub"
-    weight = 4
+    weight = 7
     url = "https://github.com/therealdreg/buzzpirat"
 
 
