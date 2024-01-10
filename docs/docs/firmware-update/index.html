@@ -118,21 +118,31 @@
     <button class="btn btn-link td-sidebar__toggle d-md-none p-0 ms-3 fas fa-bars" type="button" data-bs-toggle="collapse" data-bs-target="#td-section-nav" aria-controls="td-section-nav" aria-expanded="false" aria-label="Toggle section navigation">
     </button>
   </form>
-  <nav class="td-sidebar-nav collapse" id="td-section-nav">
+  <nav class="td-sidebar-nav collapse foldable-nav" id="td-section-nav">
     <ul class="td-sidebar-nav__section pe-md-3 ul-0">
       <li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-docs-li">
   <a href="/docs/" title="Documentation" class="align-left ps-0 td-sidebar-link td-sidebar-link__section tree-root" id="m-docs"><span class="">Docs</span></a>
   <ul class="ul-1">
     <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsbinaryio-li">
-  <a href="/docs/binaryio/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsbinaryio"><span class="">Binary I/O</span></a>
+  <input type="checkbox" id="m-docsbinaryio-check"/>
+  <label for="m-docsbinaryio-check"><a href="/docs/binaryio/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsbinaryio"><span class="">Binary I/O</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsfirmware-update-li">
-  <a href="/docs/firmware-update/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsfirmware-update"><span class="td-sidebar-nav-active-item">Firmware Update</span></a>
+  <input type="checkbox" id="m-docsfirmware-update-check" checked/>
+  <label for="m-docsfirmware-update-check"><a href="/docs/firmware-update/" class="align-left ps-0  active td-sidebar-link td-sidebar-link__section" id="m-docsfirmware-update"><span class="td-sidebar-nav-active-item">Firmware Update</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docshow-to-use-li">
-  <a href="/docs/how-to-use/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docshow-to-use"><span class="">How to use</span></a>
+  <input type="checkbox" id="m-docshow-to-use-check"/>
+  <label for="m-docshow-to-use-check"><a href="/docs/how-to-use/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docshow-to-use"><span class="">How to use</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsunbrick-li">
-  <a href="/docs/unbrick/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsunbrick"><span class="">Unbrick</span></a>
+  <input type="checkbox" id="m-docsunbrick-check"/>
+  <label for="m-docsunbrick-check"><a href="/docs/unbrick/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsunbrick"><span class="">Unbrick</span></a></label>
+  
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsflashrom-li">
-  <a href="/docs/flashrom/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsflashrom"><span class="">Flashrom</span></a>
+  <input type="checkbox" id="m-docsflashrom-check"/>
+  <label for="m-docsflashrom-check"><a href="/docs/flashrom/" class="align-left ps-0  td-sidebar-link td-sidebar-link__section" id="m-docsflashrom"><span class="">Flashrom</span></a></label>
+  
 </li>
   </ul>
 </li>
