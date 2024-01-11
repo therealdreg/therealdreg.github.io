@@ -20,4 +20,22 @@ Let's start with a simple example. We will use the Buzzpirat to communicate with
 
 Intimidated by seeing a schematic and a board with lots of strange components? Don't worry, we'll take it step by step to understand what's going on.
 
+For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there's no need to use SMD IC clips. Connect the Buzzpirat to the AT24C256 board by attaching the +5v(SW5V0) to VCC, CLK to SCL, MOSI(SDA) to SDA, and GND to GND, ensuring each connection is secure for proper functionality. 
+
+{{< alert color="warning" title="Warning" >}}
+**Also, connect the VPU pin to a SW5V0 pin of the Buzzpirat**.
+{{< /alert >}}
+
+| Buzzpirat | AT24C256 board |
+| --- | --- |
+| +5v(SW5V0) | VCC |
+| CLK | SCL |
+| MOSI(SDA) | SDA |
+| GND | GND |
+
+| Buzzpirat | Buzzpirat |
+| --- | --- |
+| +5v(SW5V0) | VPU |
+
+
 ![](/conn/atcconnection.png)

@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.3cb4066f1a416c3061064607c1e1606c.json"
+    data-offline-search-index-json-src="/offline-search-index.62605e58ef8cb207f69ada56bcd7d77c.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -144,6 +144,56 @@ This is the multi-page printable view of this section.
 <p>Let&rsquo;s start with a simple example. We will use the Buzzpirat to communicate with a chip and read its content. For this example, we will use a AT24C256 I2C EEPROM 5V board. This board is included in our full kit for practice purposes. You can purchase another one on Aliexpress, Amazon, or eBay.</p>
 <p><img src="/conn/at24c256schboard.png" alt=""></p>
 <p>Intimidated by seeing a schematic and a board with lots of strange components? Don&rsquo;t worry, we&rsquo;ll take it step by step to understand what&rsquo;s going on.</p>
+<p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the AT24C256 board by attaching the +5v(SW5V0) to VCC, CLK to SCL, MOSI(SDA) to SDA, and GND to GND, ensuring each connection is secure for proper functionality.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    <strong>Also, connect the VPU pin to a SW5V0 pin of the Buzzpirat</strong>.
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>AT24C256 board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+5v(SW5V0)</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>SCL</td>
+</tr>
+<tr>
+<td>MOSI(SDA)</td>
+<td>SDA</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>Buzzpirat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+5v(SW5V0)</td>
+<td>VPU</td>
+</tr>
+</tbody>
+</table>
 <p><img src="/conn/atcconnection.png" alt=""></p>
 
 </div>
