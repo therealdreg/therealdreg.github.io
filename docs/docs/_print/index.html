@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.45f2ab7e611f6113477ab559fb6f02d2.json"
+    data-offline-search-index-json-src="/offline-search-index.27ea1e2e051262822c7ff0ff88adc637.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -209,7 +209,26 @@ This is the multi-page printable view of this section.
     
     
 	
-<li>5: <a href="#pg-d33db6d5cfbb7ff60d1e19cd08607f8c">Flashrom</a></li>
+<li>5: <a href="#pg-6b758cfd7e576dd18fee3c05f62ee978">AVRDude</a></li>
+
+
+    
+    <ul>
+        
+  
+  
+  
+  
+
+  
+
+    </ul>
+    
+  
+    
+    
+	
+<li>6: <a href="#pg-d33db6d5cfbb7ff60d1e19cd08607f8c">Flashrom</a></li>
 
 
     
@@ -3638,7 +3657,7 @@ Reset with the CS pin to clear garbage if needed</p>
 
 <div class="td-content" style="page-break-before: always">
     
-	<h1 id="pg-d33db6d5cfbb7ff60d1e19cd08607f8c">5 - Flashrom</h1>
+	<h1 id="pg-6b758cfd7e576dd18fee3c05f62ee978">5 - AVRDude</h1>
     
 	<p><a href="https://www.flashrom.org">Flashrom</a> is a versatile utility for managing flash chips, capable of identifying, reading, writing, verifying, and erasing them. It&rsquo;s particularly adept at flashing BIOS/EFI/coreboot/firmware/optionROM images on a variety of hardware, including mainboards, network/graphics/storage controllers, and other programmer devices.</p>
 <p><strong>Key features include:</strong></p>
@@ -3683,8 +3702,186 @@ Reset with the CS pin to clear garbage if needed</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:aux<span style="color:#ce5c00;font-weight:bold">=</span>state
 </span></span></code></pre></div><p>where <code>state</code> can be <code>high</code> or <code>low</code>. The default <code>state</code> is <code>high</code>.</p>
 <h2 id="tutorial-winbond-3v3-64m-bit-w25q64fv-board">Tutorial Winbond 3v3 64M-BIT w25q64fv board</h2>
-<p><img src="/winbondcntdiag.png" alt=""></p>
-<p><img src="/realclips.png" alt=""></p>
+<p>This board is included in our full kit for practice purposes. You can purchase another one on Aliexpress, Amazon, or eBay.</p>
+<p><img src="/conn/w25q64schboard.png" alt=""></p>
+<p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +3v3(SW3V3) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality</p>
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>w25q64fv board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+3v3(SW3V3)</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>DI</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/conn/conn1flashwinspi3v3.png" alt=""></p>
+<p>To read the content of a flash memory chip using <code>flashrom</code> with Buzzpirat, execute the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64BV/W25Q64CV/W25Q64FV&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">115200</span> -r flash_content.bin 
+</span></span></code></pre></div><ul>
+<li><strong><code>--</code>progress</strong>: This parameter shows the progress of the operation, providing visual feedback in the terminal.</li>
+<li><strong>-V</strong>: Stands for &lsquo;verbose&rsquo;. It increases the verbosity of the program, providing detailed output about the operations being performed. This is useful for debugging or getting more information about the process.</li>
+<li><strong>-c &ldquo;W25Q64BV/W25Q64CV/W25Q64FV&rdquo;</strong> in flashrom is used to specify the exact model of the flash chip that you intend to interact with. When you run flashrom without the -c parameter, the tool attempts to automatically detect the types of flash memory chips that are present in your system.</li>
+<li><strong>-p buspirate_spi</strong>: Specifies the programmer type. In this case, it&rsquo;s set to buspirate_spi, indicating that the Buzzpirat is used for SPI (Serial Peripheral Interface) programming.
+<ul>
+<li><strong>dev=COM8</strong>: This part of the parameter specifies the device name. COM8 refers to the COM port where the Buzzpirat is connected. <strong>This will vary depending on your system&rsquo;s configuration</strong>. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.</li>
+<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.</li>
+<li><strong>serialspeed=115200</strong>: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.</li>
+</ul>
+</li>
+<li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
+</ul>
+<p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
+
+</div>
+
+
+
+    
+      
+  
+  
+  
+  
+
+  
+  
+
+  
+
+    
+	
+  
+    
+    
+	
+    
+
+<div class="td-content" style="page-break-before: always">
+    
+	<h1 id="pg-d33db6d5cfbb7ff60d1e19cd08607f8c">6 - Flashrom</h1>
+    
+	<p><a href="https://www.flashrom.org">Flashrom</a> is a versatile utility for managing flash chips, capable of identifying, reading, writing, verifying, and erasing them. It&rsquo;s particularly adept at flashing BIOS/EFI/coreboot/firmware/optionROM images on a variety of hardware, including mainboards, network/graphics/storage controllers, and other programmer devices.</p>
+<p><strong>Key features include:</strong></p>
+<ul>
+<li>Support for over 476 flash chips, 291 chipsets, 500 mainboards, 79 PCI devices, 17 USB devices, and a range of programmers via parallel/serial ports.</li>
+<li>Compatibility with parallel, LPC, FWH, and SPI flash interfaces, and various chip packages like DIP32, PLCC32, DIP8, SO8/SOIC8, TSOP32, TSOP40, TSOP48, BGA, and more.</li>
+<li>Operable without physical access; root access is typically sufficient, with some programmers not requiring it.</li>
+<li>No need for bootable media, keyboard, or monitor; capable of remote flashing via SSH.</li>
+<li>Allows flashing within a running system with no immediate reboot required; the new firmware activates on the next boot.</li>
+<li>Supports crossflashing and hotflashing, given electrical and logical compatibility of flash chips.</li>
+<li>Scriptable for simultaneous flashing across multiple machines.</li>
+<li>Faster than many vendor-specific flash tools.</li>
+<li>Portable across various operating systems including DOS, Linux, FreeBSD, NetBSD, OpenBSD, DragonFlyBSD, Solaris-like systems, Mac OS X, and other Unix-like OSes, as well as GNU Hurd. Partial Windows support is available, excluding internal programmer support.&quot;</li>
+</ul>
+<h2 id="update-flashrom--buzzpirat">Update Flashrom &amp; Buzzpirat</h2>
+<p>Flashrom supports Buzzpirat out of the box</p>
+<p>Ensure you have the latest stable firmware installed; learn how in the <a href="/docs/firmware-update">Firmware Update</a> section.</p>
+<p>Finally, make sure to use the latest development version of flashrom or our mod:</p>
+<ul>
+<li>Windows mod: <a href="https://github.com/therealdreg/flashrom_build_windows_x64">https://github.com/therealdreg/flashrom_build_windows_x64</a></li>
+<li>mod code (For Unix): <a href="https://github.com/therealdreg/flashrom-dregmod">https://github.com/therealdreg/flashrom-dregmod</a></li>
+<li>Official repo: <a href="https://github.com/flashrom/flashrom">https://github.com/flashrom/flashrom</a></li>
+</ul>
+<h2 id="help">Help</h2>
+<p>A required <code>dev</code> parameter specifies the Buzzpirat device node and an optional <code>spispeed</code> parameter specifies the frequency of the SPI bus. The parameter delimiter is a comma. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>/dev/device,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>frequency
+</span></span></code></pre></div><p>where <code>frequency</code> can be <code>30k</code>, <code>125k</code>, <code>250k</code>, <code>1M</code>, <code>2M</code>, <code>2.6M</code>, <code>4M</code> or <code>8M</code> (in Hz). The default is the maximum frequency of 8 MHz.</p>
+<p>The baud rate for communication between the host and the Buzzpirat can be specified with the optional <code>serialspeed</code> parameter. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:serialspeed<span style="color:#ce5c00;font-weight:bold">=</span>baud
+</span></span></code></pre></div><p>where <code>baud</code> can be <code>115200</code>, <code>230400</code>, <code>250000</code> or <code>2000000</code> (<code>2M</code>). The default is <code>2M</code> baud.</p>
+<p>An optional pullups parameter specifies the use of the Buzzpirat internal pull-up resistors. This may be needed if you are working with a flash ROM chip that you have physically removed from the board. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:pullups<span style="color:#ce5c00;font-weight:bold">=</span>state
+</span></span></code></pre></div><p>where <code>state</code> can be <code>on</code> or <code>off</code>.</p>
+<p>When working with low-voltage chips, the internal 10k pull-ups of the Buzzpirat might be too high. In such cases, it’s necessary to create an external pull-up using lower-value resistors.</p>
+<p>For this, you can use the <code>hiz</code> parameter. This way, the Buzzpirat will operate as an open drain. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:hiz<span style="color:#ce5c00;font-weight:bold">=</span>state
+</span></span></code></pre></div><p>where <code>state</code> can be <code>on</code> or <code>off</code>.</p>
+<p>The state of the Buzzpirat power supply pins is controllable through an optional <code>psus</code> parameter. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:psus<span style="color:#ce5c00;font-weight:bold">=</span>state
+</span></span></code></pre></div><p>where <code>state</code> can be <code>on</code> or <code>off</code>. This allows the Buzzpirat to power the ROM chip directly. This may also be used to provide the required pullup voltage (when using the <code>pullups</code> option), by connecting the Buzzpirat’s Vpu input to the appropriate Vcc pin.</p>
+<p>An optional aux parameter specifies the state of the Buzzpirat auxiliary pin. This may be used to drive the auxiliary pin high or low before a transfer. Syntax is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:aux<span style="color:#ce5c00;font-weight:bold">=</span>state
+</span></span></code></pre></div><p>where <code>state</code> can be <code>high</code> or <code>low</code>. The default <code>state</code> is <code>high</code>.</p>
+<h2 id="tutorial-winbond-3v3-64m-bit-w25q64fv-board">Tutorial Winbond 3v3 64M-BIT w25q64fv board</h2>
+<p>This board is included in our full kit for practice purposes. You can purchase another one on Aliexpress, Amazon, or eBay.</p>
+<p><img src="/conn/w25q64schboard.png" alt=""></p>
+<p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +3v3(SW3V3) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality</p>
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>w25q64fv board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+3v3(SW3V3)</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>DI</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/conn/conn1flashwinspi3v3.png" alt=""></p>
+<p>To read the content of a flash memory chip using <code>flashrom</code> with Buzzpirat, execute the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64BV/W25Q64CV/W25Q64FV&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">115200</span> -r flash_content.bin 
+</span></span></code></pre></div><ul>
+<li><strong><code>--</code>progress</strong>: This parameter shows the progress of the operation, providing visual feedback in the terminal.</li>
+<li><strong>-V</strong>: Stands for &lsquo;verbose&rsquo;. It increases the verbosity of the program, providing detailed output about the operations being performed. This is useful for debugging or getting more information about the process.</li>
+<li><strong>-c &ldquo;W25Q64BV/W25Q64CV/W25Q64FV&rdquo;</strong> in flashrom is used to specify the exact model of the flash chip that you intend to interact with. When you run flashrom without the -c parameter, the tool attempts to automatically detect the types of flash memory chips that are present in your system.</li>
+<li><strong>-p buspirate_spi</strong>: Specifies the programmer type. In this case, it&rsquo;s set to buspirate_spi, indicating that the Buzzpirat is used for SPI (Serial Peripheral Interface) programming.
+<ul>
+<li><strong>dev=COM8</strong>: This part of the parameter specifies the device name. COM8 refers to the COM port where the Buzzpirat is connected. <strong>This will vary depending on your system&rsquo;s configuration</strong>. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.</li>
+<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.</li>
+<li><strong>serialspeed=115200</strong>: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.</li>
+</ul>
+</li>
+<li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
+</ul>
+<p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
 
 </div>
 

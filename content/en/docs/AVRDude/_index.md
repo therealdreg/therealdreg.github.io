@@ -1,5 +1,5 @@
 ---
-title: Flashrom
+title: AVRDude
 description: 
 weight: 20
 ---

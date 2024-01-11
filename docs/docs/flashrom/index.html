@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.45f2ab7e611f6113477ab559fb6f02d2.json"
+    data-offline-search-index-json-src="/offline-search-index.27ea1e2e051262822c7ff0ff88adc637.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -110,7 +110,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.45f2ab7e611f6113477ab559fb6f02d2.json"
+    data-offline-search-index-json-src="/offline-search-index.27ea1e2e051262822c7ff0ff88adc637.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -131,6 +131,8 @@
   <a href="/docs/how-to-use/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docshow-to-use"><span class="">How to use</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsunbrick-li">
   <a href="/docs/unbrick/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsunbrick"><span class="">Unbrick</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-docsavrdude-li">
+  <a href="/docs/avrdude/" class="align-left ps-0 td-sidebar-link td-sidebar-link__section" id="m-docsavrdude"><span class="">AVRDude</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-docsflashrom-li">
   <a href="/docs/flashrom/" class="align-left ps-0 active td-sidebar-link td-sidebar-link__section" id="m-docsflashrom"><span class="td-sidebar-nav-active-item">Flashrom</span></a>
 </li>
@@ -228,8 +230,60 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom -p buspirate_spi:aux<span style="color:#ce5c00;font-weight:bold">=</span>state
 </span></span></code></pre></div><p>where <code>state</code> can be <code>high</code> or <code>low</code>. The default <code>state</code> is <code>high</code>.</p>
 <h2 id="tutorial-winbond-3v3-64m-bit-w25q64fv-board">Tutorial Winbond 3v3 64M-BIT w25q64fv board</h2>
-<p><img src="/winbondcntdiag.png" alt=""></p>
-<p><img src="/realclips.png" alt=""></p>
+<p>This board is included in our full kit for practice purposes. You can purchase another one on Aliexpress, Amazon, or eBay.</p>
+<p><img src="/conn/w25q64schboard.png" alt=""></p>
+<p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +3v3(SW3V3) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality</p>
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>w25q64fv board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+3v3(SW3V3)</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>DI</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/conn/conn1flashwinspi3v3.png" alt=""></p>
+<p>To read the content of a flash memory chip using <code>flashrom</code> with Buzzpirat, execute the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64BV/W25Q64CV/W25Q64FV&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">115200</span> -r flash_content.bin 
+</span></span></code></pre></div><ul>
+<li><strong><code>--</code>progress</strong>: This parameter shows the progress of the operation, providing visual feedback in the terminal.</li>
+<li><strong>-V</strong>: Stands for &lsquo;verbose&rsquo;. It increases the verbosity of the program, providing detailed output about the operations being performed. This is useful for debugging or getting more information about the process.</li>
+<li><strong>-c &ldquo;W25Q64BV/W25Q64CV/W25Q64FV&rdquo;</strong> in flashrom is used to specify the exact model of the flash chip that you intend to interact with. When you run flashrom without the -c parameter, the tool attempts to automatically detect the types of flash memory chips that are present in your system.</li>
+<li><strong>-p buspirate_spi</strong>: Specifies the programmer type. In this case, it&rsquo;s set to buspirate_spi, indicating that the Buzzpirat is used for SPI (Serial Peripheral Interface) programming.
+<ul>
+<li><strong>dev=COM8</strong>: This part of the parameter specifies the device name. COM8 refers to the COM port where the Buzzpirat is connected. <strong>This will vary depending on your system&rsquo;s configuration</strong>. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.</li>
+<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.</li>
+<li><strong>serialspeed=115200</strong>: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.</li>
+</ul>
+</li>
+<li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
+</ul>
+<p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
 
   <div class="section-index">
     
