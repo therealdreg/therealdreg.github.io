@@ -40,6 +40,9 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 
 ![](/conn/atcconnection.png)
 
+![](/conn/conn1.png)
+
+
 
 | <div class="-text-red">MODE</div> | <div class="-text-red">MOSI</div>  | <div class="-text-red">CLK</div>  | <div class="-text-red">MISO</div>  | <div class="-text-red">CS </div>  |
 | ---- | ---- | --- | ---- | -- |
