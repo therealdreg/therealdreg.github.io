@@ -1,7 +1,7 @@
 ---
-title: Flashrom
+title: Getting Started
 description: 
-weight: 20
+weight: 1
 ---
 
 

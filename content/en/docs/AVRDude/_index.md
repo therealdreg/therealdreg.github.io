@@ -24,7 +24,7 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 
 | Buzzpirat | Arduino UNO ICSP Connector |
 | --- | --- |
-| +5v0(SW5V0) | VCC |
+| +5v(SW5V0) | VCC |
 | CS | RESET |
 | MISO | MISO |
 | MOSI | MOSI |

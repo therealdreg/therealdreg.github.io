@@ -1,7 +1,7 @@
 ---
 title: Binary I/O
 description: Binary I/O mod from dangerousprototypes
-weight: 1
+weight: 3
 ---
 
 The bitbang protocol uses a single byte for all commands. The default start-up state is pin input (HiZ).

@@ -1,7 +1,7 @@
 ---
 title: Firmware Update
 description: How to update your Buzzpirat
-weight: 1
+weight: 3
 ---
 
 {{< alert color="warning" title="Warning" >}}

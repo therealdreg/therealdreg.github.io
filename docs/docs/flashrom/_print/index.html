@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.ec4b480a884050f9e9e4f2ee3ee530b4.json"
+    data-offline-search-index-json-src="/offline-search-index.75665b7de66d95679b0452dbb41e6162.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -224,13 +224,106 @@ This is the multi-page printable view of this section.
 <li><strong>-c &ldquo;W25Q64BV/W25Q64CV/W25Q64FV&rdquo;</strong> in flashrom is used to specify the exact model of the flash chip that you intend to interact with. When you run flashrom without the -c parameter, the tool attempts to automatically detect the types of flash memory chips that are present in your system.</li>
 <li><strong>-p buspirate_spi</strong>: Specifies the programmer type. In this case, it&rsquo;s set to buspirate_spi, indicating that the Buzzpirat is used for SPI (Serial Peripheral Interface) programming.
 <ul>
-<li><strong>dev=COM8</strong>: This part of the parameter specifies the device name. COM8 refers to the COM port where the Buzzpirat is connected. <strong>This will vary depending on your system&rsquo;s configuration</strong>. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.</li>
-<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.</li>
+<li><strong>dev=COM8</strong>: This part of the parameter specifies the device name. 
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    COM8 refers to the COM port where the Buzzpirat is connected. This will vary depending on your system’s configuration. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.
+
+</div>
+</li>
+<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.
+<ul>
 <li><strong>serialspeed=115200</strong>: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
 </ul>
+<p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
+<h2 id="tutorial-winbond-18v-64m-bit-w25q64fw-board">Tutorial Winbond 1.8V 64M-BIT W25Q64FW board</h2>
+<p>After testing with the 3.3V memory, buy a 1.8V Winbond W25Q64FW. Desolder the 3.3V memory and solder the 1.8V one in its place. Ensure the chip&rsquo;s orientation remains the same as the original one.</p>
+<p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +1v8(SW1V8) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    <strong>Also, connect the VPU pin to a SW1V8 pin of the Buzzpirat</strong>.
+
+</div>
+
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>w25q64fv board</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1v8(SW1V8)</td>
+<td>VCC</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>CS</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>DO</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>GND</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>CLK</td>
+</tr>
+<tr>
+<td>MOSI</td>
+<td>DI</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Buzzpirat</th>
+<th>Buzzpirat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+1v8(SW1V8)</td>
+<td>VPU</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/conn/conn1flashwinspi1v8.png" alt=""></p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    It&rsquo;s crucial not to use the Buzzpirat in 3.3V mode as it could endanger the 1.8V chips. Additionally, activating the BuzzPirate&rsquo;s pull-ups is necessary to ensure everything operates at the voltage set in VPU pin (in this case, 1.8V). To do this, we must execute flashrom as follows:
+
+</div>
+
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64.W&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span>115200,pullups<span style="color:#ce5c00;font-weight:bold">=</span>on -r flash_content.bin 
+</span></span></code></pre></div><p>pullups=on means that the pull-ups are activated + the Buzzpirat is in hi-z mode.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    COM8 refers to the COM port where the Buzzpirat is connected. This will vary depending on your system’s configuration. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM &amp; LPT) section.
+
+</div>
+
 <p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
 
 </div>
