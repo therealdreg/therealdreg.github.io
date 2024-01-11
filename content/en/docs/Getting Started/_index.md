@@ -39,3 +39,10 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 
 
 ![](/conn/atcconnection.png)
+
+
+| <div class="-text-red">MODE</div> | <div class="-text-red">MOSI</div>  | <div class="-text-red">CLK</div>  | <div class="-text-red">MISO</div>  | <div class="-text-red">CS </div>  |
+| ---- | ---- | --- | ---- | -- |
+| <div class="-text-red">**SPI**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | 
+{.td-initial .table .table-dark}
+
