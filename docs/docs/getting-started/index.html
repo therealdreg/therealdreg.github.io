@@ -86,7 +86,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e7737df01d763aae851d9b699bee8bdd.json"
+    data-offline-search-index-json-src="/offline-search-index.5fd949a754b2e8d76311ab0c03dca1b5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -110,7 +110,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.e7737df01d763aae851d9b699bee8bdd.json"
+    data-offline-search-index-json-src="/offline-search-index.5fd949a754b2e8d76311ab0c03dca1b5.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -254,13 +254,41 @@
 <thead>
 <tr>
 <th><div class="-text-red display-6"><strong>MODE</strong></div></th>
-<th><div class="-text-red display-6"><strong>MOSI</strong></div></th>
-<th><div class="-text-red display-6"><strong>CLK</strong></div></th>
-<th><div class="-text-red display-6"><strong>MISO</strong></div></th>
-<th><div class="-text-red display-6"><strong>CS</strong></div></th>
+<th><div class="-text-white display-6"><strong>MOSI</strong></div></th>
+<th><div class="-text-yellow display-6" style="color: #ffec80;"><strong>CLK</strong></div></th>
+<th><div class="-text-black display-6"><strong>MISO</strong></div></th>
+<th><div class="-text-green display-6"><strong>CS</strong></div></th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><div class="-text-red"><strong>HiZ</strong></div></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>1-Wire</strong></div></td>
+<td><div class="-text-white"><strong>OWD</strong></div></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>UART</strong></div></td>
+<td><div class="-text-white"><strong>TX</strong></div></td>
+<td><strong>-</strong></td>
+<td><div class="-text-black"><strong>RX</strong></div></td>
+<td><strong>-</strong></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>I2C</strong></div></td>
+<td><div class="-text-white"><strong>SDA</strong></div></td>
+<td><div class="-text-yellow" style="color: #ffec80;"><strong>SCL</strong></div></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+</tr>
 <tr>
 <td><div class="-text-red"><strong>SPI</strong></div></td>
 <td><div class="-text-white"><strong>MOSI</strong></div></td>
@@ -269,18 +297,105 @@
 <td><div class="-text-green"><strong>CS</strong></div></td>
 </tr>
 <tr>
+<td><div class="-text-red"><strong>JTAG</strong></div></td>
+<td><div class="-text-white"><strong>TDI</strong></div></td>
+<td><div class="-text-yellow" style="color: #ffec80;"><strong>TCK</strong></div></td>
+<td><div class="-text-black"><strong>TDO</strong></div></td>
+<td><div class="-text-green"><strong>TMS</strong></div></td>
+</tr>
+<tr>
 <td><div class="-text-red"><strong>AVR</strong></div></td>
+<td><div class="-text-white"><strong>MOSI</strong></div></td>
+<td><div class="-text-yellow" style="color: #ffec80;"><strong>SCK</strong></div></td>
+<td><div class="-text-black"><strong>MISO</strong></div></td>
+<td><div class="-text-green"><strong>RESET</strong></div></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>PIC</strong></div></td>
+<td><div class="-text-white"><strong>PGD</strong></div></td>
+<td><div class="-text-yellow" style="color: #ffec80;"><strong>PGC</strong></div></td>
+<td><strong>-</strong></td>
+<td><div class="-text-green"><strong>MCLR</strong></div></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>2-Wire</strong></div></td>
+<td><div class="-text-white"><strong>OWD1</strong></div></td>
+<td><div class="-text-yellow" style="color: #ffec80;"><strong>OWD2</strong></div></td>
+<td><strong>-</strong></td>
+<td><strong>-</strong></td>
+</tr>
+<tr>
+<td><div class="-text-red"><strong>3-Wire</strong></div></td>
 <td><div class="-text-white"><strong>MOSI</strong></div></td>
 <td><div class="-text-yellow" style="color: #ffec80;"><strong>CLK</strong></div></td>
 <td><div class="-text-black"><strong>MISO</strong></div></td>
 <td><div class="-text-green"><strong>CS</strong></div></td>
 </tr>
+</tbody>
+</table>
+<table>
+<thead>
 <tr>
-<td><div class="-text-red"><strong>PIC</strong></div></td>
-<td><div class="-text-white"><strong>MOSI</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>CLK</strong></div></td>
-<td><div class="-text-black"><strong>MISO</strong></div></td>
-<td><div class="-text-green"><strong>CS</strong></div></td>
+<th>Pin Name</th>
+<th>Description (Buzzpirat is the master)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOSI</td>
+<td>Master data out, slave in (SPI, JTAG), Serial data (1-Wire, I2C, KB), TX* (UART)</td>
+</tr>
+<tr>
+<td>CLK</td>
+<td>Clock signal (I2C, SPI, JTAG, KB)</td>
+</tr>
+<tr>
+<td>MISO</td>
+<td>Master data in, slave out (SPI, JTAG) RX (UART)</td>
+</tr>
+<tr>
+<td>CS</td>
+<td>Chip select (SPI), TMS (JTAG)</td>
+</tr>
+<tr>
+<td>AUX</td>
+<td>Auxiliary IO, frequency probe, pulse-width modulator</td>
+</tr>
+<tr>
+<td>AUX-R</td>
+<td>AUX-R is the AUX signal, but with a variable resistor of 10K+1K before reaching the pin</td>
+</tr>
+<tr>
+<td>ADC</td>
+<td>Voltage measurement probe (max 6volts)</td>
+</tr>
+<tr>
+<td>VPU</td>
+<td>Voltage input for on-board pull-up resistors (0-5volts).</td>
+</tr>
+<tr>
+<td>TP0</td>
+<td>Auxiliary PIN connected to VPU</td>
+</tr>
+<tr>
+<td>+1.8v(SW1V8)</td>
+<td>+1.8volt switchable power supply</td>
+</tr>
+<tr>
+<td>+2.5v(SW2V5)</td>
+<td>+2.5volt switchable power supply</td>
+</tr>
+<tr>
+<td>+3.3v(SW3V3)</td>
+<td>+3.3volt switchable power supply</td>
+</tr>
+<tr>
+<td>+5.0v(SW5V0)</td>
+<td>+5volt switchable power supply</td>
+</tr>
+<tr>
+<td>GND</td>
+<td>Ground, connect to ground of test circuit</td>
 </tr>
 </tbody>
 </table>

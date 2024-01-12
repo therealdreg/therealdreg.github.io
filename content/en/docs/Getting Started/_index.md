@@ -43,11 +43,34 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 ![](/conn/conn1.png)
 
 
-
-| <div class="-text-red display-6">**MODE**</div> | <div class="-text-red display-6">**MOSI**</div>  | <div class="-text-red display-6">**CLK**</div>  | <div class="-text-red display-6">**MISO**</div>  | <div class="-text-red display-6">**CS**</div>  |
+| <div class="-text-red display-6">**MODE**</div> | <div class="-text-white display-6">**MOSI**</div>  | <div class="-text-yellow display-6" style="color: #ffec80;">**CLK**</div>  | <div class="-text-black display-6">**MISO**</div>  | <div class="-text-green display-6">**CS**</div>  |
 | ---- | ---- | --- | ---- | -- |
+| <div class="-text-red">**HiZ**</div>  | **-** | **-** | **-** | **-** | 
+| <div class="-text-red">**1-Wire**</div>  | <div class="-text-white">**OWD**</div> | **-** | **-** | **-** | 
+| <div class="-text-red">**UART**</div>  | <div class="-text-white">**TX**</div> | **-** | <div class="-text-black">**RX**</div> | **-** | 
+| <div class="-text-red">**I2C**</div>  | <div class="-text-white">**SDA**</div> | <div class="-text-yellow" style="color: #ffec80;">**SCL**</div> | **-** | **-** | 
 | <div class="-text-red">**SPI**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | 
-| <div class="-text-red">**AVR**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | 
-| <div class="-text-red">**PIC**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | 
+| <div class="-text-red">**JTAG**</div>  | <div class="-text-white">**TDI**</div> | <div class="-text-yellow" style="color: #ffec80;">**TCK**</div> | <div class="-text-black">**TDO**</div> | <div class="-text-green">**TMS**</div> | 
+| <div class="-text-red">**AVR**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**SCK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**RESET**</div> | 
+| <div class="-text-red">**PIC**</div>  | <div class="-text-white">**PGD**</div> | <div class="-text-yellow" style="color: #ffec80;">**PGC**</div> | **-** | <div class="-text-green">**MCLR**</div> | 
+| <div class="-text-red">**2-Wire**</div>  | <div class="-text-white">**OWD1**</div> | <div class="-text-yellow" style="color: #ffec80;">**OWD2**</div> | **-** | **-** | 
+| <div class="-text-red">**3-Wire**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | 
 {.td-initial .table .table-dark}
+
+| Pin Name       | Description (Buzzpirat is the master) |
+|----------------|----------------------------------------|
+| MOSI           | Master data out, slave in (SPI, JTAG), Serial data (1-Wire, I2C, KB), TX* (UART) |
+| CLK            | Clock signal (I2C, SPI, JTAG, KB)      |
+| MISO           | Master data in, slave out (SPI, JTAG) RX (UART) |
+| CS             | Chip select (SPI), TMS (JTAG)          |
+| AUX            | Auxiliary IO, frequency probe, pulse-width modulator |
+| AUX-R          | AUX-R is the AUX signal, but with a variable resistor of 10K+1K before reaching the pin |
+| ADC            | Voltage measurement probe (max 6volts) |
+| VPU            | Voltage input for on-board pull-up resistors (0-5volts). |
+| TP0            | Auxiliary PIN connected to VPU |
+| +1.8v(SW1V8)   | +1.8volt switchable power supply       |
+| +2.5v(SW2V5)   | +2.5volt switchable power supply       |
+| +3.3v(SW3V3)   | +3.3volt switchable power supply       |
+| +5.0v(SW5V0)   | +5volt switchable power supply         |
+| GND            | Ground, connect to ground of test circuit |
 
