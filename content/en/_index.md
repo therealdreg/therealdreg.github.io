@@ -88,7 +88,11 @@ Patience is appreciated as human errors and occasional bugs are an inherent part
 
 
 {{% blocks/section color="white" %}}
+{{% blocks/feature icon="fa-solid fa-hammer" title="Artisanal" %}}
+As a small, artisanal creator without the extensive resources of a large company, we dedicate significant manual labor and attention to detail for each individual board
 
+![](/conn/fullcables.png)
+{{% /blocks/feature %}}
 {{% /blocks/section %}}
 
 
