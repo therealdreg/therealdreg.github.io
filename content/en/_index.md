@@ -87,9 +87,9 @@ Patience is appreciated as human errors and occasional bugs are an inherent part
 {{% /blocks/section %}}
 
 
-{{% blocks/section color="white" %}}
-{{% blocks/feature icon="fa-solid fa-hammer" title="Artisanal" %}}
-As a small, artisanal creator without the extensive resources of a large company, we dedicate significant manual labor and attention to detail for each individual board
+{{% blocks/section color="white" type="row" %}}
+{{% blocks/feature icon="fa-solid fa-universal-access" title="Accessibility" %}}
+One of our friends is colorblind, so we've made the Buzzpirat cables more accessible and easier to use. Each cable is labeled with all its possible functionalities, and the color of the cable is also written in text. This way, you don't need to keep looking at the pinout on a screen.
 
 ![](/conn/fullcables.png)
 {{% /blocks/feature %}}
