@@ -103,6 +103,11 @@ We're also aware that the younger generations love video formats, so when we hav
 So, if you're a red teamer or web pentester, you shouldn't have any problems starting here and eventually hacking some IoT devices
 {{% /blocks/feature %}}
 
+{{% blocks/feature icon="fa-brands fa-apple" title="Apple devices" %}}
+In addition to creating things that work on Android <i class="fa-brands fa-android"></i>, Windows <i class="fa-brands fa-windows"></i> and Linux <i class="fa-brands fa-linux"></i> , we also try to provide support for OS X & iOS <i class="fa-brands fa-apple"></i>
+{{% /blocks/feature %}}
+
+
 {{% /blocks/section %}}
 
 
