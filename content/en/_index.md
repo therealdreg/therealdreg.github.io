@@ -88,11 +88,19 @@ Patience is appreciated as human errors and occasional bugs are an inherent part
 
 
 {{% blocks/section color="white" type="row" %}}
+
 {{% blocks/feature icon="fa-solid fa-universal-access" title="Accessibility" %}}
-One of our friends is colorblind, so we've made the Buzzpirat cables more accessible and easier to use. Each cable is labeled with all its possible functionalities, and the color of the cable is also written in text. This way, you don't need to keep looking at the pinout on a screen.
+One of our friends is colorblind, so we've made the Buzzpirat cables more accessible and easier to use. Each cable is labeled with all its possible functionalities, and the color of the cable is also written in text. This way, you don't need to keep looking at the pinout on a screen
 
 ![](/conn/fullcables.png)
 {{% /blocks/feature %}}
+
+{{% blocks/feature icon="fa-solid fa-child" title="Language for kids" %}}
+We want even the kids to learn about hardware hacking, so we try to adapt the content so that a kid can understand the basic concepts and play with the Buzzpirat
+
+So, if you're a red teamer or web pentester, you shouldn't have any problems starting here and eventually hacking some IoT devices
+{{% /blocks/feature %}}
+
 {{% /blocks/section %}}
 
 
