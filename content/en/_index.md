@@ -98,6 +98,8 @@ One of our friends is colorblind, so we've made the Buzzpirat cables more access
 {{% blocks/feature icon="fa-solid fa-child" title="Language for kids" %}}
 We want even the kids to learn about hardware hacking, so we try to adapt the content so that a kid can understand the basic concepts and play with the Buzzpirat
 
+We're also aware that the younger generations love video formats, so when we have some budget, we'll make some
+
 So, if you're a red teamer or web pentester, you shouldn't have any problems starting here and eventually hacking some IoT devices
 {{% /blocks/feature %}}
 
