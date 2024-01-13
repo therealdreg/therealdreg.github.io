@@ -104,7 +104,7 @@ So, if you're a red teamer or web pentester, you shouldn't have any problems sta
 {{% /blocks/feature %}}
 
 {{% blocks/feature icon="fa-brands fa-apple" title="Apple devices" %}}
-In addition to creating things that work on Android <i class="fa-brands fa-android"></i>, Windows <i class="fa-brands fa-windows"></i> and Linux <i class="fa-brands fa-linux"></i> , we also try to provide support for OS X & iOS <i class="fa-brands fa-apple"></i>
+In addition to creating things that work on Android <i class="fa-brands fa-android"></i>, Windows <i class="fa-brands fa-windows"></i> and Linux <i class="fa-brands fa-linux"></i> , we also try to provide support for macOS & iOS <i class="fa-brands fa-apple"></i>
 {{% /blocks/feature %}}
 
 
