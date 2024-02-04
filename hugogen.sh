@@ -3,9 +3,8 @@
 set -x
 rm -rf public/ &&\
 rm -rf docs/ &&\
-hugo
-offsrch=`ls docs/offline-search-index*` &&\
-mv $offsrch docs/offline-search-index.json &&\
+hugo &&\
+mv`ls public/offline-search-index*` public/offline-search-index.json &&\
 exit 1
 echo -n "buzzpirat.com" > public/CNAME &&\
 mv public/ docs/ &&\
