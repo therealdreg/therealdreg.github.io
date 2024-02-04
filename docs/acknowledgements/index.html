@@ -48,52 +48,88 @@
   </head>
   <body class="td-section">
     <header>
-      <nav class="td-navbar navbar-dark js-navbar-scroll">
-<div class="container-fluid flex-column flex-md-row">
-  <a class="navbar-brand" href="/"><span class="navbar-brand__logo navbar-logo"></span><span class="navbar-brand__name">buzzpirat</span></a>
-  <div class="td-navbar-nav-scroll ms-md-auto" id="main_navbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="https://fr33project.org/buzz.php" target="_blank" rel="noopener"><span>Buy</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/"><span>Home</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/docs/"><span>Docs</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat/discussions" target="_blank" rel="noopener"><span>Community</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/therealdreg/buzzpirat" target="_blank" rel="noopener"><span>GitHub</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/donations/"><span>Donations</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/acknowledgements/"><span>Acknowledgements</span></a>
-      </li>
-      </ul>
-  </div>
-  <div class="d-none d-lg-block">
-    <div class="td-search td-search--offline">
-  <div class="td-search__icon"></div>
-  <input
-    type="search"
-    class="td-search__input form-control"
-    placeholder="Search this site…"
-    aria-label="Search this site…"
-    autocomplete="off"
+      <style>
+  @media (max-width: 991px) {
+  .navbar-custom {
+  background-color: #30638e !important;
+  background-image: none !important;
+  }
+  }
+  .navbar-custom {
+  background-image: none !important;
+  }
+  .search-custom::placeholder {
+  color: white;
+  opacity: 1;  
+  }
+  .nav-item{
+  padding-inline-end: 0.5rem;
+  }
+</style>
+<header>
+  
+  
+  <nav class="navbar navbar-custom navbar-dark bg-transparent navbar-expand-lg js-navbar-scroll fixed-top">
     
-    data-offline-search-index-json-src="/offline-search-index.519e4a019cf9824e97d3013a7e8bebb8.json"
-    data-offline-search-base-href="/"
-    data-offline-search-max-results="10"
-  >
-</div>
-  </div>
-</div>
-</nav>
+    <div class="container-fluid fw-bold">
+      <a class="navbar-brand" href="/">
+      <img src="//favicons/android-48x48.png" alt="Icono" width="30" height="30" class="d-inline-block align-top" />
+      <span class="navbar-brand__name">Buzzpirat</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="main_navbar">
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://fr33project.org/buzz.php"  target="_blank" rel="noopener"  ><span>Buy</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/"  ><span>Home</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/docs/"  ><span>Docs</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/therealdreg/buzzpirat/discussions"  target="_blank" rel="noopener"  ><span>Community</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/therealdreg/buzzpirat"  target="_blank" rel="noopener"  ><span>GitHub</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/donations/"  ><span>Donations</span></a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/acknowledgements/"  ><span>Acknowledgements</span></a>
+          </li>
+          
+          <li class="nav-item td-search td-search--offline">
+            <div style="color: white" class="td-search__icon"></div>
+            <input
+              type="search" style="border: none;"
+              class="td-search__input form-control search-custom"
+              placeholder="Search this site…"
+              aria-label="Search this site…"
+              autocomplete="off"
+              data-offline-search-index-json-src="/offline-search-index.json"
+              data-offline-search-base-href="/"
+              data-offline-search-max-results="10"
+              >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     </header>
     <div class="container-fluid td-default td-outer">
       <main role="main" class="td-main">
