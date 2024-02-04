@@ -1,0 +1,59 @@
+<style>
+  @media (max-width: 991px) {
+  .navbar-custom {
+  background-color: #30638e !important;
+  background-image: none !important;
+  }
+  }
+  .navbar-custom {
+  background-image: none !important;
+  }
+  .search-custom::placeholder {
+  color: white;
+  opacity: 1; /* Firefox */
+  }
+  .nav-item{
+  padding-inline-end: 0.5rem;
+  }
+</style>
+<header>
+  {{ $isDocs := eq .Section "docs" }}
+  {{ if $isDocs }}
+  <nav class="navbar navbar-custom navbar-dark navbar-expand-lg js-navbar-scroll " style="background-color:#30638e;">
+  {{ else }}
+  <nav class="navbar navbar-custom navbar-dark bg-transparent navbar-expand-lg js-navbar-scroll fixed-top">
+    {{ end }}
+    <div class="container-fluid fw-bold">
+      <a class="navbar-brand" href="{{ .Site.BaseURL }}">
+      <img src="{{ .Site.BaseURL }}/favicons/android-48x48.png" alt="Icono" width="30" height="30" class="d-inline-block align-top" />
+      <span class="navbar-brand__name">Buzzpirat</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="main_navbar">
+        <ul class="navbar-nav">
+          {{ range .Site.Menus.main }}
+          <li class="nav-item">
+            <a class="nav-link" href="{{ .URL }}" {{if strings.Contains .URL "http"}} target="_blank" rel="noopener" {{end}} ><span>{{ .Name }}</span></a>
+          </li>
+          {{ end }}
+          <li class="nav-item td-search td-search--offline">
+            <div style="color: white" class="td-search__icon"></div>
+            <input
+              type="search" style="border: none;"
+              class="td-search__input form-control search-custom"
+              placeholder="Search this site…"
+              aria-label="Search this site…"
+              autocomplete="off"
+              data-offline-search-index-json-src="/offline-search-index.json"
+              data-offline-search-base-href="/"
+              data-offline-search-max-results="10"
+              >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
