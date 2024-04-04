@@ -234,7 +234,16 @@ This is the multi-page printable view of this section.
 </span></span><span style="display:flex;"><span>avrdude error: did not get a response to power off <span style="color:#204a87">command</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>avrdude <span style="color:#204a87;font-weight:bold">done</span>.  Thank you.
-</span></span></code></pre></div><p>The command uses the following parameters:</p>
+</span></span></code></pre></div>
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    If no response is received, check the connections and ensure that the AVR connection was correctly. If the issue persists, try resetting the Buzzpirat by unplugging and reconnecting it to the USB port.
+
+</div>
+
+<p>The command uses the following parameters:</p>
 <ul>
 <li>
 <p><strong>-c buspirate</strong>: Specifies the programmer type. In this case, it&rsquo;s set to buspirate, indicating that the Buzzpirat is used for programming.</p>
@@ -268,6 +277,17 @@ This is the multi-page printable view of this section.
 <li><strong>-U eeprom:r:&ldquo;C:\Users\dreg\Desktop\eeprom_dump.hex&rdquo;:i</strong>: Specifies the operation to perform. In this case, it&rsquo;s set to read (r) the contents of the EEPROM memory of the AVR chip and save it to the specified HEX file. The path to the output file should be replaced with the actual path on your system.</li>
 </ul>
 
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    WARNING use &ldquo;:r&rdquo; for binary files, &ldquo;:i&rdquo; for intel hex files.
+
+</div>
+
+<p>How to read EEPROM binary:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>avrdude -c buspirate -p m328pb -P COM59 -b <span style="color:#0000cf;font-weight:bold">115200</span> -U eeprom:r:<span style="color:#4e9a06">&#34;C:\Users\dreg\Desktop\eeprom_dump.bin&#34;</span>:r
+</span></span></code></pre></div>
 </div>
 </div>
 

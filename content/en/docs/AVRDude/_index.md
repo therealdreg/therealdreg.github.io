@@ -60,6 +60,11 @@ avrdude error: did not get a response to power off command
 avrdude done.  Thank you.
 ```
 
+{{< alert color="warning" title="Warning" >}}
+If no response is received, check the connections and ensure that the AVR connection was correctly. If the issue persists, try resetting the Buzzpirat by unplugging and reconnecting it to the USB port.
+{{< /alert >}}
+
+
 The command uses the following parameters:
 
 * **-c buspirate**: Specifies the programmer type. In this case, it's set to buspirate, indicating that the Buzzpirat is used for programming.
@@ -99,6 +104,16 @@ avrdude -c buspirate -p m328pb -P COM59 -b 115200 -U eeprom:r:"C:\Users\dreg\Des
 The command uses the following parameter:
 
 * **-U eeprom:r:"C:\Users\dreg\Desktop\eeprom_dump.hex":i**: Specifies the operation to perform. In this case, it's set to read (r) the contents of the EEPROM memory of the AVR chip and save it to the specified HEX file. The path to the output file should be replaced with the actual path on your system.
+
+{{< alert color="warning" title="Warning" >}}
+WARNING use ":r" for binary files, ":i" for intel hex files.
+{{< /alert >}}
+
+
+How to read EEPROM binary:
+```bash
+avrdude -c buspirate -p m328pb -P COM59 -b 115200 -U eeprom:r:"C:\Users\dreg\Desktop\eeprom_dump.bin":r
+```
 
 
 
