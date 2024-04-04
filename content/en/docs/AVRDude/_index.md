@@ -17,6 +17,14 @@ Finally, make sure to use the latest development version of AVRDude:
 
 - https://github.com/avrdudes/avrdude/releases
 
+A nice GUI for avrdude is AVRDUDESS:
+
+- https://github.com/ZakKemble/AVRDUDESS
+- https://blog.zakkemble.net/avrdudess-a-gui-for-avrdude/
+
+Image avrdudess:
+
+![](/otherimgs/avrdudess.png)
 
 ## Tutorial Arduino UNO (ATmega328P)
 
@@ -33,23 +41,65 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 
 ![](/conn/arduinoicspbuzz.png)
 
-To read the content of a flash memory chip using `flashrom` with Buzzpirat, execute the following command:
-
+To detect the AVR chip, run the following command:
 
 ```bash
-flashrom.exe --progress -V -c "W25Q64BV/W25Q64CV/W25Q64FV" -p buspirate_spi:dev=COM8,spispeed=1M,serialspeed=115200 -r flash_content.bin 
+avrdude -c buspirate -P COM59 -b 115200 -p m328pb
 ```
 
-* **`--`progress**: This parameter shows the progress of the operation, providing visual feedback in the terminal.
-* **-V**: Stands for 'verbose'. It increases the verbosity of the program, providing detailed output about the operations being performed. This is useful for debugging or getting more information about the process.
-* **-c "W25Q64BV/W25Q64CV/W25Q64FV"** in flashrom is used to specify the exact model of the flash chip that you intend to interact with. When you run flashrom without the -c parameter, the tool attempts to automatically detect the types of flash memory chips that are present in your system.
-* **-p buspirate_spi**: Specifies the programmer type. In this case, it's set to buspirate_spi, indicating that the Buzzpirat is used for SPI (Serial Peripheral Interface) programming.
-    * **dev=COM8**: This part of the parameter specifies the device name. COM8 refers to the COM port where the Buzzpirat is connected. **This will vary depending on your system's configuration**. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM & LPT) section.
-    * **spispeed=1M**: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip's specifications and the quality of the connections.
-    * **serialspeed=115200**: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.
-* **-r flash_content.bin**: This part of the command tells flashrom to read the flash memory's content and save it into a file named flash_content.bin
+AVR chip detected is ATmega328PB, which is the microcontroller used in the Arduino UNO board. The output of the command will look like this:
 
-The read operation may take about 15 minutes to complete. Once it's done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.
+```bash
+avrdude -c buspirate -P COM59 -b 115200 -p m328pb
+attempting to initiate BusPirate binary mode ...
+avrdude: paged flash write enabled
+avrdude: AVR device initialized and ready to accept instructions
+avrdude: device signature = 0x1e9516 (probably m328pb)
+avrdude error: did not get a response to power off command
+
+avrdude done.  Thank you.
+```
+
+The command uses the following parameters:
+
+* **-c buspirate**: Specifies the programmer type. In this case, it's set to buspirate, indicating that the Buzzpirat is used for programming.
+
+* **-P COM59**: Specifies the port where the Buzzpirat is connected. The COM port number may vary depending on your system's configuration. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM & LPT) section.
+
+* **-b 115200**: Sets the baud rate for serial communication between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.
+
+* **-p m328pb**: Specifies the AVR microcontroller model. In this case, it's set to m328pb, which is the model used in the Arduino UNO board.
+
+If the AVR chip is detected successfully, you can proceed with programming the chip using the appropriate commands. For example, to upload a HEX file to the chip, you can use the following command:
+
+```bash
+avrdude -c buspirate -p m328pb -P COM59 -b 115200 -U flash:w:"C:\Users\dreg\Desktop\Blink\build\arduino.avr.uno\Blink.ino.with_bootloader.hex":i
+```
+
+The command uses the following parameter:
+
+* **-U flash:w:"C:\Users\dreg\Desktop\Blink\build\arduino.avr.uno\Blink.ino.with_bootloader.hex":i**: Specifies the operation to perform. In this case, it's set to write (w) the contents of the specified HEX file to the flash memory of the AVR chip. The path to the HEX file should be replaced with the actual path to the file on your system.
+
+How to read flash memory:
+
+```bash
+avrdude -c buspirate -p m328pb -P COM59 -b 115200 -U flash:r:"C:\Users\dreg\Desktop\dump.hex":i
+```
+
+The command uses the following parameter:
+
+* **-U flash:r:"C:\Users\dreg\Desktop\dump.hex":i**: Specifies the operation to perform. In this case, it's set to read (r) the contents of the flash memory of the AVR chip and save it to the specified HEX file. The path to the output file should be replaced with the actual path on your system.
+
+How to read EEPROM:
+
+```bash
+avrdude -c buspirate -p m328pb -P COM59 -b 115200 -U eeprom:r:"C:\Users\dreg\Desktop\eeprom_dump.hex":i
+```
+
+The command uses the following parameter:
+
+* **-U eeprom:r:"C:\Users\dreg\Desktop\eeprom_dump.hex":i**: Specifies the operation to perform. In this case, it's set to read (r) the contents of the EEPROM memory of the AVR chip and save it to the specified HEX file. The path to the output file should be replaced with the actual path on your system.
+
 
 
 
