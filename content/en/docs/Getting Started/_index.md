@@ -74,3 +74,11 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 | +5.0v(SW5V0)   | +5volt switchable power supply         |
 | GND            | Ground, connect to ground of test circuit |
 
+
+{{< alert color="warning" title="Warning" >}}
+Use short & high-quality USB&Dupont cables. Long or low-quality cables can cause communication issues.
+{{< /alert >}}
+
+{{< alert color="warning" title="Warning" >}}
+Use VMs is not recommended, as it can cause communication issues.
+{{< /alert >}}

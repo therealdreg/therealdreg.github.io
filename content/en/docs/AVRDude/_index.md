@@ -7,6 +7,14 @@ weight: 20
 
 [AVRDude](https://github.com/avrdudes/avrdude/), which stands for AVR Downloader Uploader, is a software utility used for programming the onboard memory of Microchip's AVR microcontrollers, typically found in popular Arduino boards. This tool allows for the downloading and uploading of data to the chip's Flash and EEPROM memory. Additionally, when supported by the programming protocol, AVRDUDE can program fuse and lock bits, which are essential for configuring the microcontroller's settings and security features. A distinctive feature of AVRDUDE is its direct instruction mode. This mode empowers users to send any programming instruction directly to the AVR chip, bypassing the limitations of the software's built-in functions. This flexibility makes it an invaluable tool for developers working with AVR-based systems, particularly in the Arduino ecosystem, where customization and direct hardware control are often required
 
+{{< alert color="warning" title="Warning" >}}
+Use short & high-quality USB&Dupont cables. Long or low-quality cables can cause communication issues.
+{{< /alert >}}
+
+{{< alert color="warning" title="Warning" >}}
+Use VMs is not recommended, as it can cause communication issues.
+{{< /alert >}}
+
 ## Update AVRDude & Buzzpirat
 
 AVRDude supports Buzzpirat out of the box
