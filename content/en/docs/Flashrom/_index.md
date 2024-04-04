@@ -122,6 +122,13 @@ COM8 refers to the COM port where the Buzzpirat is connected. This will vary dep
 
 The read operation may take about 15 minutes to complete. Once it's done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.
 
+To write the content of a flash memory chip using `flashrom` with Buzzpirat, execute the following command:
+
+```bash
+flashrom.exe --progress -V -c "W25Q64BV/W25Q64CV/W25Q64FV" -p buspirate_spi:dev=COM8,spispeed=1M,serialspeed=115200 -w flash_content.bin 
+```
+
+The difference between the read and write commands is the `-w` parameter, which tells flashrom to write the content of the flash_content.bin file to the flash memory chip.
 
 ## Tutorial Winbond 1.8V 64M-BIT W25Q64FW board
 

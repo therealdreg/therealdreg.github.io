@@ -146,7 +146,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.b7326049cbf55819e4c8db1452a244ae.json"
+    data-offline-search-index-json-src="/offline-search-index.2efd89e988a2e45636fef866203e3322.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -334,6 +334,9 @@
 <li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
 </ul>
 <p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
+<p>To write the content of a flash memory chip using <code>flashrom</code> with Buzzpirat, execute the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64BV/W25Q64CV/W25Q64FV&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">115200</span> -w flash_content.bin 
+</span></span></code></pre></div><p>The difference between the read and write commands is the <code>-w</code> parameter, which tells flashrom to write the content of the flash_content.bin file to the flash memory chip.</p>
 <h2 id="tutorial-winbond-18v-64m-bit-w25q64fw-board">Tutorial Winbond 1.8V 64M-BIT W25Q64FW board</h2>
 <p>After testing with the 3.3V memory, buy a 1.8V Winbond W25Q64FW. Desolder the 3.3V memory and solder the 1.8V one in its place. Ensure the chip&rsquo;s orientation remains the same as the original one.</p>
 <p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +1v8(SW1V8) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality.</p>
