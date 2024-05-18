@@ -232,100 +232,119 @@ This is the multi-page printable view of this section.
 </table>
 <p><img src="/conn/atcconnection.png" alt=""></p>
 <p><img src="/conn/conn1.png" alt=""></p>
-<table class="td-initial table table-dark">
-<thead>
-<tr>
-<th><div class="-text-red display-6"><strong>MODE</strong></div></th>
-<th><div class="-text-white display-6"><strong>MOSI</strong></div></th>
-<th><div class="-text-yellow display-6" style="color: #ffec80;"><strong>CLK</strong></div></th>
-<th><div class="-text-black display-6"><strong>MISO</strong></div></th>
-<th><div class="-text-green display-6"><strong>CS</strong></div></th>
-<th><div class="-text-gray display-6"><strong>AUX</strong></div></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><div class="-text-red"><strong>HiZ</strong></div></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>1-Wire</strong></div></td>
-<td><div class="-text-white"><strong>OWD</strong></div></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>UART</strong></div></td>
-<td><div class="-text-white"><strong>TX</strong></div></td>
-<td><strong>-</strong></td>
-<td><div class="-text-black"><strong>RX</strong></div></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>I2C</strong></div></td>
-<td><div class="-text-white"><strong>SDA</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>SCL</strong></div></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>SPI</strong></div></td>
-<td><div class="-text-white"><strong>MOSI</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>CLK</strong></div></td>
-<td><div class="-text-black"><strong>MISO</strong></div></td>
-<td><div class="-text-green"><strong>CS</strong></div></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>JTAG</strong></div></td>
-<td><div class="-text-white"><strong>TDI</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>TCK</strong></div></td>
-<td><div class="-text-black"><strong>TDO</strong></div></td>
-<td><div class="-text-green"><strong>TMS</strong></div></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>AVR</strong></div></td>
-<td><div class="-text-white"><strong>MOSI</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>SCK</strong></div></td>
-<td><div class="-text-black"><strong>MISO</strong></div></td>
-<td><div class="-text-green"><strong>RESET</strong></div></td>
-<td><div class="-text-gray"><strong>XTAL1</strong></div></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>PIC</strong></div></td>
-<td><div class="-text-white"><strong>PGD</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>PGC</strong></div></td>
-<td><strong>-</strong></td>
-<td><div class="-text-green"><strong>MCLR</strong></div></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>2-Wire</strong></div></td>
-<td><div class="-text-white"><strong>OWD1</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>OWD2</strong></div></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-<td><strong>-</strong></td>
-</tr>
-<tr>
-<td><div class="-text-red"><strong>3-Wire</strong></div></td>
-<td><div class="-text-white"><strong>MOSI</strong></div></td>
-<td><div class="-text-yellow" style="color: #ffec80;"><strong>CLK</strong></div></td>
-<td><div class="-text-black"><strong>MISO</strong></div></td>
-<td><div class="-text-green"><strong>CS</strong></div></td>
-<td><strong>-</strong></td>
-</tr>
-</tbody>
+<style>
+  #table-buzzpirat  { max-width: 80%; border: 2px solid #333; }
+  #table-buzzpirat th, #table-buzzpirat  td { border-bottom: 1px solid #ddd; text-align: center }
+  #table-buzzpirat th { background-color: #403f4c; color: #fff; }
+  #table-buzzpirat .lt-red { color: #dc3545;font-weight: bold;}
+  #table-buzzpirat .lt-white { color: #ffffff;font-weight: bold;}
+  #table-buzzpirat .lt-yellow { color: #f4f901;font-weight: bold;}
+  #table-buzzpirat .lt-black { color: #070d18;font-weight: bold;}
+  #table-buzzpirat .lt-green { color: #2fffab;font-weight: bold;}
+  #table-buzzpirat .lt-gray { color: #8d8d8d;font-weight: bold;}
+  #table-buzzpirat .bgr-red { background-color: #fff; }
+  #table-buzzpirat .bgr-white { background-color: #403f4c; }
+  #table-buzzpirat .bgr-yellow { background-color: #403f4c; }
+  #table-buzzpirat .bgr-black { background-color: #fff; }
+  #table-buzzpirat .bgr-green { background-color: #403f4c; }
+  #table-buzzpirat .bgr-gray { background-color: #fff; }
+</style>
+<div class="table-responsive-sm">
+<table id="table-buzzpirat" class="td-initial table table-dark">
+  <thead>
+    <tr>
+      <th class="bgr-red lt-red display-6">MODE</th>
+      <th class="bgr-white lt-white display-6">MOSI</th>
+      <th class="bgr-yellow lt-yellow display-6">CLK</th>
+      <th class="bgr-black lt-black display-6">MISO</th>
+      <th class="bgr-green lt-green display-6">CS</th>
+      <th class="bgr-gray lt-gray display-6">AUX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="lt-red bgr-red">HiZ</td>
+      <td class="lt-white bgr-white">-</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">1-Wire</td>
+      <td class="lt-white bgr-white">OWD</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">UART</td>
+      <td class="lt-white bgr-white">TX</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">RX</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">I2C</td>
+      <td class="lt-white bgr-white">SDA</td>
+      <td class="lt-yellow bgr-yellow">SCL</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">SPI</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">CLK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">CS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">JTAG</td>
+      <td class="lt-white bgr-white">TDI</td>
+      <td class="lt-yellow bgr-yellow">TCK</td>
+      <td class="lt-black bgr-black">TDO</td>
+      <td class="lt-green bgr-green">TMS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">AVR</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">SCK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">RESET</td>
+      <td class="lt-gray bgr-gray">XTAL1</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">PIC</td>
+      <td class="lt-white bgr-white">PGD</td>
+      <td class="lt-yellow bgr-yellow">PGC</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">MCLR</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">2-Wire</td>
+      <td class="lt-white bgr-white">OWD1</td>
+      <td class="lt-yellow bgr-yellow">OWD2</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">3-Wire</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">CLK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">CS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+  </tbody>
 </table>
+</div>
 <table>
 <thead>
 <tr>
