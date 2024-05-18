@@ -7,6 +7,14 @@ weight: 20
 
 [Flashrom](https://www.flashrom.org) is a versatile utility for managing flash chips, capable of identifying, reading, writing, verifying, and erasing them. It's particularly adept at flashing BIOS/EFI/coreboot/firmware/optionROM images on a variety of hardware, including mainboards, network/graphics/storage controllers, and other programmer devices.
 
+{{< alert color="warning" title="Warning" >}}
+Use short & high-quality USB&Dupont cables. Long or low-quality cables can cause communication issues.
+{{< /alert >}}
+
+{{< alert color="warning" title="Warning" >}}
+Use VMs is not recommended, as it can cause communication issues.
+{{< /alert >}}
+
 **Key features include:**
 
 - Support for over 476 flash chips, 291 chipsets, 500 mainboards, 79 PCI devices, 17 USB devices, and a range of programmers via parallel/serial ports.
@@ -117,10 +125,23 @@ flashrom.exe --progress -V -c "W25Q64BV/W25Q64CV/W25Q64FV" -p buspirate_spi:dev=
     * **dev=COM8**: This part of the parameter specifies the device name. {{< alert color="warning" title="Warning" >}}
 COM8 refers to the COM port where the Buzzpirat is connected. This will vary depending on your system’s configuration. You can find the COM port number by opening the Device Manager in Windows and looking for the Bus Pirate device under the Ports (COM & LPT) section. {{< /alert >}}
   * **spispeed=1M**: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip's specifications and the quality of the connections.
-    * **serialspeed=115200**: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.
+  * **serialspeed=115200**: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.
 * **-r flash_content.bin**: This part of the command tells flashrom to read the flash memory's content and save it into a file named flash_content.bin
 
 The read operation may take about 15 minutes to complete. Once it's done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.
+
+To write the content of a flash memory chip using `flashrom` with Buzzpirat, execute the following command:
+
+```bash
+flashrom.exe --progress -V -c "W25Q64BV/W25Q64CV/W25Q64FV" -p buspirate_spi:dev=COM8,spispeed=1M,serialspeed=115200 -w flash_content.bin 
+```
+
+The difference between the read and write commands is the `-w` parameter, which tells flashrom to write the content of the flash_content.bin file to the flash memory chip.
+
+{{< alert color="warning" title="Warning" >}}
+Warninng 1M can be too fast for some "setups", try 250k or 125k if you have issues: spispeed=250k or spispeed=125k
+{{< /alert >}}
+
 
 
 ## Tutorial Winbond 1.8V 64M-BIT W25Q64FW board
@@ -155,7 +176,7 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 {{< alert color="warning" title="Warning" >}}It's crucial not to use the Buzzpirat in 3.3V mode as it could endanger the 1.8V chips. Additionally, activating the BuzzPirate's pull-ups is necessary to ensure everything operates at the voltage set in VPU pin (in this case, 1.8V). To do this, we must execute flashrom as follows:{{< /alert >}}
 
 ```bash
-flashrom.exe --progress -V -c "W25Q64.W" -p buspirate_spi:dev=COM8,spispeed=1M,serialspeed=115200,pullups=on -r flash_content.bin 
+flashrom.exe --progress -V -c "W25Q64.W" -p buspirate_spi:dev=COM8,spispeed=30k,serialspeed=115200,pullups=on -r flash_content.bin 
 ```
 
 pullups=on means that the pull-ups are activated + the Buzzpirat is in hi-z mode. 
@@ -165,4 +186,10 @@ COM8 refers to the COM port where the Buzzpirat is connected. This will vary dep
 {{< /alert >}}
 
 The read operation may take about 15 minutes to complete. Once it's done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.
+
+{{< alert color="warning" title="Warning" >}}
+30k is the lowest speed, and it's recommended to use it when working with 1.8V chips. 
+{{< /alert >}}
+
+
 

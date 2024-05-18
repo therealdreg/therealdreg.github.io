@@ -60,7 +60,7 @@
   }
   .search-custom::placeholder {
   color: white;
-  opacity: 1;  
+  opacity: 1;
   }
   .nav-item{
   padding-inline-end: 0.5rem;
@@ -73,7 +73,7 @@
   
     <div class="container-fluid fw-bold">
       <a class="navbar-brand" href="/">
-      <img src="//favicons/android-48x48.png" alt="Icono" width="30" height="30" class="d-inline-block align-top" />
+      <img src="/favicons/buzzpirat-white-144x144.png" alt="Icono" width="30" height="30" class="d-inline-block align-top" />
       <span class="navbar-brand__name">Buzzpirat</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_navbar" aria-controls="main_navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -146,7 +146,7 @@
     aria-label="Search this site…"
     autocomplete="off"
     
-    data-offline-search-index-json-src="/offline-search-index.519e4a019cf9824e97d3013a7e8bebb8.json"
+    data-offline-search-index-json-src="/offline-search-index.1cfc7ba6a3f2ec080f624f4aad6b9945.json"
     data-offline-search-base-href="/"
     data-offline-search-max-results="10"
   >
@@ -227,6 +227,24 @@
 		
   </header>
 	<p><a href="https://www.flashrom.org">Flashrom</a> is a versatile utility for managing flash chips, capable of identifying, reading, writing, verifying, and erasing them. It&rsquo;s particularly adept at flashing BIOS/EFI/coreboot/firmware/optionROM images on a variety of hardware, including mainboards, network/graphics/storage controllers, and other programmer devices.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    Use short &amp; high-quality USB&amp;Dupont cables. Long or low-quality cables can cause communication issues.
+
+</div>
+
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    Use VMs is not recommended, as it can cause communication issues.
+
+</div>
+
 <p><strong>Key features include:</strong></p>
 <ul>
 <li>Support for over 476 flash chips, 291 chipsets, 500 mainboards, 79 PCI devices, 17 USB devices, and a range of programmers via parallel/serial ports.</li>
@@ -324,16 +342,25 @@
 
 </div>
 </li>
-<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.
-<ul>
+<li><strong>spispeed=1M</strong>: Sets the SPI communication speed to 1 MHz. Adjusting the SPI speed can be necessary depending on the flash chip&rsquo;s specifications and the quality of the connections.</li>
 <li><strong>serialspeed=115200</strong>: Sets the serial communication speed (baud rate) between the computer and the Buzzpirat to 115200 bits per second. This is a common baud rate for serial communication.</li>
-</ul>
-</li>
 </ul>
 </li>
 <li><strong>-r flash_content.bin</strong>: This part of the command tells flashrom to read the flash memory&rsquo;s content and save it into a file named flash_content.bin</li>
 </ul>
 <p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
+<p>To write the content of a flash memory chip using <code>flashrom</code> with Buzzpirat, execute the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64BV/W25Q64CV/W25Q64FV&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#0000cf;font-weight:bold">115200</span> -w flash_content.bin 
+</span></span></code></pre></div><p>The difference between the read and write commands is the <code>-w</code> parameter, which tells flashrom to write the content of the flash_content.bin file to the flash memory chip.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    Warninng 1M can be too fast for some &ldquo;setups&rdquo;, try 250k or 125k if you have issues: spispeed=250k or spispeed=125k
+
+</div>
+
 <h2 id="tutorial-winbond-18v-64m-bit-w25q64fw-board">Tutorial Winbond 1.8V 64M-BIT W25Q64FW board</h2>
 <p>After testing with the 3.3V memory, buy a 1.8V Winbond W25Q64FW. Desolder the 3.3V memory and solder the 1.8V one in its place. Ensure the chip&rsquo;s orientation remains the same as the original one.</p>
 <p>For this case, simply use the official Buzzpirat cables with the female Dupont connector they come with; there&rsquo;s no need to use SMD IC clips. Connect the Buzzpirat to the w25q64fv board by attaching the +1v8(SW1V8) to VCC, CS to CS, MISO to DO, GND to GND, CLK to CLK, and MOSI to DI, ensuring each connection is secure for proper functionality.</p>
@@ -404,7 +431,7 @@
 
 </div>
 
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64.W&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>1M,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span>115200,pullups<span style="color:#ce5c00;font-weight:bold">=</span>on -r flash_content.bin 
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>flashrom.exe --progress -V -c <span style="color:#4e9a06">&#34;W25Q64.W&#34;</span> -p buspirate_spi:dev<span style="color:#ce5c00;font-weight:bold">=</span>COM8,spispeed<span style="color:#ce5c00;font-weight:bold">=</span>30k,serialspeed<span style="color:#ce5c00;font-weight:bold">=</span>115200,pullups<span style="color:#ce5c00;font-weight:bold">=</span>on -r flash_content.bin 
 </span></span></code></pre></div><p>pullups=on means that the pull-ups are activated + the Buzzpirat is in hi-z mode.</p>
 
 
@@ -416,6 +443,15 @@
 </div>
 
 <p>The read operation may take about 15 minutes to complete. Once it&rsquo;s done, you can use a hex editor / binwalk etc to open the flash_content.bin file and inspect its contents.</p>
+
+
+<div class="alert alert-warning" role="alert">
+<h4 class="alert-heading">Warning</h4>
+
+    30k is the lowest speed, and it&rsquo;s recommended to use it when working with 1.8V chips.
+
+</div>
+
 
   <div class="section-index">
     
@@ -429,7 +465,7 @@
     
 </div>
 <div class="text-muted mt-5 pt-3 border-top">
-  Last modified January 11, 2024: <a href="https://github.com/therealdreg/buzzpiratweb/commit/8abb01dd3c27b68fcbcb1fe87bd6923f517e5b66">commit (8abb01d)</a>
+  Last modified April 4, 2024: <a href="https://github.com/therealdreg/buzzpiratweb/commit/a68944dc16149a7af6c9f9ebbabf0f4f7eb0080f">commit (a68944d)</a>
 </div>
 </div>
 
