@@ -42,20 +42,119 @@ For this case, simply use the official Buzzpirat cables with the female Dupont c
 
 ![](/conn/conn1.png)
 
-
-| <div class="-text-red display-6">**MODE**</div> | <div class="-text-white display-6">**MOSI**</div>  | <div class="-text-yellow display-6" style="color: #ffec80;">**CLK**</div>  | <div class="-text-black display-6">**MISO**</div>  | <div class="-text-green display-6">**CS**</div>  | <div class="-text-gray display-6">**AUX**</div>  | 
-| ---- | ---- | --- | ---- | -- | -- |
-| <div class="-text-red">**HiZ**</div>  | **-** | **-** | **-** | **-** | **-** | 
-| <div class="-text-red">**1-Wire**</div>  | <div class="-text-white">**OWD**</div> | **-** | **-** | **-** | **-** | 
-| <div class="-text-red">**UART**</div>  | <div class="-text-white">**TX**</div> | **-** | <div class="-text-black">**RX**</div> | **-** | **-** | 
-| <div class="-text-red">**I2C**</div>  | <div class="-text-white">**SDA**</div> | <div class="-text-yellow" style="color: #ffec80;">**SCL**</div> | **-** | **-** | **-** | 
-| <div class="-text-red">**SPI**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | **-** | 
-| <div class="-text-red">**JTAG**</div>  | <div class="-text-white">**TDI**</div> | <div class="-text-yellow" style="color: #ffec80;">**TCK**</div> | <div class="-text-black">**TDO**</div> | <div class="-text-green">**TMS**</div> | **-** | 
-| <div class="-text-red">**AVR**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**SCK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**RESET**</div> | <div class="-text-gray">**XTAL1**</div> | 
-| <div class="-text-red">**PIC**</div>  | <div class="-text-white">**PGD**</div> | <div class="-text-yellow" style="color: #ffec80;">**PGC**</div> | **-** | <div class="-text-green">**MCLR**</div> | **-** | 
-| <div class="-text-red">**2-Wire**</div>  | <div class="-text-white">**OWD1**</div> | <div class="-text-yellow" style="color: #ffec80;">**OWD2**</div> | **-** | **-** | **-** | 
-| <div class="-text-red">**3-Wire**</div>  | <div class="-text-white">**MOSI**</div> | <div class="-text-yellow" style="color: #ffec80;">**CLK**</div> | <div class="-text-black">**MISO**</div> | <div class="-text-green">**CS**</div> | **-** | 
-{.td-initial .table .table-dark}
+<style>
+  #table-buzzpirat  { max-width: 80%; border: 2px solid #333; }
+  #table-buzzpirat th, #table-buzzpirat  td { border-bottom: 1px solid #ddd; text-align: center }
+  #table-buzzpirat th { background-color: #403f4c; color: #fff; }
+  #table-buzzpirat .lt-red { color: #dc3545;font-weight: bold;}
+  #table-buzzpirat .lt-white { color: #ffffff;font-weight: bold;}
+  #table-buzzpirat .lt-yellow { color: #f4f901;font-weight: bold;}
+  #table-buzzpirat .lt-black { color: #070d18;font-weight: bold;}
+  #table-buzzpirat .lt-green { color: #2fffab;font-weight: bold;}
+  #table-buzzpirat .lt-gray { color: #8d8d8d;font-weight: bold;}
+  #table-buzzpirat .bgr-red { background-color: #fff; }
+  #table-buzzpirat .bgr-white { background-color: #403f4c; }
+  #table-buzzpirat .bgr-yellow { background-color: #403f4c; }
+  #table-buzzpirat .bgr-black { background-color: #fff; }
+  #table-buzzpirat .bgr-green { background-color: #403f4c; }
+  #table-buzzpirat .bgr-gray { background-color: #fff; }
+</style>
+<div class="table-responsive-sm">
+<table id="table-buzzpirat" class="td-initial table table-dark">
+  <thead>
+    <tr>
+      <th class="bgr-red lt-red display-6">MODE</th>
+      <th class="bgr-white lt-white display-6">MOSI</th>
+      <th class="bgr-yellow lt-yellow display-6">CLK</th>
+      <th class="bgr-black lt-black display-6">MISO</th>
+      <th class="bgr-green lt-green display-6">CS</th>
+      <th class="bgr-gray lt-gray display-6">AUX</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="lt-red bgr-red">HiZ</td>
+      <td class="lt-white bgr-white">-</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">1-Wire</td>
+      <td class="lt-white bgr-white">OWD</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">UART</td>
+      <td class="lt-white bgr-white">TX</td>
+      <td class="lt-yellow bgr-yellow">-</td>
+      <td class="lt-black bgr-black">RX</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">I2C</td>
+      <td class="lt-white bgr-white">SDA</td>
+      <td class="lt-yellow bgr-yellow">SCL</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">SPI</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">CLK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">CS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">JTAG</td>
+      <td class="lt-white bgr-white">TDI</td>
+      <td class="lt-yellow bgr-yellow">TCK</td>
+      <td class="lt-black bgr-black">TDO</td>
+      <td class="lt-green bgr-green">TMS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    </tr>
+    <tr>
+      <td class="lt-red bgr-red">AVR</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">SCK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">RESET</td>
+      <td class="lt-gray bgr-gray">XTAL1</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">PIC</td>
+      <td class="lt-white bgr-white">PGD</td>
+      <td class="lt-yellow bgr-yellow">PGC</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">MCLR</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">2-Wire</td>
+      <td class="lt-white bgr-white">OWD1</td>
+      <td class="lt-yellow bgr-yellow">OWD2</td>
+      <td class="lt-black bgr-black">-</td>
+      <td class="lt-green bgr-green">-</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+    <tr>
+      <td class="lt-red bgr-red">3-Wire</td>
+      <td class="lt-white bgr-white">MOSI</td>
+      <td class="lt-yellow bgr-yellow">CLK</td>
+      <td class="lt-black bgr-black">MISO</td>
+      <td class="lt-green bgr-green">CS</td>
+      <td class="lt-gray bgr-gray">-</td>
+    <tr>
+  </tbody>
+</table>
+</div>
 
 | Pin Name       | Description (Buzzpirat is the master) |
 |----------------|----------------------------------------|
