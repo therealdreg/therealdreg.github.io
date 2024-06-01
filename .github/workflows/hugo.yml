@@ -63,7 +63,11 @@ jobs:
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Rename offline search index
-        run: cp $(ls public/offline-search-index*) public/offline-search-index.json
+        run: |
+          for file in public/offline-search-index*.json; do
+            cp "$file" public/offline-search-index.json
+            break  # This ensures only the first matching file is copied
+          done
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
