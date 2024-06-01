@@ -52,8 +52,8 @@ jobs:
           node-version: '16' # or any other version you need
       - name: Install Node.js dependencies
         run: |
-          npm install -g postcss postcss-cli
-          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
+          npm install -g postcss postcss-cli autoprefixer
+          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || npm install
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
