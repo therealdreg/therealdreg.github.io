@@ -1,36 +1,23 @@
-name: repo-sync
-
-# Doc: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+name: actions-template-sync
 
 on:
+  # cronjob trigger At 00:00 on day-of-month 1. https://crontab.guru/every-month
   schedule:
-    - cron:  "0 1 * * MON"
-  # Allow this workflow to be manually triggered
+  - cron:  "0 0 1 * *"
+  # manual trigger
   workflow_dispatch:
-
-env:
-  SOURCE_BRANCH: main
-  SOURCE_REPOSITORY: google/docsy-example
 
 jobs:
   repo-sync:
     runs-on: ubuntu-latest
 
     steps:
-      # Doc: https://github.com/marketplace/actions/checkout
-      - name: Checkout ${{ github.repository }}
-        uses: actions/checkout@v4
-        if: github.repository != env.SOURCE_REPOSITORY
-        with:
-          token: ${{ secrets.REPO_SYNC_PAT }}
-
-      # Doc: https://github.com/marketplace/actions/actions-template-sync
+      # To use this repository's private action, you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: actions-template-sync
-        uses: AndreasAugustin/actions-template-sync@v1.1.8
-        if: github.repository != env.SOURCE_REPOSITORY
+        uses: AndreasAugustin/actions-template-sync@v2.2.0
         with:
-          github_token: ${{ secrets.REPO_SYNC_PAT }}
-          source_repo_path: ${{ env.SOURCE_REPOSITORY }}
-          upstream_branch: ${{ env.SOURCE_BRANCH }}
-          pr_title: "[actions-template-sync] Upstream template update"
-          pr_commit_msg: "chore(template): upstream template update"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_repo_path: google/docsy-example
+          upstream_branch: main # defaults to main
