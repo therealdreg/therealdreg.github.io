@@ -64,8 +64,8 @@ jobs:
             --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: Rename offline search index
         run: |
-          for file in public/offline-search-index*.json; do
-            cp "$file" public/offline-search-index.json
+          for file in ./public/offline-search-index*.json; do
+            cp "$file" ./public/offline-search-index.json
             break  # This ensures only the first matching file is copied
           done
       - name: Upload artifact
