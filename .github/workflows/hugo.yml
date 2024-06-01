@@ -46,8 +46,14 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # or any other version you need
       - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+        run: |
+          npm install -g postcss postcss-cli
+          [[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
