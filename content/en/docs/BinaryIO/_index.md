@@ -108,8 +108,10 @@ Key Points:
 - At the end of the read, CS goes high for b00000100 - Write then read command
 
 ### SPI b00000110 (0x06) - AVR Extended Commands
-- b00000000 (0x00) - Null operation - verifies extended commands are available.
-- b00000001 (0x01) - Return version (2 bytes)
+Return Success 0x01 when entering in this mode
+
+- b00000000 (0x00) - Null operation - verifies extended commands are available. Return Success 0x01.
+- b00000001 (0x01) - Return version (2 bytes).  Return Success 0x01. And after Success, return version (AVR Extended Commands version 1): 0x00 0x01
 - b00000010 (0x02) - Bulk Memory Read from Flash
 
 ### SPI b11111110 (0xFE) - Execute Buzz Commands
