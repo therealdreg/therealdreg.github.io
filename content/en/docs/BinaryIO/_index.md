@@ -108,6 +108,13 @@ Key Points:
 - At the end of the read, CS goes high for b00000100 - Write then read command
 
 ### SPI b00000110 (0x06) - AVR Extended Commands
+
+{{< alert title="Note" >}}Note: 
+Commands for avrdude: https://github.com/avrdudes/avrdude
+
+AVR910: In-System Programming https://ww1.microchip.com/downloads/en/AppNotes/Atmel-0943-In-System-Programming_ApplicationNote_AVR910.pdf
+{{< /alert >}}
+
 Return Success 0x01 when entering in this mode
 
 - b00000000 (0x00) - Null operation - verifies extended commands are available. Return Success 0x01.
@@ -118,7 +125,9 @@ Return Success 0x01 when entering in this mode
     - Buzzpirat return 0x01 on success or 0x00 on error
     - Buzzpirat returns the data located on address (length size)
 
-{{< alert title="Note" >}}Note: you must send (0x06) on each use, Example of use:{{< /alert >}}
+{{< alert title="Note" >}}Note: you must send (0x06) on each use{{< /alert >}}
+
+Example of use:
 
 - Send to Buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x40 0x00 0x00 0x00 0x80 
     - 0x06 means AVR Extended Commands
