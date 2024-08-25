@@ -125,14 +125,13 @@ Return Success 0x01 when entering in this mode
     - 0x02 means Bulk Memory Read from Flash
         - 0x00 0x00 0x00 0x40: address 0x00000040
         - 0x00 0x00 0x00 0x80: length 0x00000080
-
-Buzzpirate returns:
+- Buzzpirat returns:
     - 0x01 (0x06 ack)
     - 0x01 (0x02 Bulk Memory Read ack)
     - Content bytes requested: 128 (0x80) bytes in this case
 
 To read the next page (0x00000080) you must send to Buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x80 0x00 0x00 0x00 0x80 
-    
+
 ### SPI b11111110 (0xFE) - Execute Buzz Commands
 Buzz Commands allows for actions such as reading all voltages (similar to the 'v' command), manipulating the TP0 pin, etc.
 
