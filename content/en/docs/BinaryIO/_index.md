@@ -112,8 +112,26 @@ Return Success 0x01 when entering in this mode
 
 - b00000000 (0x00) - Null operation - verifies extended commands are available. Return Success 0x01.
 - b00000001 (0x01) - Return version (2 bytes).  Return Success 0x01. And after Success, return version (AVR Extended Commands version 1): 0x00 0x01
-- b00000010 (0x02) - Bulk Memory Read from Flash
+- b00000010 (0x02) - Bulk Memory Read from Flash: you must send to Buzzpirat:
+    - 4 bytes: address
+    - 4 bytes: lenght
+    - Buzzpirat return 0x01 on success or 0x00 on error
+    - Buzzpirat returns the data located on address (length size)
 
+Note: you must enter (0x06) on this mode on each use, Example of use:
+
+- Send to Buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x40 0x00 0x00 0x00 0x80 
+    - 0x06 means AVR Extended Commands
+    - 0x02 means Bulk Memory Read from Flash
+        - 0x00 0x00 0x00 0x40: address
+        - 0x00 0x00 0x00 0x80: length
+
+Buzzpirate returns:
+
+    - 0x01 (0x06 ack)
+    - 0x01 (0x02 Bulk Memory Read ack)
+    - Content bytes requested: 128 (0x80) bytes in this case
+    
 ### SPI b11111110 (0xFE) - Execute Buzz Commands
 Buzz Commands allows for actions such as reading all voltages (similar to the 'v' command), manipulating the TP0 pin, etc.
 
