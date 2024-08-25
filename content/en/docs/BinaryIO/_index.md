@@ -118,7 +118,7 @@ Return Success 0x01 when entering in this mode
     - Buzzpirat return 0x01 on success or 0x00 on error
     - Buzzpirat returns the data located on address (length size)
 
-Note: you must enter (0x06) on this mode on each use, Example of use:
+{{< alert title="Note" >}}Note: you must send (0x06) on each use, Example of use:{{< /alert >}}
 
 - Send to Buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x40 0x00 0x00 0x00 0x80 
     - 0x06 means AVR Extended Commands
@@ -127,12 +127,11 @@ Note: you must enter (0x06) on this mode on each use, Example of use:
         - 0x00 0x00 0x00 0x80: length 0x00000080
 
 Buzzpirate returns:
-
     - 0x01 (0x06 ack)
     - 0x01 (0x02 Bulk Memory Read ack)
     - Content bytes requested: 128 (0x80) bytes in this case
 
-To read the next page you must send to buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x80 0x00 0x00 0x00 0x80 
+To read the next page (0x00000080) you must send to Buzzpirat: 0x06 0x02 0x00 0x00 0x00 0x80 0x00 0x00 0x00 0x80 
     
 ### SPI b11111110 (0xFE) - Execute Buzz Commands
 Buzz Commands allows for actions such as reading all voltages (similar to the 'v' command), manipulating the TP0 pin, etc.
